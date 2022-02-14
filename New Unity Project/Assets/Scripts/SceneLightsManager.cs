@@ -31,7 +31,7 @@ public class SceneLightsManager : MonoBehaviour
             Debug.Log("Cannot Darken Scene Futher!");
             return;
         }
-        float color_amt = 200.0f / num_stages;
+        float color_amt = 150.0f / num_stages;
         color_amt *= (num_stages - currStage);
         color_amt /= 255.0f;
         RenderSettings.ambientLight = new Color(color_amt, color_amt, color_amt, color_amt);
