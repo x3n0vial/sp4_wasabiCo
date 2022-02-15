@@ -8,6 +8,8 @@ public class MouseCursor : MonoBehaviour
     public GameObject empty;
     public float size;
     public float timeSpawn = 0.1f;
+    public float distance = 10;
+
     GameObject obj;
     void Start()
     {
@@ -15,8 +17,11 @@ public class MouseCursor : MonoBehaviour
     }
     void Update()
     {
-        Vector3 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = cursorPos;
+        Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Vector3 cursorPos = r.GetPoint(distance);
+       // transform.position = cursorPos;
+        //Vector3 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        //transform.position = cursorPos;
         if (timeSpawn <= 0)
         {
 
