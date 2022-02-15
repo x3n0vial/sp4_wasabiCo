@@ -587,7 +587,7 @@ GameObject:
   - component: {fileID: 1692451420}
   - component: {fileID: 1692451419}
   m_Layer: 5
-  m_Name: gOtO SCENE TEST
+  m_Name: B_StartGame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -666,7 +666,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: SampleScene
+          m_StringArgument: ForestScene
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1692451420
@@ -858,6 +858,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6593246706866634846, guid: 7c4fb79b9fc1dbf4e8f05dd3a27bdc83,
+        type: 3}
+      propertyPath: m_Alpha
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6593246706968441258, guid: 7c4fb79b9fc1dbf4e8f05dd3a27bdc83,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 92.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6593246706968441258, guid: 7c4fb79b9fc1dbf4e8f05dd3a27bdc83,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -165.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6593246707106117698, guid: 7c4fb79b9fc1dbf4e8f05dd3a27bdc83,
         type: 3}
       propertyPath: m_Name
@@ -921,6 +936,11 @@ PrefabInstance:
     - target: {fileID: 6593246707106117699, guid: 7c4fb79b9fc1dbf4e8f05dd3a27bdc83,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6593246708865500960, guid: 7c4fb79b9fc1dbf4e8f05dd3a27bdc83,
+        type: 3}
+      propertyPath: m_ScreenMatchMode
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1095,7 +1115,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: SAmple scene
+  m_Text: 'Start Game
+
+'
 --- !u!222 &2129124053
 CanvasRenderer:
   m_ObjectHideFlags: 0
