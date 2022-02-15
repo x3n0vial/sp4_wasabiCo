@@ -25,6 +25,10 @@ public class LevelLoader : MonoBehaviour
         StartCoroutine(LoadLevel());
     }
 
+    public void LoadScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
     IEnumerator LoadLevel()
     {
         //play anim
