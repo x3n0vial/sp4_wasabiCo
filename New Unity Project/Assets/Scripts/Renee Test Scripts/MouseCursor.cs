@@ -19,6 +19,7 @@ public class MouseCursor : MonoBehaviour
     {
         Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);
         Vector3 cursorPos = r.GetPoint(distance);
+     //   Debug.Log(cursorPos);
        // transform.position = cursorPos;
         //Vector3 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         //transform.position = cursorPos;
