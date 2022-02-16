@@ -40,7 +40,7 @@ public class Flashlight : MonoBehaviour
 	{
 
 
-		if (Input.GetKeyDown(KeyCode.F))
+		if (Input.GetKeyDown(GameSettings.FLASHLIGHT_KEY))
 			Switch();
 
 		//Debug.Log("MOUSE POS" + cam.ScreenToWorldPoint(Input.mousePosition));
