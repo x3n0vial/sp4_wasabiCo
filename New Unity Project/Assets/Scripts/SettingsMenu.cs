@@ -5,16 +5,17 @@ using UnityEngine.UI;
 
 public class SettingsMenu : MonoBehaviour
 {
-    public Button firstTab;
-    // Start is called before the first frame update
-    void Start()
+    public Dropdown flashlightKeyDropDown;
+    public Dropdown interactKeyDropDown;
+    public Dropdown movementKeyDropDown;
+   
+    public void UpdateFlashlightKeybind()
     {
-        //Cursor.visible = true;
+        //GameSettings.FLASHLIGHT_KEY
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateCameraMode(bool enableMouse)
     {
-        
+        GameSettings.CAMERA_MOUSEPAN_ENABLED = enableMouse;
     }
 }
