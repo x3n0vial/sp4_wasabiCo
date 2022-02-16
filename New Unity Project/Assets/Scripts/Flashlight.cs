@@ -44,14 +44,43 @@ public class Flashlight : MonoBehaviour
 			Switch();
 
 		//Debug.Log("MOUSE POS" + cam.ScreenToWorldPoint(Input.mousePosition));
-		Vector3 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-		Vector3 targetDir = mousePos - player.transform.position;
-		targetDir.y = 0;
+		Vector3 mouseScreenPos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 1);
+	
+	//	Vector3 mousePos = cam.ScreenToWorldPoint(mouseScreenPos);
+		Vector3 mousePos = cam.ScreenToViewportPoint(mouseScreenPos);
+		
+		//Vector3 targetDir = new Vector3(mousePos.x - player.transform.position.x, 0, mousePos.z - player.transform.position.z );
+		Vector3 targetDir = new Vector3(mousePos.x - 0.5f, 0, mousePos.y - 0.5f);
 		targetDir.Normalize();
+
+
+		Vector3 cameraFront = player.transform.position - cam.transform.position;
+		cameraFront.y = 0;
+		cameraFront.Normalize();
+
+		if (Input.GetKeyDown(KeyCode.Y))
+		{
+			Debug.Log("======");
+			Debug.Log("CameraFront: " + cameraFront);
+			Debug.Log("Mouse Pos: " + mousePos);
+			Debug.Log("Flashlight Direction: " + targetDir);
+		}
+
+
 		float theta = Mathf.Acos(Vector3.Dot(targetDir, new Vector3(1, 0, 0) / (targetDir.magnitude)));
-		if (targetDir.z < 0)
-			theta *= -1;
-		//transform.rotation.
+		//float theta = Mathf.Acos(Vector3.Dot(targetDir, cameraFront / (targetDir.magnitude)));
+        if (targetDir.z > 0)
+            theta *= -1;
+
+
+
+		float offset = Mathf.Acos(Vector3.Dot(cameraFront, new Vector3(1, 0, 0) / (cameraFront.magnitude)));
+		if (cameraFront.z > 0)
+			offset *= -1;
+
+		offset *= Mathf.Rad2Deg;
+		offset += 90.0f;
+        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, Mathf.Rad2Deg * theta + offset, transform.rotation.eulerAngles.z);
 		if (is_enabled)
         {
 			battery_amt -= battery_use_rate * Time.deltaTime;
