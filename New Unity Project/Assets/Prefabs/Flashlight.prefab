@@ -50,6 +50,7 @@ MonoBehaviour:
   dust_particles: {fileID: 2890675089328177885}
   cam: {fileID: 0}
   player: {fileID: 0}
+  flashlightUI: {fileID: 0}
 --- !u!82 &3953186549438164495
 AudioSource:
   m_ObjectHideFlags: 0
@@ -206,8 +207,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 10869704, guid: 47af58fd905aee649a315f604914d38e, type: 3}
+      propertyPath: m_Range
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 10869704, guid: 47af58fd905aee649a315f604914d38e, type: 3}
       propertyPath: m_SpotAngle
-      value: 40
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 10869704, guid: 47af58fd905aee649a315f604914d38e, type: 3}
       propertyPath: m_InnerSpotAngle

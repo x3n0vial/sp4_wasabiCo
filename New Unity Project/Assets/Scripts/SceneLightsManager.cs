@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SceneLightsManager : MonoBehaviour
 {
-
+    public Light dirLight;
 
     private int num_stages = 4;
     private int currStage = 0;
@@ -35,9 +35,8 @@ public class SceneLightsManager : MonoBehaviour
         color_amt *= (num_stages - currStage);
         color_amt /= 255.0f;
         RenderSettings.ambientLight = new Color(color_amt, color_amt, color_amt, color_amt);
-       // RenderSettings.ambientIntensity -= intensity_amt;
-        Debug.Log("AmbientLight "+ RenderSettings.ambientLight);
-      //  Debug.Log("Intensity"+ RenderSettings.ambientIntensity);
+
+        dirLight.intensity -= 0.4f / num_stages;
         
     }
 }
