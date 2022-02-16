@@ -11,6 +11,8 @@ public class Flashlight : MonoBehaviour
 	[SerializeField()] ParticleSystem dust_particles; // dust particles
 
 
+	public Camera cam;
+	public GameObject player;
 
 	private Light spotlight;
 	private Material ambient_light_material;
@@ -40,7 +42,16 @@ public class Flashlight : MonoBehaviour
 	{
 		if (Input.GetKeyDown(KeyCode.F))
 			Switch();
-		
+
+		//Debug.Log("MOUSE POS" + cam.ScreenToWorldPoint(Input.mousePosition));
+		Vector3 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+		Vector3 targetDir = mousePos - player.transform.position;
+		targetDir.y = 0;
+		targetDir.Normalize();
+		float theta = Mathf.Acos(Vector3.Dot(targetDir, new Vector3(1, 0, 0) / (targetDir.magnitude)));
+		if (targetDir.z < 0)
+			theta *= -1;
+		//transform.rotation.
 		if (is_enabled)
         {
 			battery_amt -= battery_use_rate * Time.deltaTime;
