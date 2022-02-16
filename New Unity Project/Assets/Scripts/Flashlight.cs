@@ -13,13 +13,13 @@ public class Flashlight : MonoBehaviour
 
 	public Camera cam;
 	public GameObject player;
+	public FlashlightUI flashlightUI;
 
 	private Light spotlight;
 	private Material ambient_light_material;
 	private Color ambient_mat_color;
-	private bool is_enabled = false;
 
-
+	private bool is_enabled = true;
 
 	private float battery_amt = 100.0f;
 	private float battery_use_rate = 2.0f;
@@ -34,8 +34,6 @@ public class Flashlight : MonoBehaviour
 		ambient_light_material = Lights.transform.Find("ambient").GetComponent<Renderer>().material;
 		ambient_mat_color = ambient_light_material.GetColor("_TintColor");
 	}
-
-
 
 
 	private void Update()
@@ -58,22 +56,13 @@ public class Flashlight : MonoBehaviour
 		cameraFront.y = 0;
 		cameraFront.Normalize();
 
-		if (Input.GetKeyDown(KeyCode.Y))
-		{
-			Debug.Log("======");
-			Debug.Log("CameraFront: " + cameraFront);
-			Debug.Log("Mouse Pos: " + mousePos);
-			Debug.Log("Flashlight Direction: " + targetDir);
-		}
-
-
+		// Rotate based on Mouse Input
 		float theta = Mathf.Acos(Vector3.Dot(targetDir, new Vector3(1, 0, 0) / (targetDir.magnitude)));
 		//float theta = Mathf.Acos(Vector3.Dot(targetDir, cameraFront / (targetDir.magnitude)));
         if (targetDir.z > 0)
             theta *= -1;
 
-
-
+		// Rotate based on Camera Front View 
 		float offset = Mathf.Acos(Vector3.Dot(cameraFront, new Vector3(1, 0, 0) / (cameraFront.magnitude)));
 		if (cameraFront.z > 0)
 			offset *= -1;
@@ -84,6 +73,7 @@ public class Flashlight : MonoBehaviour
 		if (is_enabled)
         {
 			battery_amt -= battery_use_rate * Time.deltaTime;
+			flashlightUI.UpdateBatteryBar(battery_amt);
 			if (battery_amt < 0)
             {
 				battery_amt = 0;
@@ -93,10 +83,9 @@ public class Flashlight : MonoBehaviour
 
 	}
 
-	/// <summary>
+	
 	/// changes the intensivity of lights from 0 to 100.
 	/// call this from other scripts.
-	/// </summary>
 	public void Change_Intensivity(float percentage)
 	{
 		percentage = Mathf.Clamp(percentage, 0, 100);
@@ -109,11 +98,8 @@ public class Flashlight : MonoBehaviour
 
 
 
-
-	/// <summary>
 	/// switch current state  ON / OFF.
 	/// call this from other scripts.
-	/// </summary>
 	public void Switch()
 	{
 		is_enabled = !is_enabled;
@@ -125,6 +111,8 @@ public class Flashlight : MonoBehaviour
 
 		if (switch_sound != null)
 			switch_sound.Play();
+
+		flashlightUI.UpdateDisplay(is_enabled);
 	}
 
 	public void Switch(bool enable)
@@ -138,15 +126,13 @@ public class Flashlight : MonoBehaviour
 
 		if (switch_sound != null)
 			switch_sound.Play();
+
+		flashlightUI.UpdateDisplay(is_enabled);
 	}
 
 
-
-
-
-	/// <summary>
+	
 	/// enables the particles.
-	/// </summary>
 	public void Enable_Particles(bool value)
 	{
 		if (dust_particles != null)
@@ -164,7 +150,15 @@ public class Flashlight : MonoBehaviour
 		}
 	}
 
+	public bool IsEnabled()
+    {
+		return is_enabled;
+    }
 
+	public float GetBattery()
+    {
+		return battery_amt;
+    }
 
     
 }
