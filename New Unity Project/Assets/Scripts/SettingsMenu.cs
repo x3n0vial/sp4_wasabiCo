@@ -12,6 +12,8 @@ public class SettingsMenu : MonoBehaviour
 
     public Dropdown Dropdown_cameraMode;
 
+    public Slider Slider_mouseSensitivity;
+
     public GameObject GO_mouseSensitivity;
 
     void Start()
@@ -39,6 +41,11 @@ public class SettingsMenu : MonoBehaviour
     public void UpdateMovementKeybind()
     {
 
+    }
+
+    public void UpdateMouseSensitivity()
+    {
+        GameSettings.MOUSE_SENSITIVITY = Slider_mouseSensitivity.value;
     }
 
 

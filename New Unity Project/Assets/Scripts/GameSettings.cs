@@ -14,5 +14,5 @@ public static class GameSettings
 
     public static float MOUSE_SENSITIVITY = 3.0f;
 
-    public static bool CAMERA_MOUSEPAN_ENABLED = false;
+    public static bool CAMERA_MOUSEPAN_ENABLED = true;
 }
