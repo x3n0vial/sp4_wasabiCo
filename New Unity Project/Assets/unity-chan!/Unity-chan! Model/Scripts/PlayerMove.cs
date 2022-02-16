@@ -1,9 +1,4 @@
-﻿//
-// Controller with Rigidbody when Mecanim animation data does not move at origin
-// sample
-// 2014/03/13 N.Kobyasahi
-//
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
 namespace UnityChan
@@ -68,17 +63,16 @@ namespace UnityChan
 		// Below, the main process. Since it is entwined with the rigid body, process it in Fixed Update..
 		void FixedUpdate()
 		{
-			float h = Input.GetAxis("Horizontal");					// Define the horizontal axis of the input device with h
-			float v = Input.GetAxis("Vertical");                    // Define the vertical axis of the input device with v
+			float h = Input.GetAxis("Horizontal");
+			float v = Input.GetAxis("Vertical");  
 
-			//animation
+			// play animation when move
 			bool hasHorizontalInput = !Mathf.Approximately(h, 0f);
 			bool hasVerticalInput = !Mathf.Approximately(v, 0f);
 			bool isRun = hasHorizontalInput || hasVerticalInput;
 			anim.SetBool("IsRun", isRun);
-			//anim.SetFloat("Speed", v);						        // Pass v to the "Speed" parameter set on the Animator side
-			//anim.SetFloat("Direction", h);						    // Pass h to the "Direction" parameter set on the Animator side
-			anim.speed = animSpeed;									// Set animSpeed ​​to the motion playback speed of Animator
+
+			anim.speed = animSpeed;									// Set animation speed
 			currentBaseState = anim.GetCurrentAnimatorStateInfo(0); // Set the reference state variable to the current state of Base Layer (0)
 			rb.useGravity = true; //Gravity is cut during the jump, so be affected by gravity otherwise
 
@@ -166,7 +160,7 @@ namespace UnityChan
                 {
                     resetCollider();
                 }
-                // Enter the space key and it will be in Rest state
+                // rest state every 5 sec
                 if (restTimer >= 5.0f)
                 {
                     restTimer = 0.0f;
@@ -184,18 +178,6 @@ namespace UnityChan
                 }
             }
         }
-
-        //void OnGUI()
-        //{
-        //    GUI.Box(new Rect(Screen.width - 260, 10, 250, 150), "Interaction");
-        //    GUI.Label(new Rect(Screen.width - 245, 30, 250, 30), "Up/Down Arrow : Go Forwald/Go Back");
-        //    GUI.Label(new Rect(Screen.width - 245, 50, 250, 30), "Left/Right Arrow : Turn Left/Turn Right");
-        //    GUI.Label(new Rect(Screen.width - 245, 70, 250, 30), "Hit Space key while Running : Jump");
-        //    GUI.Label(new Rect(Screen.width - 245, 90, 250, 30), "Hit Space key while Stopping : Rest");
-        //    GUI.Label(new Rect(Screen.width - 245, 110, 250, 30), "Left Control : Front Camera");
-        //    GUI.Label(new Rect(Screen.width - 245, 130, 250, 30), "Alt : LookAt Camera");
-        //}
-
 
         // Character collider size reset function
         void resetCollider()
