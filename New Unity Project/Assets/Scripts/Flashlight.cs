@@ -148,5 +148,19 @@ public class Flashlight : MonoBehaviour
 		return battery_amt;
     }
 
+	public bool CheckIfInFlashlight(Collider col)
+    {
+		Vector3 lightDir = Quaternion.Euler(spotlight.transform.rotation.eulerAngles) * Vector3.forward;
+
+		Ray ray = new Ray(spotlight.transform.position, lightDir);
+		RaycastHit hitData;
+		if (Physics.Raycast(ray, out hitData, spotlight.range)) 
+        {
+			return col == hitData.collider;
+        }
+	
+		return false;
+    }
+
     
 }
