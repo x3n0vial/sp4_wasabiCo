@@ -77,7 +77,9 @@ namespace UnityChan
 			rb.useGravity = true; //Gravity is cut during the jump, so be affected by gravity otherwise
 
             velocity.Set(h, 0f, v);
-			velocity.Normalize();
+            velocity = Camera.main.transform.TransformDirection(velocity);
+            velocity.y = 0.0f;
+            velocity.Normalize();
 
 			Vector3 desiredForward = Vector3.RotateTowards(transform.forward, velocity, turnSpeed * Time.deltaTime, 0f);
 			rotation = Quaternion.LookRotation(desiredForward);
