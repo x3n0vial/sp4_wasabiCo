@@ -1191,6 +1191,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3410447435423946946, guid: b41ec98d3cf800348be884248253190b,
         type: 3}
+      propertyPath: lights
+      value: 
+      objectReference: {fileID: 1185718807}
+    - target: {fileID: 3410447435423946946, guid: b41ec98d3cf800348be884248253190b,
+        type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1662560409}

@@ -5,11 +5,12 @@ using UnityEngine.AI;
 
 public class TinyZombie_Controller : MonoBehaviour
 {
-    public float lookRadius = 10f;
-
+    float lookRadius;
     Transform target;
     NavMeshAgent agent;
     Animator anim;
+    int lightsCount = 0;
+    public SceneLightsManager lights;
 
     // Start is called before the first frame update
     void Start()
@@ -17,36 +18,66 @@ public class TinyZombie_Controller : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
         target = PlayerManager.instance.player.transform;
+        agent.speed = 0.1f;
+    }
+
+    void ChangeSpeed()
+    {
+        agent.speed = 0.2f * lightsCount;
+    }
+
+    void ChangeRadius()
+    {
+        lookRadius = 2f * lightsCount;
     }
 
     // Update is called once per frame
     void Update()
     {
-        float distance = Vector3.Distance(target.position, transform.position);
-
-        if (distance <= lookRadius)
+        lightsCount = lights.GetCurrentStage();
+        if (lightsCount > 4)
         {
-            agent.SetDestination(target.position);
-            anim.SetBool("Idle", false);
-            anim.SetBool("Walk", true);
-            anim.SetBool("Attack", false);
-            //anim.SetTrigger("Walk");
-            if (distance <= agent.stoppingDistance)
-            {
-                FaceTarget();
-                anim.SetBool("Attack", true);
-                anim.SetBool("Walk", false);
-                anim.SetBool("Idle", false);
-            }
+            lightsCount = 4;
+        }
+        ChangeSpeed();
+        ChangeRadius();
+        if (lights.GetCurrentStage() == 0)
+        {
+            anim.SetBool("Idle", true);
         }
         else
         {
-            //anim.SetTrigger("Idle");
-            anim.SetBool("Walk", false);
-            anim.SetBool("Idle", true);
-            anim.SetBool("Attack", false);
+            float distance = Vector3.Distance(target.position, transform.position);
+
+            if (distance <= lookRadius)
+            {
+                agent.SetDestination(target.position);
+                anim.SetBool("Idle", false);
+                anim.SetBool("Walk", true);
+                anim.SetBool("Attack", false);
+                //anim.SetTrigger("Walk");
+                if (lights.GetCurrentStage() > 2) //only start to attack player when more active
+                {
+                    if (distance <= agent.stoppingDistance)
+                    {
+                        FaceTarget();
+                        anim.SetBool("Attack", true);
+                        anim.SetBool("Walk", false);
+                        anim.SetBool("Idle", false);
+                        //play the jumpscare
+
+                    }
+                }
+            }
+            else
+            {
+                //anim.SetTrigger("Idle");
+                anim.SetBool("Walk", false);
+                anim.SetBool("Idle", true);
+                anim.SetBool("Attack", false);
+                agent.speed = 0;
+            }
         }
-        
     }
 
     void FaceTarget()
