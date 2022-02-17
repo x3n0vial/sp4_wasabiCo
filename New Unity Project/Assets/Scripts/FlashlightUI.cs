@@ -15,6 +15,7 @@ public class FlashlightUI : MonoBehaviour
     void Start()
     {
         displayIcon = GetComponent<CanvasGroup>();
+        displayIcon.alpha = 0.3f;
 
         GameObject batteryGO = transform.Find("BatteryBar").Find("Battery").gameObject;
         batteryBar = batteryGO.GetComponent<Image>();

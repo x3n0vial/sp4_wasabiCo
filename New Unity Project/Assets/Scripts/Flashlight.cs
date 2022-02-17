@@ -39,39 +39,25 @@ public class Flashlight : MonoBehaviour
 	private void Update()
 	{
 
-
+		// Flashlight Input Updates
 		if (Input.GetKeyDown(GameSettings.FLASHLIGHT_KEY))
 			Switch();
 
-		//Debug.Log("MOUSE POS" + cam.ScreenToWorldPoint(Input.mousePosition));
+		// Get Mouse Pos relative to centre of screen
 		Vector3 mouseScreenPos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 1);
-	
-	//	Vector3 mousePos = cam.ScreenToWorldPoint(mouseScreenPos);
 		Vector3 mousePos = cam.ScreenToViewportPoint(mouseScreenPos);
-		
-		//Vector3 targetDir = new Vector3(mousePos.x - player.transform.position.x, 0, mousePos.z - player.transform.position.z );
+		// Transform to x and z
 		Vector3 targetDir = new Vector3(mousePos.x - 0.5f, 0, mousePos.y - 0.5f);
 		targetDir.Normalize();
-
-
-		Vector3 cameraFront = player.transform.position - cam.transform.position;
-		cameraFront.y = 0;
-		cameraFront.Normalize();
-
-		// Rotate based on Mouse Input
+		// Transform based on camera's direction
+		targetDir = Camera.main.transform.TransformDirection(targetDir);
+		// Get angle to rotate
 		float theta = Mathf.Acos(Vector3.Dot(targetDir, new Vector3(1, 0, 0) / (targetDir.magnitude)));
-		//float theta = Mathf.Acos(Vector3.Dot(targetDir, cameraFront / (targetDir.magnitude)));
         if (targetDir.z > 0)
             theta *= -1;
+        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, Mathf.Rad2Deg * theta, transform.rotation.eulerAngles.z);
 
-		// Rotate based on Camera Front View 
-		float offset = Mathf.Acos(Vector3.Dot(cameraFront, new Vector3(1, 0, 0) / (cameraFront.magnitude)));
-		if (cameraFront.z > 0)
-			offset *= -1;
-
-		offset *= Mathf.Rad2Deg;
-		offset += 90.0f;
-        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, Mathf.Rad2Deg * theta + offset, transform.rotation.eulerAngles.z);
+		// Battery Updates
 		if (is_enabled)
         {
 			battery_amt -= battery_use_rate * Time.deltaTime;

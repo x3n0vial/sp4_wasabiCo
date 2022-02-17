@@ -8,8 +8,7 @@ public class SettingsMenu : MonoBehaviour
     public Dropdown DropDown_flashlightKey;
     public Dropdown DropDown_pickupItemKey;
     public Dropdown DropDown_throwItemKey;
-    public Dropdown DropDown_movementKey;
-
+   
     public Dropdown Dropdown_cameraMode;
 
     public Slider Slider_mouseSensitivity;
@@ -38,10 +37,7 @@ public class SettingsMenu : MonoBehaviour
     {
 
     }
-    public void UpdateMovementKeybind()
-    {
-
-    }
+    
 
     public void UpdateMouseSensitivity()
     {
