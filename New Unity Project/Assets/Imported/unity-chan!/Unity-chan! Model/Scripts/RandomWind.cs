@@ -37,7 +37,7 @@ namespace UnityChan
 
 		void OnGUI ()
 		{
-			Rect rect1 = new Rect (600, 10, 400, 30);
+			Rect rect1 = new Rect (Screen.width - 100, 10, 400, 30);
 			isWindActive = GUI.Toggle (rect1, isWindActive, "Random Wind");
 		}
 
