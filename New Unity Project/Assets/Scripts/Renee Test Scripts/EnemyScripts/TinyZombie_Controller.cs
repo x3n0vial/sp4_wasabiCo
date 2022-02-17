@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using System.Linq;
 
 public class TinyZombie_Controller : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class TinyZombie_Controller : MonoBehaviour
     Animator anim;
     int lightsCount = 0;
     public SceneLightsManager lights;
+    Renderer renderer;
+    Material[] mats;
 
     // Start is called before the first frame update
     void Start()
@@ -19,16 +22,46 @@ public class TinyZombie_Controller : MonoBehaviour
         anim = GetComponent<Animator>();
         target = PlayerManager.instance.player.transform;
         agent.speed = 0.1f;
+        renderer = GetComponentInChildren<Renderer>();
+        mats = renderer.materials;
     }
 
-    void ChangeSpeed()
+    void ChangeSpeed() //speed of the enemy
     {
         agent.speed = 0.2f * lightsCount;
     }
 
-    void ChangeRadius()
+    void ChangeRadius() //radius of the radius the enemy is aware of
     {
         lookRadius = 2f * lightsCount;
+    }
+    void FaceTarget() //changes direction to face the player 
+    {
+        Vector3 direction = (target.position - transform.position).normalized;
+        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
+    }
+    void RenderMaterials()
+    {
+        Color color;
+        if (lightsCount == 0)
+        {
+            color = new Color32(64, 64, 64, 255);
+        }
+        else
+        {
+            color = new Color32(255, 255, 255, 255);
+        }
+        for (int i = 0; i < mats.Length; i++)
+        {
+            mats[i].SetColor("_Color", color);
+        }
+    }
+
+    private void OnDrawGizmosSelected() //draws the sphere of the radius of where the enemy can see
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, lookRadius);
     }
 
     // Update is called once per frame
@@ -38,34 +71,45 @@ public class TinyZombie_Controller : MonoBehaviour
         if (lightsCount > 4)
         {
             lightsCount = 4;
-        }
+        } 
         ChangeSpeed();
         ChangeRadius();
+        RenderMaterials();
         if (lights.GetCurrentStage() == 0)
         {
-            anim.SetBool("Idle", true);
+            anim.SetBool("Idle", false);
+            
         }
         else
         {
+            //renderer.material.color = Color.white;
             float distance = Vector3.Distance(target.position, transform.position);
 
             if (distance <= lookRadius)
             {
-                agent.SetDestination(target.position);
-                anim.SetBool("Idle", false);
-                anim.SetBool("Walk", true);
-                anim.SetBool("Attack", false);
-                //anim.SetTrigger("Walk");
-                if (lights.GetCurrentStage() > 2) //only start to attack player when more active
+                RaycastHit hit;
+                if (Physics.Linecast(transform.position, target.position, out hit, -1)) //if behind wall, lose player
                 {
-                    if (distance <= agent.stoppingDistance)
+                    if (hit.transform.CompareTag("Player"))
                     {
-                        FaceTarget();
-                        anim.SetBool("Attack", true);
-                        anim.SetBool("Walk", false);
+                        agent.SetDestination(target.position);
                         anim.SetBool("Idle", false);
-                        //play the jumpscare
+                        anim.SetBool("Walk", true);
+                        anim.SetBool("Attack", false);
+                        //anim.SetTrigger("Walk");
+                        if (lights.GetCurrentStage() > 2) //only start to attack player when more active
+                        {
+                            if (distance <= agent.stoppingDistance)
+                            {
+                                FaceTarget();
+                                anim.SetBool("Attack", true);
+                                anim.SetBool("Walk", false);
+                                anim.SetBool("Idle", false);
+                                agent.speed = 0;
+                                //play the jumpscare
 
+                            }
+                        }
                     }
                 }
             }
@@ -80,16 +124,4 @@ public class TinyZombie_Controller : MonoBehaviour
         }
     }
 
-    void FaceTarget()
-    {
-        Vector3 direction = (target.position - transform.position).normalized;
-        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, lookRadius);
-    }
 }
