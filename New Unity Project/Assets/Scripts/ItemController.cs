@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,6 +14,7 @@ public class  ItemController : MonoBehaviour
     // Reference to the slot for holding picked item.
     [SerializeField]
     public Transform slot;
+
     public Text PickupNotice;
 
     // Reference to the currently held item.
@@ -54,20 +56,30 @@ public class  ItemController : MonoBehaviour
             }
         }
 
-        var ray2 = characterCamera.ViewportPointToRay(Vector3.one * 0.5f);
-        RaycastHit hit2;
-        // Shot ray to find object to pick
-        if (Physics.Raycast(ray2, out hit2, 1.5f))
-        {
-            // Check if object is pickable
-            var pickable = hit2.transform.GetComponent<Item>();
 
-            // If object has PickableItem class
-            if (pickable)
-            {
-                PickupNotice.gameObject.SetActive(true);
-            }
+        //var ray2 = characterCamera.ViewportPointToRay(Vector3.one * 0.5f);
+        //RaycastHit hit2;
+        //// Shot ray to find object to pick
+        //if (Physics.Raycast(ray2, out hit2, 1.5f))
+        //{
+        //    // Check if object is pickable
+        //    var pickable = hit2.transform.GetComponent<Item>();
+
+        //    // If object has PickableItem class
+        //    if (pickable)
+        //    {
+        //        PickupNotice.gameObject.SetActive(true);
+        //    }
+        //}
+    }
+
+    private void OnTriggerEneter(Collider other)
+    {
+       if(other.gameObject.tag=="item")
+        {
+            PickupNotice.gameObject.SetActive(true);
         }
+
     }
 
 
