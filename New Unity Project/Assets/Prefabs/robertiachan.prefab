@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3302410791118539343
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6163718662796541442}
+  m_Layer: 0
+  m_Name: Item Slot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6163718662796541442
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3302410791118539343}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 9019428394993156653}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3975111224238463755
 GameObject:
   m_ObjectHideFlags: 0
@@ -403,6 +433,7 @@ GameObject:
   - component: {fileID: 9019428394982992721}
   - component: {fileID: 9019428394982992723}
   - component: {fileID: 937464919153673512}
+  - component: {fileID: 1402989083007246383}
   m_Layer: 0
   m_Name: robertiachan
   m_TagString: Untagged
@@ -429,6 +460,7 @@ Transform:
   - {fileID: 9019428394993157107}
   - {fileID: 2223391710765982029}
   - {fileID: 1854319911106753492}
+  - {fileID: 6163718662796541442}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -638,6 +670,21 @@ MonoBehaviour:
   useCurvesHeight: 0.5
   speed: 3
   jumpPower: 2
+--- !u!114 &1402989083007246383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9019428394993196557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e68e5b9a69884cd43a60e36e8f3ea44c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterCamera: {fileID: 0}
+  slot: {fileID: 6163718662796541442}
+  PickupNotice: {fileID: 0}
 --- !u!1 &9019428394993196559
 GameObject:
   m_ObjectHideFlags: 0
