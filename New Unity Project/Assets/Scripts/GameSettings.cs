@@ -12,7 +12,7 @@ public static class GameSettings
     public static KeyCode MOVE_LEFT_KEY = KeyCode.A;
     public static KeyCode MOVE_RIGHT_KEY = KeyCode.D;
 
-    public static float MOUSE_SENSITIVITY = 3.0f;
+    public static float MOUSE_SENSITIVITY = 5.0f;
 
     public static bool CAMERA_MOUSEPAN_ENABLED = true;
 }
