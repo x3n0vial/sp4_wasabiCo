@@ -22,6 +22,12 @@ public class SceneLightsManager : MonoBehaviour
         
     }
 
+
+    public int GetCurrentStage()
+    {
+        return currStage;
+    }
+
     public void DarkenSceneLight()
     {
         currStage++;
