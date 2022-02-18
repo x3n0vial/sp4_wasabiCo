@@ -87,7 +87,7 @@ namespace UnityChan
             rb.MovePosition(rb.position + velocity * Time.deltaTime * speed);
             rb.MoveRotation(rotation);
 
-            if (Input.GetButtonDown("Jump"))
+            if (Input.GetKeyDown(KeyCode.Space))
             {   //You can jump if you are not in a state transition
                 if (currentBaseState.nameHash == idleState || currentBaseState.nameHash == runState || currentBaseState.nameHash == restState)
                 {
@@ -96,7 +96,9 @@ namespace UnityChan
                         rb.AddForce(Vector3.up * jumpPower, ForceMode.VelocityChange);
                         anim.SetBool("IsJump", true);     // Send animator a flag to switch to jump
                     }
+                   
                 }
+               
             }
 
             //// Below, the processing in each state of Animator

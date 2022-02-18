@@ -34,7 +34,10 @@ public class FlashlightUI : MonoBehaviour
         else if (perc > 0.2f)
             batteryBar.color = Color.yellow;
         else
+        {
             batteryBar.color = Color.red;
+            displayIcon.alpha = 0.3f;
+        }
 
         Vector3 currScale = batteryBar.transform.localScale;
         batteryBar.transform.localScale = new Vector3(currScale.x, (perc * default_batt_scale_y), currScale.z);
