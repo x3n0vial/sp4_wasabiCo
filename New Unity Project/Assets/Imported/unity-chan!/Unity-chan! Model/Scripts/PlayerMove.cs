@@ -12,15 +12,17 @@ namespace UnityChan
 	{
 		public float turnSpeed = 20f;
 
-		public float animSpeed = 1.5f;              // Animation playback speed setting
-		public float lookSmoother = 3.0f;           // a smoothing setting for camera motion
+        public float animSpeed = 1.2f;              // Animation playback speed setting
+        public float animSprintSpeed = 1.5f;
 		public bool useCurves = true;               // Use or set curve adjustment in Mecanim
 													// If this switch is not turned on, the curve will not be used
 		public float useCurvesHeight = 0.5f;        // Effective height of curve correction (increase when it is easy to slip through the ground)
 
-		// The following parameters for the character controller
-		// speed
-		public float speed = 2.0f;
+        // The following parameters for the character controller
+        // speed
+        public float baseSpeed = 2.0f;
+        public float sprintSpeed = 4.0f;
+        public float speed = 2.0f;
 		// Jump power
 		public float jumpPower = 3.0f;
 		//Reference of character controller (capsule collider)
@@ -83,6 +85,17 @@ namespace UnityChan
 
 			Vector3 desiredForward = Vector3.RotateTowards(transform.forward, velocity, turnSpeed * Time.deltaTime, 0f);
 			rotation = Quaternion.LookRotation(desiredForward);
+
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                speed = sprintSpeed;
+                anim.speed = animSprintSpeed;
+            }
+            else
+            {
+                speed = baseSpeed;
+                anim.speed = animSpeed;
+            }
 
             rb.MovePosition(rb.position + velocity * Time.deltaTime * speed);
             rb.MoveRotation(rotation);
