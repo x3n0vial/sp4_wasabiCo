@@ -82,7 +82,6 @@ public class TinyZombie_Controller : MonoBehaviour
         }
         else
         {
-            //renderer.material.color = Color.white;
             float distance = Vector3.Distance(target.position, transform.position);
 
             if (distance <= lookRadius)
@@ -96,7 +95,6 @@ public class TinyZombie_Controller : MonoBehaviour
                         anim.SetBool("Idle", false);
                         anim.SetBool("Walk", true);
                         anim.SetBool("Attack", false);
-                        //anim.SetTrigger("Walk");
                         if (lights.GetCurrentStage() > 2) //only start to attack player when more active
                         {
                             if (distance <= agent.stoppingDistance)
