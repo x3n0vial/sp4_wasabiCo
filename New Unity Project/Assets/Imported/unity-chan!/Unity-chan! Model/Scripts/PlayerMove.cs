@@ -96,9 +96,7 @@ namespace UnityChan
                         rb.AddForce(Vector3.up * jumpPower, ForceMode.VelocityChange);
                         anim.SetBool("IsJump", true);     // Send animator a flag to switch to jump
                     }
-                   
                 }
-               
             }
 
             //// Below, the processing in each state of Animator
