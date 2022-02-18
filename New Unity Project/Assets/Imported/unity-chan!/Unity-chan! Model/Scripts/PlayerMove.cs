@@ -89,6 +89,7 @@ namespace UnityChan
 
             if (Input.GetKeyDown(KeyCode.Space))
             {   //You can jump if you are not in a state transition
+                Debug.Log("space pressed");
                 if (currentBaseState.nameHash == idleState || currentBaseState.nameHash == runState || currentBaseState.nameHash == restState)
                 {
                     if (!anim.IsInTransition(0))
@@ -96,6 +97,13 @@ namespace UnityChan
                         rb.AddForce(Vector3.up * jumpPower, ForceMode.VelocityChange);
                         anim.SetBool("IsJump", true);     // Send animator a flag to switch to jump
                     }
+                    else
+                    {
+                        Debug.Log("Anim transition got issue");
+                    }
+                }
+                else {
+                    Debug.Log("current base state got issue");// + currentBaseState.nameHash.ToString());
                 }
             }
 
