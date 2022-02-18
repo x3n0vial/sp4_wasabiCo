@@ -9,7 +9,7 @@ public static class GameSettings
     public static KeyCode THROW_ITEM_KEY = KeyCode.Mouse0;
    
 
-    public static float MOUSE_SENSITIVITY = 9.0f;
+    public static float MOUSE_SENSITIVITY = 5.0f;
 
     public static bool CAMERA_MOUSEPAN_ENABLED = true;
 }

@@ -87,7 +87,7 @@ namespace UnityChan
             rb.MovePosition(rb.position + velocity * Time.deltaTime * speed);
             rb.MoveRotation(rotation);
 
-            if (Input.GetButtonDown("Jump"))
+            if (Input.GetKeyDown(KeyCode.Space))
             {   //You can jump if you are not in a state transition
                 if (currentBaseState.nameHash == idleState || currentBaseState.nameHash == runState || currentBaseState.nameHash == restState)
                 {
