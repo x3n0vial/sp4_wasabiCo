@@ -12,6 +12,5 @@ public static class GameSettings
 
     public static bool CAMERA_MOUSEPAN_ENABLED = false;
 
-
     public static Checkpoint currentCheckpoint = null;
 }
