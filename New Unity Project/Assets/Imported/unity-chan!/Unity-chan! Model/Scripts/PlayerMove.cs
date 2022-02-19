@@ -26,8 +26,7 @@ namespace UnityChan
         public float sprintSpeed = 4.0f;
         public float speed = 2.0f;
         //stamina
-        public float stamina = 10.0f;
-        public float staminarate = 10.0f;
+        public float stamina = 100.0f;
         // Jump power
         public float jumpPower = 3.0f;
 		//Reference of character controller (capsule collider)
@@ -93,7 +92,7 @@ namespace UnityChan
 
             if (Input.GetKey(KeyCode.LeftShift) && (stamina > 0))
             {
-                stamina -= 0.5f;//staminarate * Time.deltaTime;
+                stamina -= 0.5f;
                 speed = sprintSpeed;
                 anim.speed = animSprintSpeed;
                 sprintUI.UpdateStaminaBar(stamina);
@@ -103,7 +102,7 @@ namespace UnityChan
             {
                 if (stamina <= 100)
                 {
-                    stamina += 0.1f;//staminarate * Time.deltaTime;
+                    stamina += 0.1f;
                 }
                 speed = baseSpeed;
                 anim.speed = animSpeed;
