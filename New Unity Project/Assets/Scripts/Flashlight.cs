@@ -22,7 +22,7 @@ public class Flashlight : MonoBehaviour
 	private bool is_enabled = true;
 
 	private float battery_amt = 100.0f;
-	private float battery_use_rate = 2.0f;
+	private float battery_use_rate = 1.5f;
 
 
 
@@ -46,6 +46,7 @@ public class Flashlight : MonoBehaviour
 		// Get Mouse Pos relative to centre of screen
 		Vector3 mouseScreenPos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 1);
 		Vector3 mousePos = cam.ScreenToViewportPoint(mouseScreenPos);
+		
 		// Transform to x and z
 		Vector3 targetDir = new Vector3(mousePos.x - 0.5f, 0, mousePos.y - 0.5f);
 		targetDir.Normalize();
