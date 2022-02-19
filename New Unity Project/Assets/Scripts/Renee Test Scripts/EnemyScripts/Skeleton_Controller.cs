@@ -37,7 +37,7 @@ public class Skeleton_Controller : MonoBehaviour
 
     void ChangeSpeed() //speed of the enemy
     {
-        agent.speed = 0.5f * chaseSpeed * lightsCount;
+        agent.speed = 0.6f * chaseSpeed * lightsCount;
     }
 
     void ChangeRadius() //radius of the radius the enemy is aware of
@@ -74,20 +74,10 @@ public class Skeleton_Controller : MonoBehaviour
 
         if (PlayerWithinViewDistance())
         {
-
             followPlayer();            
         }
         else {
-            if (agent.remainingDistance < agent.stoppingDistance)
-            {
-                rest++;
-                if (rest >= restMax)
-                {
-                    m_CurrentWaypointIndex = (m_CurrentWaypointIndex + 1) % waypoints.Length;
-                    agent.SetDestination(waypoints[m_CurrentWaypointIndex].position);
-                    rest = 0;
-                }
-            }  
+            followWaypoint();
         }
     }
 
@@ -109,7 +99,7 @@ public class Skeleton_Controller : MonoBehaviour
                 agent.SetDestination(target.position);
                 if (PlayerWithinChaseRadius())
                 {
-                    chaseSpeed = 2;
+                    chaseSpeed = 1.5f;
                     if (distance <= agent.stoppingDistance)
                     {
                         FaceTarget();
@@ -122,6 +112,23 @@ public class Skeleton_Controller : MonoBehaviour
                 {
                     chaseSpeed = 1;
                 }
+            }
+            else
+            {
+                followWaypoint();
+            }
+        }
+    }
+    void followWaypoint()
+    {
+        if (agent.remainingDistance < agent.stoppingDistance)
+        {
+            rest++;
+            if (rest >= restMax)
+            {
+                m_CurrentWaypointIndex = (m_CurrentWaypointIndex + 1) % waypoints.Length;
+                agent.SetDestination(waypoints[m_CurrentWaypointIndex].position);
+                rest = 0;
             }
         }
     }

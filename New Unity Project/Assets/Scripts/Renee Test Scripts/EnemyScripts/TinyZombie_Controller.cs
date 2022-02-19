@@ -28,7 +28,7 @@ public class TinyZombie_Controller : MonoBehaviour
 
     void ChangeSpeed() //speed of the enemy
     {
-        agent.speed = 0.4f * lightsCount;
+        agent.speed = 0.6f * lightsCount;
     }
 
     void ChangeRadius() //radius of the radius the enemy is aware of
