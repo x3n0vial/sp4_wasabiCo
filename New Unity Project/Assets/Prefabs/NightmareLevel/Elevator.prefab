@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8945895174396174880}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 8945895174542802305}
   - component: {fileID: 8945895174542802304}
   - component: {fileID: 8945895174542802311}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Floor (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8945895174952048960}
   - component: {fileID: 3729264787004490658}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Elevator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,6 +179,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55ad9f7ca36f993468820dd4cc041d8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enterDoorL: {fileID: 0}
+  enterDoorR: {fileID: 0}
+  exitDoorL: {fileID: 0}
+  exitDoorR: {fileID: 0}
 --- !u!1 &8945895175084795747
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,7 +195,7 @@ GameObject:
   - component: {fileID: 8945895175084795759}
   - component: {fileID: 8945895175084795758}
   - component: {fileID: 8945895175084795757}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -286,7 +290,7 @@ GameObject:
   - component: {fileID: 8945895175217028808}
   - component: {fileID: 8945895175217028815}
   - component: {fileID: 8945895175217028814}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: BackDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -381,7 +385,7 @@ GameObject:
   - component: {fileID: 8945895175724956698}
   - component: {fileID: 8945895175724956697}
   - component: {fileID: 8945895175724956696}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Wall (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -476,7 +480,7 @@ GameObject:
   - component: {fileID: 8945895175940427039}
   - component: {fileID: 8945895175940427038}
   - component: {fileID: 8945895175940427037}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: BackDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -571,7 +575,7 @@ GameObject:
   - component: {fileID: 8945895175958442155}
   - component: {fileID: 8945895175958442154}
   - component: {fileID: 8945895175958442153}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -666,7 +670,7 @@ GameObject:
   - component: {fileID: 8945895176309805181}
   - component: {fileID: 8945895176309805180}
   - component: {fileID: 8945895176309805171}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: FrontDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -761,7 +765,7 @@ GameObject:
   - component: {fileID: 8945895176373975790}
   - component: {fileID: 8945895176373975789}
   - component: {fileID: 8945895176373975788}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Ceiling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -856,7 +860,7 @@ GameObject:
   - component: {fileID: 8945895176390206683}
   - component: {fileID: 8945895176390206682}
   - component: {fileID: 8945895176390206681}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: FrontDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -948,7 +952,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8945895176415410179}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Lights
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1013,10 +1017,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: NeonLamp
       objectReference: {fileID: 0}
+    - target: {fileID: 572322029781979985, guid: a78a5d88639e1ed43b55bfbcf6a1a2ec,
+        type: 3}
+      propertyPath: m_Layer
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 573033842346489209, guid: a78a5d88639e1ed43b55bfbcf6a1a2ec,
         type: 3}
       propertyPath: m_Name
       value: Point light
+      objectReference: {fileID: 0}
+    - target: {fileID: 573033842346489209, guid: a78a5d88639e1ed43b55bfbcf6a1a2ec,
+        type: 3}
+      propertyPath: m_Layer
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 574962957136227575, guid: a78a5d88639e1ed43b55bfbcf6a1a2ec,
         type: 3}
@@ -1138,10 +1152,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: NeonLamp
       objectReference: {fileID: 0}
+    - target: {fileID: 572322029781979985, guid: a78a5d88639e1ed43b55bfbcf6a1a2ec,
+        type: 3}
+      propertyPath: m_Layer
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 573033842346489209, guid: a78a5d88639e1ed43b55bfbcf6a1a2ec,
         type: 3}
       propertyPath: m_Name
       value: Point light
+      objectReference: {fileID: 0}
+    - target: {fileID: 573033842346489209, guid: a78a5d88639e1ed43b55bfbcf6a1a2ec,
+        type: 3}
+      propertyPath: m_Layer
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 574962957136227575, guid: a78a5d88639e1ed43b55bfbcf6a1a2ec,
         type: 3}

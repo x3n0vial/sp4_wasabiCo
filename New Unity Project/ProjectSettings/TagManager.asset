@@ -38,7 +38,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - SolidObject
   - Player
   m_SortingLayers:
   - name: Default
