@@ -9,9 +9,9 @@ public class Button : MonoBehaviour
 
 
     //FOR TESTING
-    public void StartElevator()
+    public void StartElevator(float TargetPosY)
     {
-        elevator.StartElevator();
+        elevator.StartElevator(TargetPosY);
     }
 
     private void OnTriggerEnter(Collider other)
