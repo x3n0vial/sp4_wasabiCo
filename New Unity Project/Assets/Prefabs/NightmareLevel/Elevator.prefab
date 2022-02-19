@@ -140,6 +140,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8945895174952048960}
   - component: {fileID: 3729264787004490658}
+  - component: {fileID: 5271071699422030768}
   m_Layer: 30
   m_Name: Elevator
   m_TagString: Untagged
@@ -179,10 +180,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55ad9f7ca36f993468820dd4cc041d8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enterDoorL: {fileID: 0}
-  enterDoorR: {fileID: 0}
+  enterDoorL: {fileID: 8945895176309805169}
+  enterDoorR: {fileID: 8945895176390206687}
   exitDoorL: {fileID: 0}
   exitDoorR: {fileID: 0}
+--- !u!65 &5271071699422030768
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8945895174952048967}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 8.24361, y: 0.7269535, z: 8.194349}
+  m_Center: {x: 0.32980156, y: -4.692383, z: 4.560504}
 --- !u!1 &8945895175084795747
 GameObject:
   m_ObjectHideFlags: 0
@@ -685,7 +699,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8945895176309805169}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -4.57, y: 0.24, z: 7.51}
+  m_LocalPosition: {x: -4.57, y: -0.01, z: 7.51}
   m_LocalScale: {x: 10, y: 0.1, z: 5}
   m_Children: []
   m_Father: {fileID: 8945895174952048960}
