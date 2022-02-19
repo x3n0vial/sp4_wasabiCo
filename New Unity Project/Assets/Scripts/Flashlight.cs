@@ -149,6 +149,11 @@ public class Flashlight : MonoBehaviour
 		return battery_amt;
     }
 
+	public void RefillBattery()
+    {
+		battery_amt = 100.0f;
+    }
+
 	public bool CheckIfInFlashlight(Collider col)
     {
 		Vector3 lightDir = Quaternion.Euler(spotlight.transform.rotation.eulerAngles) * Vector3.forward;
