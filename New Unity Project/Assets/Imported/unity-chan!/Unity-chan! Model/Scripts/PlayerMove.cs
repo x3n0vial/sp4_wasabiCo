@@ -9,8 +9,10 @@ namespace UnityChan
 	[RequireComponent(typeof(Rigidbody))]
 
 	public class PlayerMove : MonoBehaviour
-	{
-		public float turnSpeed = 20f;
+    {
+        public SprintUI sprintUI;
+
+        public float turnSpeed = 20f;
 
         public float animSpeed = 1.2f;              // Animation playback speed setting
         public float animSprintSpeed = 1.5f;
@@ -23,8 +25,10 @@ namespace UnityChan
         public float baseSpeed = 2.0f;
         public float sprintSpeed = 4.0f;
         public float speed = 2.0f;
-		// Jump power
-		public float jumpPower = 3.0f;
+        //stamina
+        public float stamina = 100.0f;
+        // Jump power
+        public float jumpPower = 3.0f;
 		//Reference of character controller (capsule collider)
 		private CapsuleCollider col;
 		private Rigidbody rb;
@@ -86,15 +90,23 @@ namespace UnityChan
 			Vector3 desiredForward = Vector3.RotateTowards(transform.forward, velocity, turnSpeed * Time.deltaTime, 0f);
 			rotation = Quaternion.LookRotation(desiredForward);
 
-            if (Input.GetKey(KeyCode.LeftShift))
+            if (Input.GetKey(KeyCode.LeftShift) && (stamina > 0))
             {
+                stamina -= 0.5f;
                 speed = sprintSpeed;
                 anim.speed = animSprintSpeed;
+                sprintUI.UpdateStaminaBar(stamina);
+                Debug.Log(stamina);
             }
             else
             {
+                if (stamina <= 100)
+                {
+                    stamina += 0.1f;
+                }
                 speed = baseSpeed;
                 anim.speed = animSpeed;
+                sprintUI.UpdateStaminaBar(stamina);
             }
 
             rb.MovePosition(rb.position + velocity * Time.deltaTime * speed);
