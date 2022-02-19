@@ -12,14 +12,14 @@ public class ChargeFlashlight : MonoBehaviour
     float battery = 0.0f; // max is 100.0f
     float charge_rate = 10.0f;
 
-    float full_batt_scale = 6.2f; // taken from unity, scale when bar is filled
+    float full_batt_scale = 10.7f; // taken from unity, scale when bar is filled
     float full_batt_translate = 213.5f;
     Vector3 original_pos;
 
     // Start is called before the first frame update
     void Start()
     {
-        progressBar = transform.Find("ProgressBar").GetComponent<Image>();
+        progressBar = transform.Find("Panel").Find("ProgressBar").GetComponent<Image>();
         original_pos = progressBar.transform.position;
     }
 

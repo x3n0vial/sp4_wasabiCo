@@ -6,14 +6,16 @@ public class SceneLightsManager : MonoBehaviour
 {
     public Light dirLight;
 
-    private int num_stages = 4;
+    private int num_stages = 3;
     private int currStage = 0;
+
+    private float dir_light_intensity;
    
    
     // Start is called before the first frame update
     void Start()
     {
-      
+        dir_light_intensity = dirLight.intensity;
     }
 
     // Update is called once per frame
@@ -42,7 +44,15 @@ public class SceneLightsManager : MonoBehaviour
         color_amt /= 255.0f;
         RenderSettings.ambientLight = new Color(color_amt, color_amt, color_amt, color_amt);
 
-        dirLight.intensity -= 0.4f / num_stages;
+        dirLight.intensity -= dir_light_intensity / num_stages;
         
+    }
+
+    public void InitToStage(int num_stage)
+    {
+        if (num_stage > num_stages)
+            currStage = num_stages;
+        else
+            currStage = num_stage;
     }
 }
