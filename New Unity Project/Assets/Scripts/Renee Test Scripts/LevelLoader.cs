@@ -9,6 +9,7 @@ public class LevelLoader : MonoBehaviour
     public Animator transition;
     public float transitionTime = 1f;
     public string build;
+    public PauseMenu pausemenu;
     
     void Update()
     {   
