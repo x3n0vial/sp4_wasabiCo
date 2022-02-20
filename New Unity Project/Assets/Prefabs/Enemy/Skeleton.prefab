@@ -1,5 +1,63 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1339215551767505372
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7710472433763128656}
+  - component: {fileID: 2019466924179068194}
+  - component: {fileID: 2915027545445243984}
+  m_Layer: 0
+  m_Name: PointOfView
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7710472433763128656
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339215551767505372}
+  m_LocalRotation: {x: 0.77879083, y: 0, z: 0, w: 0.6272837}
+  m_LocalPosition: {x: -0.0047, y: 0.1307, z: 0.019}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7592779619698670922}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 102.3, y: 0, z: 0}
+--- !u!136 &2019466924179068194
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339215551767505372}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.29
+  m_Height: 0.81
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.27, z: 0}
+--- !u!114 &2915027545445243984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339215551767505372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e272c9a8a21d9b408c8a7c5a50e3a3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7592779619698303264
 GameObject:
   m_ObjectHideFlags: 0
@@ -1273,6 +1331,7 @@ Transform:
   - {fileID: 7592779619698670852}
   - {fileID: 7592779619698670926}
   - {fileID: 7592779619698670920}
+  - {fileID: 7710472433763128656}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -1361,6 +1420,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lights: {fileID: 0}
   waypoints: []
+  enemyPOV: {fileID: 2915027545445243984}
 --- !u!1 &7592779619698303340
 GameObject:
   m_ObjectHideFlags: 0
