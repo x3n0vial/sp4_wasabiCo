@@ -15,6 +15,9 @@ public class Skeleton_Controller : MonoBehaviour
     public SceneLightsManager lights;
     int lightsCount = 0;
 
+    //handler of flashlight
+    Flashlight flashlight;
+
     //Enemy Waypoints
     public Transform[] waypoints;
     int m_CurrentWaypointIndex;
@@ -40,12 +43,17 @@ public class Skeleton_Controller : MonoBehaviour
     //enemy's animator
     Animator anim;
 
+    //enemy's collider
+    Collider collider;
+
     void Start() //initialise the variables
     {
         chaseSpeed = 1;
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
         target = PlayerManager.instance.player.transform;
+        flashlight = PlayerManager.instance.player.GetComponentInChildren<Flashlight>();
+        collider = GetComponent<Collider>();
         agent.speed = 0.1f;
         agent.SetDestination(waypoints[0].position);
     }
@@ -123,26 +131,17 @@ public class Skeleton_Controller : MonoBehaviour
             }
         }
     }
-    void stunned() //stunned by player's flashlight
-    { 
-        
+    bool stunned() //stunned by player's flashlight
+    {
+        return (flashlight.CheckIfInFlashlight(collider));
     }
     void SkeletonAnimation() //Animation controller for the skeleton
     {
-        //if (lightHitsEnemy)
-        //{ //plays stun
-        //anim.ResetTrigger("Attack");
-        //anim.ResetTrigger("Walk");
-        //anim.ResetTrigger("Idle");
-        //anim.ResetTrigger("Run");
-        //anim.SetTrigger("Knockback");
-        //}
         if (distance <= agent.stoppingDistance)
         { //plays attack
             anim.ResetTrigger("Run");
             anim.ResetTrigger("Walk");
             anim.ResetTrigger("Idle");
-            anim.ResetTrigger("Knockback");
             anim.SetTrigger("Attack");
         }
         else if (PlayerWithinChaseRadius() && enemyPOV.GetPlayerInView())
@@ -150,15 +149,13 @@ public class Skeleton_Controller : MonoBehaviour
             anim.ResetTrigger("Attack");
             anim.ResetTrigger("Walk");
             anim.ResetTrigger("Idle");
-            anim.ResetTrigger("Knockback");
             anim.SetTrigger("Run");
         }
-        else if (agent.remainingDistance < agent.stoppingDistance)
+        else if ((agent.remainingDistance < agent.stoppingDistance))
         { //plays idle
             anim.ResetTrigger("Attack");
             anim.ResetTrigger("Walk");
             anim.ResetTrigger("Run");
-            anim.ResetTrigger("Knockback");
             anim.SetTrigger("Idle");
         }
         else
@@ -166,7 +163,6 @@ public class Skeleton_Controller : MonoBehaviour
             anim.ResetTrigger("Attack");
             anim.ResetTrigger("Run");
             anim.ResetTrigger("Idle");
-            anim.ResetTrigger("Knockback");
             anim.SetTrigger("Walk");
         }
     }
@@ -184,17 +180,16 @@ public class Skeleton_Controller : MonoBehaviour
 
         SkeletonAnimation();
 
-        //if (lightHitsEnemy)
-        //{ 
-        //  stunned();
-        //}
-        if (PlayerWithinViewDistance() && enemyPOV.GetPlayerInView()) //turn this into a else if statement
+        if (!stunned())
         {
-            followPlayer();
-        }
-        else
-        {
-            followWaypoint();
+            if (PlayerWithinViewDistance() && enemyPOV.GetPlayerInView()) //turn this into a else if statement
+            {
+                followPlayer();
+            }
+            else
+            {
+                followWaypoint();
+            }
         }
     }
 }

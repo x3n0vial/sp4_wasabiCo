@@ -16,6 +16,9 @@ public class TinyZombie_Controller : MonoBehaviour
     public SceneLightsManager lights;
     int lightsCount = 0;
 
+    //handler of flashlight
+    Flashlight flashlight;
+
     //how far the enemy follows the player
     float lookRadius;
 
@@ -28,6 +31,9 @@ public class TinyZombie_Controller : MonoBehaviour
     //enemy's renderer
     Renderer renderer;
 
+    //enemy's collider
+    Collider collider;
+
     //array of materials for the enemy's materials
     Material[] mats;
 
@@ -36,8 +42,10 @@ public class TinyZombie_Controller : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
         target = PlayerManager.instance.player.transform;
+        flashlight = PlayerManager.instance.player.GetComponentInChildren<Flashlight>();
         agent.speed = 0.1f;
         renderer = GetComponentInChildren<Renderer>();
+        collider = GetComponent<Collider>();
         mats = renderer.materials;
     }
     void ChangeSpeed() //speed of the enemy. Increases based on what stage the level is at
@@ -97,9 +105,9 @@ public class TinyZombie_Controller : MonoBehaviour
             }
         }
     }
-    void stunned() //stunned by player's flashlight
+    bool stunned() //stunned by player's flashlight
     {
-
+        return (flashlight.CheckIfInFlashlight(collider));
     }
     void TinyZombieAnimation() //Animation controller for tinyZombie
     {
@@ -107,21 +115,18 @@ public class TinyZombie_Controller : MonoBehaviour
         {
             anim.ResetTrigger("Walk");
             anim.ResetTrigger("Idle");
-            anim.ResetTrigger("Knockback");
             anim.SetTrigger("Attack");
         }
         else if (PlayerWithinViewDistance())
         {
             anim.ResetTrigger("Attack");
             anim.ResetTrigger("Idle");
-            anim.ResetTrigger("Knockback");
             anim.SetTrigger("Walk");
         }
         else if (lightsCount > 0)
         {
             anim.ResetTrigger("Walk");
             anim.ResetTrigger("Attack");
-            anim.ResetTrigger("Knockback");
             anim.SetTrigger("Idle");
         }
     }
@@ -139,14 +144,16 @@ public class TinyZombie_Controller : MonoBehaviour
         distance = Vector3.Distance(target.position, transform.position);
 
         TinyZombieAnimation();
-
-        //if (lightHitsEnemy)
-        //{
-        //  stunned();
-        //{
-        if (PlayerWithinViewDistance()) //turn this into an else if statement
+        if (!stunned())
         {
-            followPlayer();
+            if (PlayerWithinViewDistance()) //turn this into an else if statement
+            {
+                followPlayer();
+            }
+            else
+            {
+                agent.speed = 0;
+            }
         }
         else
         {
