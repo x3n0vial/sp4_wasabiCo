@@ -5,29 +5,42 @@ using UnityEngine.AI;
 
 public class Skeleton_Controller : MonoBehaviour
 {
-    float lookRadius;
-    float chaseRadius;
-    float chaseSpeed;
-
-    int rest;
-    int restMax = 800;
-
-
+    //player
     Transform target;
-    NavMeshAgent agent;
-    Animator anim;
-    int lightsCount = 0;
-    public SceneLightsManager lights;
 
+    //player distance from enemy
     float distance;
 
+    //handler of lights
+    public SceneLightsManager lights;
+    int lightsCount = 0;
+
+    //Enemy Waypoints
     public Transform[] waypoints;
     int m_CurrentWaypointIndex;
 
+    //What the enemy sees infront of them
     public Enemy_POV enemyPOV;
 
-    // Start is called before the first frame update
-    void Start()
+    //how far the enemy follows the player
+    float lookRadius;
+
+    //when the enemy starts running at the player
+    float chaseRadius;
+    //the speed the enemy follows the player
+    float chaseSpeed;
+
+    //enemy idle time before continuing
+    int rest;
+    int restMax = 800;
+
+    //enemy's agent
+    NavMeshAgent agent;
+
+    //enemy's animator
+    Animator anim;
+
+    void Start() //initialise the variables
     {
         chaseSpeed = 1;
         agent = GetComponent<NavMeshAgent>();
@@ -37,11 +50,10 @@ public class Skeleton_Controller : MonoBehaviour
         agent.SetDestination(waypoints[0].position);
     }
 
-    void ChangeSpeed() //speed of the enemy
+    void ChangeSpeed() //speed of the enemy. Increases based on what stage the level is at and the chase speed
     {
         agent.speed = 0.6f * chaseSpeed * lightsCount;
     }
-
     void ChangeRadius() //radius of the radius the enemy is aware of
     {
         lookRadius = 3f * lightsCount;
@@ -59,39 +71,15 @@ public class Skeleton_Controller : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, lookRadius);
     }
-    void Update()
-    {
-        lightsCount = lights.GetCurrentStage();
-        if (lightsCount > 4)
-        {
-            lightsCount = 4;
-        }
-        ChangeSpeed();
-        ChangeRadius();
-
-
-        distance = Vector3.Distance(target.position, transform.position);
-
-        SkeletonAnimation();
-
-        if (PlayerWithinViewDistance() && enemyPOV.GetPlayerInView())
-        {
-            followPlayer();            
-        }
-        else {
-            followWaypoint();
-        }
-    }
-
-    bool PlayerWithinViewDistance()
+    bool PlayerWithinViewDistance() //if player is within view distance of the enemy, return true
     {
         return (distance <= lookRadius);
     }
-    bool PlayerWithinChaseRadius()
+    bool PlayerWithinChaseRadius() //if player is within the running radius of the enemy, return true
     {
         return (distance <= chaseRadius);
     }
-    void followPlayer()
+    void followPlayer() //follow the player 
     {
         RaycastHit hit;
         if (Physics.Linecast(transform.position, target.position, out hit, -1)) //if behind wall, lose player
@@ -122,7 +110,7 @@ public class Skeleton_Controller : MonoBehaviour
             }
         }
     }
-    void followWaypoint()
+    void followWaypoint() //follow the waypoints
     {
         if (agent.remainingDistance < agent.stoppingDistance)
         {
@@ -135,13 +123,26 @@ public class Skeleton_Controller : MonoBehaviour
             }
         }
     }
-    void SkeletonAnimation()
+    void stunned() //stunned by player's flashlight
+    { 
+        
+    }
+    void SkeletonAnimation() //Animation controller for the skeleton
     {
+        //if (lightHitsEnemy)
+        //{ //plays stun
+        //anim.ResetTrigger("Attack");
+        //anim.ResetTrigger("Walk");
+        //anim.ResetTrigger("Idle");
+        //anim.ResetTrigger("Run");
+        //anim.SetTrigger("Knockback");
+        //}
         if (distance <= agent.stoppingDistance)
         { //plays attack
-            anim.ResetTrigger("Attack");
+            anim.ResetTrigger("Run");
             anim.ResetTrigger("Walk");
             anim.ResetTrigger("Idle");
+            anim.ResetTrigger("Knockback");
             anim.SetTrigger("Attack");
         }
         else if (PlayerWithinChaseRadius() && enemyPOV.GetPlayerInView())
@@ -149,22 +150,51 @@ public class Skeleton_Controller : MonoBehaviour
             anim.ResetTrigger("Attack");
             anim.ResetTrigger("Walk");
             anim.ResetTrigger("Idle");
+            anim.ResetTrigger("Knockback");
             anim.SetTrigger("Run");
         }
         else if (agent.remainingDistance < agent.stoppingDistance)
         { //plays idle
             anim.ResetTrigger("Attack");
             anim.ResetTrigger("Walk");
-            anim.ResetTrigger("Idle");
+            anim.ResetTrigger("Run");
+            anim.ResetTrigger("Knockback");
             anim.SetTrigger("Idle");
         }
         else
         { //plays walk
             anim.ResetTrigger("Attack");
-            anim.ResetTrigger("Walk");
+            anim.ResetTrigger("Run");
             anim.ResetTrigger("Idle");
+            anim.ResetTrigger("Knockback");
             anim.SetTrigger("Walk");
         }
     }
+    void Update()
+    {
+        lightsCount = lights.GetCurrentStage();
+        if (lightsCount > 4)
+        {
+            lightsCount = 4;
+        }
+        ChangeSpeed();
+        ChangeRadius();
 
+        distance = Vector3.Distance(target.position, transform.position);
+
+        SkeletonAnimation();
+
+        //if (lightHitsEnemy)
+        //{ 
+        //  stunned();
+        //}
+        if (PlayerWithinViewDistance() && enemyPOV.GetPlayerInView()) //turn this into a else if statement
+        {
+            followPlayer();
+        }
+        else
+        {
+            followWaypoint();
+        }
+    }
 }
