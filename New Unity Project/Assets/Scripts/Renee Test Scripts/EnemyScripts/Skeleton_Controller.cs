@@ -24,6 +24,8 @@ public class Skeleton_Controller : MonoBehaviour
     public Transform[] waypoints;
     int m_CurrentWaypointIndex;
 
+    public Enemy_POV enemyPOV;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -72,7 +74,7 @@ public class Skeleton_Controller : MonoBehaviour
 
         SkeletonAnimation();
 
-        if (PlayerWithinViewDistance())
+        if (PlayerWithinViewDistance() && enemyPOV.GetPlayerInView())
         {
             followPlayer();            
         }
@@ -115,6 +117,7 @@ public class Skeleton_Controller : MonoBehaviour
             }
             else
             {
+                enemyPOV.SetPlayerInView(false);
                 followWaypoint();
             }
         }
@@ -141,7 +144,7 @@ public class Skeleton_Controller : MonoBehaviour
             anim.ResetTrigger("Idle");
             anim.SetTrigger("Attack");
         }
-        else if (PlayerWithinChaseRadius())
+        else if (PlayerWithinChaseRadius() && enemyPOV.GetPlayerInView())
         { //plays run
             anim.ResetTrigger("Attack");
             anim.ResetTrigger("Walk");

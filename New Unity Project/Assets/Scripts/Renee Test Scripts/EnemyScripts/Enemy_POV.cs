@@ -4,41 +4,37 @@ using UnityEngine;
 
 public class Enemy_POV : MonoBehaviour
 {
-    public Transform player;
+    Transform player;
 
     bool m_IsPlayerInRange;
 
+    private void Start()
+    {
+        player = PlayerManager.instance.player.transform;
+    }
+
     void OnTriggerEnter(Collider other)
     {
-        if (other.transform == player)
+        RaycastHit hit;
+        if (Physics.Linecast(transform.position, player.position, out hit, -1)) //if behind wall, lose player
         {
-            m_IsPlayerInRange = true;
-        }
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        if (other.transform == player)
-        {
-            m_IsPlayerInRange = false;
-        }
-    }
-
-    void Update()
-    {
-        if (m_IsPlayerInRange)
-        {
-            Vector3 direction = player.position - transform.position + Vector3.up;
-            Ray ray = new Ray(transform.position, direction);
-            RaycastHit raycastHit;
-
-            if (Physics.Raycast(ray, out raycastHit))
+            if (hit.transform.CompareTag("Player"))
             {
-                if (raycastHit.collider.transform == player)
+                if (other.transform == player)
                 {
-                    //play jumpscare
+                    m_IsPlayerInRange = true;
                 }
             }
         }
+    }
+
+    public bool GetPlayerInView()
+    {
+        return m_IsPlayerInRange;
+    }
+
+    public void SetPlayerInView(bool playerInView)
+    {
+        m_IsPlayerInRange = playerInView;
     }
 }
