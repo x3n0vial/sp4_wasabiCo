@@ -1,127 +1,63 @@
-using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-/// <summary>
-/// Simple example of Grabbing system.
-/// </summary>
-public class  ItemController : MonoBehaviour
+public class ItemController : MonoBehaviour
 {
-    // Reference to the character camera.
-    [SerializeField]
-    private Camera characterCamera;
+    public GameObject Slot; //reference to your hands/the position where you want your object to go
+    bool canpickup; //a bool to see if you can or cant pick up the item
+    GameObject Pickable; // the gameobject onwhich you collided with
+    bool hasItem; // a bool to see if you have an item in your hand
+                  // Start is called before the first frame update
 
-    // Reference to the slot for holding picked item.
-    [SerializeField]
-    public Transform slot;
-
-    public Text PickupNotice;
-
-    // Reference to the currently held item.
-    private Item pickedItem;
-
-    /// <summary>
-    /// Method called very frame.
-    /// </summary>
-    private void Update()
+    void Start()
     {
-        // Execute logic only on button pressed
-        if (Input.GetButtonDown("Fire1"))
+        canpickup = false;    //setting both to false
+        hasItem = false;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (canpickup == true) // if you enter thecollider of the objecct
         {
-            // Check if player picked some item already
-            if (pickedItem)
-            {
-                // If yes, drop picked item
-                DropItem(pickedItem);
-            }
-            else
-            {
-                // If no, try to pick item in front of the player
-                // Create ray from center of the screen
-                var ray = characterCamera.ViewportPointToRay(Vector3.one * 0.5f);
-                RaycastHit hit;
-                // Shot ray to find object to pick
-                if (Physics.Raycast(ray, out hit, 1.5f))
+            if (Input.GetKeyDown(GameSettings.PICKUP_ITEM_KEY))  // pickup 
+            { 
+                Collider[] collider = Pickable.GetComponents<BoxCollider>();
+                foreach (Collider c in collider)
                 {
-                    // Check if object is pickable
-                    var pickable = hit.transform.GetComponent<Item>();
-
-                    // If object has PickableItem class
-                    if (pickable)
-                    {
-                        // Pick it
-                        PickItem(pickable);
-                    }
+                    c.enabled = false;
                 }
+                Pickable.GetComponent<Rigidbody>().isKinematic = true;   //makes the rigidbody not be acted upon by forces
+                Pickable.transform.position = Slot.transform.position; // sets the position of the object to your hand position
+                Pickable.transform.parent = Slot.transform; //makes the object become a child of the parent so that it moves with the hands
+                hasItem = true;
             }
         }
-
-
-        //var ray2 = characterCamera.ViewportPointToRay(Vector3.one * 0.5f);
-        //RaycastHit hit2;
-        //// Shot ray to find object to pick
-        //if (Physics.Raycast(ray2, out hit2, 1.5f))
-        //{
-        //    // Check if object is pickable
-        //    var pickable = hit2.transform.GetComponent<Item>();
-
-        //    // If object has PickableItem class
-        //    if (pickable)
-        //    {
-        //        PickupNotice.gameObject.SetActive(true);
-        //    }
-        //}
-    }
-
-    private void OnTriggerEneter(Collider other)
-    {
-       if(other.gameObject.tag=="item")
+        if (Input.GetKeyDown(GameSettings.THROW_ITEM_KEY) && hasItem == true) // drop
         {
-            PickupNotice.gameObject.SetActive(true);
+            Collider[] collider = Pickable.GetComponents<BoxCollider>();
+            foreach (Collider c in collider)
+            {
+                c.enabled = true;
+            }
+            Pickable.GetComponent<Collider>().enabled = true;
+            Pickable.GetComponent<Rigidbody>().isKinematic = false; // make the rigidbody work again
+            hasItem = false;
+            Pickable.transform.parent = null; // make the object no be a child of the hands
         }
-
     }
-
-
-    /// <summary>
-    /// Method for picking up item.
-    /// </summary>
-    /// <param name="item">Item.</param>
-    private void PickItem(Item item)
+    private void OnTriggerEnter(Collider other) // to see when the player enters the collider
     {
-        // Assign reference
-        pickedItem = item;
-
-        // Disable rigidbody and reset velocities
-        item.Rb.isKinematic = true;
-        item.Rb.velocity = Vector3.zero;
-        item.Rb.angularVelocity = Vector3.zero;
-
-        // Set Slot as a parent
-        item.transform.SetParent(slot);
-
-        // Reset position and rotation
-        item.transform.localPosition = Vector3.zero;
-        item.transform.localEulerAngles = Vector3.zero;
-
+        if (other.gameObject.tag == "Pickable") //on the object you want to pick up set the tag to be anything, in this case "object"
+        {
+            canpickup = true;  //set the pick up bool to true
+            Pickable = other.gameObject; //set the gameobject you collided with to one you can reference
+        }
     }
-
-    /// <summary>
-    /// Method for dropping item.
-    /// </summary>
-    /// <param name="item">Item.</param>
-    private void DropItem(Item item)
+    private void OnTriggerExit(Collider other)
     {
-        // Remove reference
-        pickedItem = null;
+        canpickup = false; //when you leave the collider set the canpickup bool to false
 
-        // Remove parent
-        item.transform.SetParent(null);
-
-        // Enable rigidbody
-        item.Rb.isKinematic = false;
-
-        // Add force to throw item a little bit
-        item.Rb.AddForce(item.transform.forward * 2, ForceMode.VelocityChange);
     }
 }
