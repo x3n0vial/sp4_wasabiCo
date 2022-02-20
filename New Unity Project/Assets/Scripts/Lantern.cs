@@ -9,6 +9,7 @@ public class Lantern : MonoBehaviour
     public Canvas UICanvas;
     public Flashlight playerFlashlight;
 
+    int LIGHT_LANTERN_POINTS = 10;
 
     Image progressBar;
     Vector3 bar_ori_pos;
@@ -60,10 +61,16 @@ public class Lantern : MonoBehaviour
 
             if (light_progress >= 1.0f)
             {
-                isLit = true;
-                transform.Find("Flame").gameObject.SetActive(true);
-                UICanvas.gameObject.SetActive(false);
+                LightLantern();
             }
         }
+    }
+
+    private void LightLantern()
+    {
+        isLit = true;
+        transform.Find("Flame").gameObject.SetActive(true);
+        UICanvas.gameObject.SetActive(false);
+        GameSettings.PLAYER_POINTS += LIGHT_LANTERN_POINTS;
     }
 }
