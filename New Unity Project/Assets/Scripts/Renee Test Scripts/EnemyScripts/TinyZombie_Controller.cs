@@ -99,7 +99,7 @@ public class TinyZombie_Controller : MonoBehaviour
                 {
                     FaceTarget();
                     agent.speed = 0;
-                    //play the jumpscare
+                    //insert jumpscare kill player yes
 
                 }
             }
@@ -111,7 +111,7 @@ public class TinyZombie_Controller : MonoBehaviour
     }
     void TinyZombieAnimation() //Animation controller for tinyZombie
     {
-        if (distance <= agent.stoppingDistance)
+        if (distance <= agent.stoppingDistance || stunned())
         {
             anim.ResetTrigger("Walk");
             anim.ResetTrigger("Idle");

@@ -102,7 +102,7 @@ public class Skeleton_Controller : MonoBehaviour
                     {
                         FaceTarget();
                         agent.speed = 0;
-                        //play the jumpscare
+                        //insert jumpscare kill player yes
 
                     }
                 }
@@ -137,7 +137,7 @@ public class Skeleton_Controller : MonoBehaviour
     }
     void SkeletonAnimation() //Animation controller for the skeleton
     {
-        if (distance <= agent.stoppingDistance)
+        if (distance <= agent.stoppingDistance || stunned())
         { //plays attack
             anim.ResetTrigger("Run");
             anim.ResetTrigger("Walk");
@@ -177,7 +177,7 @@ public class Skeleton_Controller : MonoBehaviour
         ChangeRadius();
 
         distance = Vector3.Distance(target.position, transform.position);
-
+        Debug.Log("test"+stunned());
         SkeletonAnimation();
 
         if (!stunned())
@@ -190,6 +190,10 @@ public class Skeleton_Controller : MonoBehaviour
             {
                 followWaypoint();
             }
+        }
+        else
+        {
+            agent.speed = 0;
         }
     }
 }
