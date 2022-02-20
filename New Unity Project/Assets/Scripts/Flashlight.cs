@@ -164,6 +164,8 @@ public class Flashlight : MonoBehaviour
 
 	public bool CheckIfInFlashlight(Collider col)
     {
+		if (!is_enabled)
+			return false;
 
 		foreach (Collider go_col in withinLightList)
         {
