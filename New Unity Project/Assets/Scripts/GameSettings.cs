@@ -10,7 +10,7 @@ public static class GameSettings
 
     public static float MOUSE_SENSITIVITY = 5.0f;
 
-    public static bool CAMERA_MOUSEPAN_ENABLED = true;
+    public static bool CAMERA_MOUSEPAN_ENABLED = false;
 
     public static Checkpoint currentCheckpoint = null;
 }
