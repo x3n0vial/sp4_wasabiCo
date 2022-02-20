@@ -15,7 +15,7 @@ public class ZombieJumpscare : MonoBehaviour
 
     //timer to jumpscare
     int jumpscareTimer = 0;
-    int maxJumpscareTimer = 200;
+    int maxJumpscareTimer = 50;
 
     //timer back to idle
     int idle = 0;
@@ -23,7 +23,7 @@ public class ZombieJumpscare : MonoBehaviour
 
     //timer to jumpscare die, player dies if they step on zombie again
     int jumpscareDieTimer = 0;
-    int maxJumpscareDieTimer = 200;
+    int maxJumpscareDieTimer = 50;
 
     int steppedOn = 0;
 
