@@ -2258,7 +2258,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1046722609}
-  m_LocalRotation: {x: 0.21359564, y: 0.008524722, z: -0.0018639313, w: 0.97688323}
+  m_LocalRotation: {x: 0.21359564, y: 0.008524749, z: -0.0018639368, w: 0.97688323}
   m_LocalPosition: {x: 38.338253, y: 4.5595703, z: 39.044743}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -2960,7 +2960,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1483412315}
-  m_LocalRotation: {x: 0.20231146, y: 0.008545658, z: -0.0017654605, w: 0.9792824}
+  m_LocalRotation: {x: 0.20231146, y: 0.008545692, z: -0.0017654675, w: 0.9792824}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3067,6 +3067,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1593510565}
     - target: {fileID: 792879313276475379, guid: 7ac39c56183bc304c961a07f18c61da2,
+        type: 3}
+      propertyPath: flashlightUI
+      value: 
+      objectReference: {fileID: 26248148}
+    - target: {fileID: 923762610326035079, guid: 7ac39c56183bc304c961a07f18c61da2,
+        type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 1046722611}
+    - target: {fileID: 923762610326035079, guid: 7ac39c56183bc304c961a07f18c61da2,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1593510565}
+    - target: {fileID: 923762610326035079, guid: 7ac39c56183bc304c961a07f18c61da2,
         type: 3}
       propertyPath: flashlightUI
       value: 

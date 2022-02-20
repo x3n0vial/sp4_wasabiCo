@@ -54,11 +54,14 @@ public class Flashlight : MonoBehaviour
 			// Transform based on camera's direction
 			targetDir = Camera.main.transform.TransformDirection(targetDir);
 			// Get angle to rotate
-			float theta = Mathf.Acos(Vector3.Dot(targetDir, new Vector3(1, 0, 0) / (targetDir.magnitude)));
-			if (targetDir.z > 0)
+			//float theta = Mathf.Acos(Vector3.Dot(targetDir, new Vector3(1, 0, 0) / (targetDir.magnitude)));
+			//if (targetDir.z > 0)
+			//	theta *= -1;
+			float theta = Mathf.Acos(Vector3.Dot(targetDir, new Vector3(0, 0, -1) / (targetDir.magnitude)));
+			if (targetDir.x > 0)
 				theta *= -1;
 			transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, Mathf.Rad2Deg * theta, transform.rotation.eulerAngles.z);
-
+			
 			// Battery Updates
 			if (is_enabled)
 			{
