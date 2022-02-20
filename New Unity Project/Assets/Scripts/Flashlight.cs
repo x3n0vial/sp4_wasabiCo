@@ -14,6 +14,7 @@ public class Flashlight : MonoBehaviour
 	public Camera cam;
 	public GameObject player;
 	public FlashlightUI flashlightUI;
+	public LayerMask blockLightLayers;
 
 	private Light spotlight;
 	private Material ambient_light_material;
@@ -23,6 +24,8 @@ public class Flashlight : MonoBehaviour
 
 	private float battery_amt = 100.0f;
 	private float battery_use_rate = 1.5f;
+
+	private List<Collider> withinLightList = new List<Collider>();
 
 
 
@@ -161,17 +164,31 @@ public class Flashlight : MonoBehaviour
 
 	public bool CheckIfInFlashlight(Collider col)
     {
-		Vector3 lightDir = Quaternion.Euler(spotlight.transform.rotation.eulerAngles) * Vector3.forward;
 
-		Ray ray = new Ray(spotlight.transform.position, lightDir);
-		RaycastHit hitData;
-		if (Physics.Raycast(ray, out hitData, spotlight.range)) 
+		foreach (Collider go_col in withinLightList)
         {
-			return col == hitData.collider;
+			if (go_col == col)
+            {
+				RaycastHit hitData;
+				bool blocked = Physics.Linecast(transform.position, col.gameObject.transform.position, out hitData, blockLightLayers);
+				if (!blocked 
+					|| (blocked && hitData.collider == col))
+                {
+					return true;
+                }
+            }
         }
 	
 		return false;
     }
 
-    
+    private void OnTriggerEnter(Collider other)
+    {
+		withinLightList.Add(other);
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+		withinLightList.Remove(other);
+    }
 }

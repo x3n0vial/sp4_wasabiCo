@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7039644663668235539}
   - component: {fileID: 555023728633604264}
+  - component: {fileID: 5612698330181332814}
+  - component: {fileID: 7793194713137832241}
   m_Layer: 0
   m_Name: Flashlight
   m_TagString: Untagged
@@ -50,6 +52,37 @@ MonoBehaviour:
   cam: {fileID: 0}
   player: {fileID: 0}
   flashlightUI: {fileID: 0}
+  blockLightLayers:
+    serializedVersion: 2
+    m_Bits: 1073741824
+--- !u!136 &5612698330181332814
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3269898785209546387}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 3.8041577
+  m_Height: 19.736212
+  m_Direction: 2
+  m_Center: {x: 1.1751574, y: 0.03726973, z: -15.107723}
+--- !u!136 &7793194713137832241
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3269898785209546387}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 7.9059124
+  m_Height: 20.624397
+  m_Direction: 2
+  m_Center: {x: 1.175157, y: 0.9621714, z: -21.052166}
 --- !u!1001 &7830450443580108716
 PrefabInstance:
   m_ObjectHideFlags: 0

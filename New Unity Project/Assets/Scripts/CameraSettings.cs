@@ -31,6 +31,11 @@ public class CameraSettings : MonoBehaviour
     void Update()
     {
 
+
+        // FOR TESTING
+        if (Input.GetKeyDown(KeyCode.M))
+            GameSettings.CAMERA_MOUSEPAN_ENABLED = !GameSettings.CAMERA_MOUSEPAN_ENABLED;
+
         freelookCam.m_XAxis.m_MaxSpeed = GameSettings.MOUSE_SENSITIVITY;
         freelookCam.m_YAxis.m_MaxSpeed = 0.02f + GameSettings.MOUSE_SENSITIVITY * 0.01f;
 
