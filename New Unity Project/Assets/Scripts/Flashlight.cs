@@ -23,7 +23,7 @@ public class Flashlight : MonoBehaviour
 	private bool is_enabled = true;
 
 	private float battery_amt = 100.0f;
-	private float battery_use_rate = 1.5f;
+	private float battery_use_rate = 0.5f;
 
 	private List<Collider> withinLightList = new List<Collider>();
 
@@ -171,10 +171,13 @@ public class Flashlight : MonoBehaviour
         {
 			if (go_col == col)
             {
+				Debug.Log("Lantern is within Flashlight!");
 				RaycastHit hitData;
 				bool blocked = Physics.Linecast(transform.position, col.gameObject.transform.position, out hitData, blockLightLayers);
 				if (!blocked 
-					|| (blocked && hitData.collider == col))
+					|| (blocked && 
+					(hitData.collider == col)
+					|| hitData.collider.gameObject.name == "Flashlight"))
                 {
 					return true;
                 }

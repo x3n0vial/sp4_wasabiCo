@@ -117,8 +117,9 @@ public class Elevator : MonoBehaviour
                 if (exitDoorL.transform.position.z > exitDoorL_oriPos.z)
                 {
                     state = LIFT_STATES.DEFAULT;
-                    exitDoorL.transform.position = exitDoorL_oriPos;
-                    exitDoorR.transform.position = exitDoorR_oriPos;
+                    exitDoorL.transform.position = new Vector3(exitDoorL_oriPos.x, target_pos_y, exitDoorL_oriPos.z);
+                    exitDoorR.transform.position = new Vector3(exitDoorR_oriPos.x, target_pos_y, exitDoorR_oriPos.z);
+                 
                 }
                 break;
             default:

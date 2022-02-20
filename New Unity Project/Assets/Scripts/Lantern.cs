@@ -19,7 +19,7 @@ public class Lantern : MonoBehaviour
     bool isLit = false;
 
     float light_progress = 0.0f; // percentage completion
-    float light_speed = 0.1f; // speed at which perc increases
+    float light_speed = 0.3f; // speed at which perc increases
 
     float trigger_radius = 5.0f; // radius for UI to show
 
