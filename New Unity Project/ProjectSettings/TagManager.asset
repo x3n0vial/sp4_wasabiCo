@@ -4,9 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Item
   - Floor
   - Wall
+  - Pickable
   layers:
   - Default
   - TransparentFX
