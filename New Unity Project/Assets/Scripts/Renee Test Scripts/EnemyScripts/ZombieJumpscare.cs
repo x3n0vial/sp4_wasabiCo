@@ -19,7 +19,7 @@ public class ZombieJumpscare : MonoBehaviour
 
     //timer back to idle
     int idle = 0;
-    int maxIdle = 500;
+    int maxIdle = 250;
 
     //timer to jumpscare die, player dies if they step on zombie again
     int jumpscareDieTimer = 0;
@@ -55,8 +55,7 @@ public class ZombieJumpscare : MonoBehaviour
                 if (idle > maxIdle)
                 {
                     anim.ResetTrigger("Jumpscare");
-                    anim.SetTrigger("Idle");
-                    
+                    anim.SetTrigger("Idle");   
                 }
             }
         }
