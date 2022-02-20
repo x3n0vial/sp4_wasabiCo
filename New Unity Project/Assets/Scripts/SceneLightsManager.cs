@@ -5,17 +5,23 @@ using UnityEngine;
 public class SceneLightsManager : MonoBehaviour
 {
     public Light dirLight;
+    public Light player_dirLight;
 
     private int num_stages = 3;
     private int currStage = 0;
 
     private float dir_light_intensity;
+    private float player_dir_light_intensity;
+    private float env_light_intensity;
+    
    
    
     // Start is called before the first frame update
     void Start()
     {
         dir_light_intensity = dirLight.intensity;
+        player_dir_light_intensity = player_dirLight.intensity;
+        env_light_intensity = RenderSettings.reflectionIntensity;
     }
 
     // Update is called once per frame
@@ -45,7 +51,9 @@ public class SceneLightsManager : MonoBehaviour
         RenderSettings.ambientLight = new Color(color_amt, color_amt, color_amt, color_amt);
 
         dirLight.intensity -= dir_light_intensity / num_stages;
-        
+        player_dirLight.intensity -= ((player_dir_light_intensity - 0.1f) / num_stages); // 0.1f min
+        RenderSettings.reflectionIntensity -= ((env_light_intensity - 0.1f) / num_stages); // 0.1f min
+
     }
 
     public void InitToStage(int num_stage)
