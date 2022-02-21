@@ -8,7 +8,8 @@ public class ItemController : MonoBehaviour
     bool canpickup; //a bool to see if you can or cant pick up the item
     GameObject Pickable; // the gameobject onwhich you collided with
     bool hasItem; // a bool to see if you have an item in your hand
-                  // Start is called before the first frame update
+
+    public float throwForce = 1000;
 
     void Start()
     {
@@ -31,6 +32,7 @@ public class ItemController : MonoBehaviour
                 Pickable.GetComponent<Rigidbody>().isKinematic = true;   //makes the rigidbody not be acted upon by forces
                 Pickable.transform.position = Slot.transform.position; // sets the position of the object to your hand position
                 Pickable.transform.parent = Slot.transform; //makes the object become a child of the parent so that it moves with the hands
+                Pickable.GetComponent<Rigidbody>().useGravity = false;
                 hasItem = true;
             }
         }
@@ -41,8 +43,14 @@ public class ItemController : MonoBehaviour
             {
                 c.enabled = true;
             }
+
             Pickable.GetComponent<Collider>().enabled = true;
             Pickable.GetComponent<Rigidbody>().isKinematic = false; // make the rigidbody work again
+            Pickable.GetComponent<Rigidbody>().useGravity = true;
+
+            Vector3 dir = transform.rotation * Vector3.forward;
+            Pickable.GetComponent<Rigidbody>().AddForce(dir * throwForce);
+
             hasItem = false;
             Pickable.transform.parent = null; // make the object no be a child of the hands
         }
