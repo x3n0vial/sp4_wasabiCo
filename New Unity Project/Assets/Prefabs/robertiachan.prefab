@@ -687,6 +687,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Slot: {fileID: 3302410791118539343}
+  throwForce: 500
 --- !u!1 &9019428394993196559
 GameObject:
   m_ObjectHideFlags: 0
