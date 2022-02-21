@@ -13,14 +13,14 @@ public class ChargeFlashlight : MonoBehaviour
     float charge_rate = 10.0f;
 
     float full_batt_scale = 10.7f; // taken from unity, scale when bar is filled
-    float full_batt_translate = 213.5f;
+    float full_batt_translate = 535.0f;
     Vector3 original_pos;
 
     // Start is called before the first frame update
     void Start()
     {
         progressBar = transform.Find("Panel").Find("ProgressBar").GetComponent<Image>();
-        original_pos = progressBar.transform.position;
+        original_pos = progressBar.transform.localPosition;
     }
 
     // Update is called once per frame
@@ -36,11 +36,11 @@ public class ChargeFlashlight : MonoBehaviour
         }
 
         float perc = battery / 100.0f;
-     
-      
-        progressBar.transform.position = new Vector3(original_pos.x +  (0.5f * perc * full_batt_translate), original_pos.y, original_pos.z);
+
+        progressBar.transform.localPosition = new Vector3(original_pos.x + (perc * full_batt_translate), original_pos.y, original_pos.z);
         Vector3 oriScale = progressBar.transform.localScale;
         progressBar.transform.localScale = new Vector3(perc * full_batt_scale, oriScale.y, oriScale.z);
+
 
         // color progress bar accordingly
         progressBar.color = new Color(1 - perc, perc, 0);
