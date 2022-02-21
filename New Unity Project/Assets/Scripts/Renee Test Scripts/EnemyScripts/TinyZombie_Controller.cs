@@ -111,23 +111,26 @@ public class TinyZombie_Controller : MonoBehaviour
     }
     void TinyZombieAnimation() //Animation controller for tinyZombie
     {
-        if (distance <= agent.stoppingDistance || stunned())
+        if (lightsCount > 0)
         {
-            anim.ResetTrigger("Walk");
-            anim.ResetTrigger("Idle");
-            anim.SetTrigger("Attack");
-        }
-        else if (PlayerWithinViewDistance())
-        {
-            anim.ResetTrigger("Attack");
-            anim.ResetTrigger("Idle");
-            anim.SetTrigger("Walk");
-        }
-        else if (lightsCount > 0)
-        {
-            anim.ResetTrigger("Walk");
-            anim.ResetTrigger("Attack");
-            anim.SetTrigger("Idle");
+            if (distance <= agent.stoppingDistance || stunned())
+            {
+                anim.ResetTrigger("Walk");
+                anim.ResetTrigger("Idle");
+                anim.SetTrigger("Attack");
+            }
+            else if (PlayerWithinViewDistance())
+            {
+                anim.ResetTrigger("Attack");
+                anim.ResetTrigger("Idle");
+                anim.SetTrigger("Walk");
+            }
+            else
+            {
+                anim.ResetTrigger("Walk");
+                anim.ResetTrigger("Attack");
+                anim.SetTrigger("Idle");
+            }
         }
     }
     void Update()
