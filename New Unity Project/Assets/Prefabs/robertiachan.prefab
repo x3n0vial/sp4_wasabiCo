@@ -665,15 +665,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprintUI: {fileID: 0}
   turnSpeed: 20
-  animSpeed: 1.5
+  animSpeed: 1.2
   animSprintSpeed: 1.5
   useCurves: 1
   useCurvesHeight: 0.5
   baseSpeed: 2
   sprintSpeed: 4
-  speed: 3
+  speed: 2
   stamina: 100
-  jumpPower: 2
+  jumpforce: 3
 --- !u!114 &811611734496468322
 MonoBehaviour:
   m_ObjectHideFlags: 0
