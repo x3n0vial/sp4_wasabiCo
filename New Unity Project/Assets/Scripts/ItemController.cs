@@ -9,7 +9,7 @@ public class ItemController : MonoBehaviour
     GameObject Pickable; // the gameobject onwhich you collided with
     bool hasItem; // a bool to see if you have an item in your hand
 
-    public float throwForce = 1000;
+    public float throwForce = 10000;
 
     void Start()
     {
