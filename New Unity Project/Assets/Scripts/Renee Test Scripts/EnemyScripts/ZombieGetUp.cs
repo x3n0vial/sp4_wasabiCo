@@ -20,6 +20,9 @@ public class ZombieGetUp : MonoBehaviour
     //boolean to check if jumpscare is triggered
     bool getUp = false;
 
+    //boolean to check if door is triggered
+    bool doorDown = false;
+
     //timer to getup
     int getupTimer = 0;
     int maxgetupTimer = 200;
@@ -44,6 +47,7 @@ public class ZombieGetUp : MonoBehaviour
         if (other.transform == target)
         {
             getUp = true;
+            doorDown = true;
         }
     }
 
@@ -67,5 +71,10 @@ public class ZombieGetUp : MonoBehaviour
             }
         }
         this.transform.parent.transform.position = new Vector3(this.transform.parent.transform.position.x, this.transform.parent.transform.position.y + zombiePosY, this.transform.parent.transform.position.z);
+    }
+
+    public bool GetTriggerStatus()
+    {
+        return doorDown;
     }
 }

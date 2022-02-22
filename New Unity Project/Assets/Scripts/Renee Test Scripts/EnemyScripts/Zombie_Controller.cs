@@ -11,8 +11,8 @@ public class Zombie_Controller : MonoBehaviour
     //player distance from enemy
     float distance;
 
-    //handler of flashlight
-    Flashlight flashlight;
+    ////handler of flashlight
+    //Flashlight flashlight;
 
     //how far the enemy follows the player
     float lookRadius = 100;
@@ -26,12 +26,15 @@ public class Zombie_Controller : MonoBehaviour
     //enemy's collider
     Collider collider;
 
+    //handler of trigger
+    public ZombieGetUp trigger;
+
     void Start() //initialise the variables
     {
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
         target = PlayerManager.instance.player.transform;
-        flashlight = PlayerManager.instance.player.GetComponentInChildren<Flashlight>();
+        //flashlight = PlayerManager.instance.player.GetComponentInChildren<Flashlight>();
         agent.speed = 2.32f;
         collider = GetComponent<Collider>();
     }
@@ -68,31 +71,42 @@ public class Zombie_Controller : MonoBehaviour
             }
         }
     }
-    bool stunned() //stunned by player's flashlight
-    {
-        return (flashlight.CheckIfInFlashlight(collider));
-    }
+    //bool stunned() //stunned by player's flashlight
+    //{
+    //    return (flashlight.CheckIfInFlashlight(collider));
+    //}
     void ZombieAnimation() //Animation controller for tinyZombie
     {
-        if (distance <= agent.stoppingDistance || stunned())
+        if (trigger.GetTriggerStatus())
+        {
+            if (distance <= agent.stoppingDistance)
+            {
+                anim.ResetTrigger("Idle");
+                anim.ResetTrigger("Run");
+                anim.SetTrigger("Attack");
+            }
+            else if (PlayerWithinViewDistance())
+            {
+                anim.ResetTrigger("Idle");
+                anim.ResetTrigger("Attack");
+                anim.SetTrigger("Run");
+            }
+        }
+        else
         {
             anim.ResetTrigger("Run");
-            anim.SetTrigger("Attack");
-        }
-        else if (PlayerWithinViewDistance())
-        {
             anim.ResetTrigger("Attack");
-            anim.SetTrigger("Run");
+            anim.SetTrigger("Idle");
         }
     }
-    void Update()
+        void Update()
     {
         distance = Vector3.Distance(target.position, transform.position);
 
         ZombieAnimation();
-        if (!stunned())
+        agent.speed = 2.32f;
+        if (trigger.GetTriggerStatus())
         {
-            agent.speed = 2.32f;
             if (PlayerWithinViewDistance()) //turn this into an else if statement
             {
                 followPlayer();
