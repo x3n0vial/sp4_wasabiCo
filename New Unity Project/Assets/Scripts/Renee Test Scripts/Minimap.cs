@@ -7,7 +7,7 @@ public class Minimap : MonoBehaviour
     Transform target;
     void Start()
     {
-        target = PlayerManager.instance.player.transform;
+        target = GameHandler.instance.player.transform;
     }
 
     void LateUpdate()

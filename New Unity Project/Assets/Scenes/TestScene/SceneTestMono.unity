@@ -932,7 +932,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 100
+  field of view: 68.29
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -957,8 +957,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 729290258}
-  m_LocalRotation: {x: -0.012782427, y: 0.97516966, z: -0.21322106, w: -0.058460582}
-  m_LocalPosition: {x: 0.24900053, y: -7.0435433, z: 2.0693011}
+  m_LocalRotation: {x: -0.042259376, y: 0.9541934, z: -0.24724567, w: -0.16309129}
+  m_LocalPosition: {x: 1.9292755, y: -5.373129, z: 5.4789023}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1423,6 +1423,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: robertiachan
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019428394998693153, guid: 7ac39c56183bc304c961a07f18c61da2,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ac39c56183bc304c961a07f18c61da2, type: 3}

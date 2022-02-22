@@ -7,7 +7,6 @@ public class Lantern : MonoBehaviour
 {
 
     public Canvas UICanvas;
-    public Flashlight playerFlashlight;
 
     int LIGHT_LANTERN_POINTS = 10;
 
@@ -31,7 +30,7 @@ public class Lantern : MonoBehaviour
         if (progressBar == null)
             Debug.Log("Lantern::Could not find Progress Bar Image Component from Lantern");
 
-        bar_ori_pos = progressBar.transform.position;
+        bar_ori_pos = progressBar.transform.localPosition;
         
     }
 
@@ -42,9 +41,9 @@ public class Lantern : MonoBehaviour
         if (isLit)
             return;
 
-        bool withinLight = playerFlashlight.CheckIfInFlashlight(GetComponent<MeshCollider>());
+        bool withinLight = GameHandler.instance.flashlight.CheckIfInFlashlight(GetComponent<MeshCollider>());
 
-        float displacement = (PlayerManager.instance.player.transform.position - transform.position).magnitude;
+        float displacement = (GameHandler.instance.player.transform.position - transform.position).magnitude;
         if (displacement < trigger_radius || withinLight)
             UICanvas.gameObject.SetActive(true);
         else
@@ -54,7 +53,7 @@ public class Lantern : MonoBehaviour
         {
             light_progress += light_speed * Time.deltaTime;
 
-            progressBar.transform.position = new Vector3(bar_ori_pos.x + light_progress * bar_pos_offset,
+            progressBar.transform.localPosition = new Vector3(bar_ori_pos.x + light_progress * bar_pos_offset,
                 bar_ori_pos.y, bar_ori_pos.z);
             progressBar.transform.localScale = new Vector3(light_progress * bar_full_scale,
                progressBar.transform.localScale.y, progressBar.transform.localScale.z);

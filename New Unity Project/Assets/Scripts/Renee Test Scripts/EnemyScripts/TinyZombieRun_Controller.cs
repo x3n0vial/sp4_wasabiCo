@@ -33,8 +33,8 @@ public class TinyZombieRun_Controller : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
-        target = PlayerManager.instance.player.transform;
-        flashlight = PlayerManager.instance.player.GetComponentInChildren<Flashlight>();
+        target = GameHandler.instance.player.transform;
+        flashlight = GameHandler.instance.flashlight;
         agent.speed = 0.1f;
         collider = GetComponent<Collider>();
         agent.speed = 6f;

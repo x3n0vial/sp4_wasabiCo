@@ -30,7 +30,7 @@ public class ZombieJumpscare : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        target = PlayerManager.instance.player.transform;
+        target = GameHandler.instance.player.transform;
         anim = GetComponentInParent<Animator>();
     }
 

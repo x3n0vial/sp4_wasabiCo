@@ -46,13 +46,18 @@ public class Skeleton_Controller : MonoBehaviour
     //enemy's collider
     Collider collider;
 
+    //death camera
+    CameraSettings camera;
+
+    //point of focus
+
     void Start() //initialise the variables
     {
         chaseSpeed = 1;
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
-        target = PlayerManager.instance.player.transform;
-        flashlight = PlayerManager.instance.player.GetComponentInChildren<Flashlight>();
+        target = GameHandler.instance.player.transform;
+        flashlight = GameHandler.instance.flashlight;
         collider = GetComponent<Collider>();
         agent.speed = 0.1f;
         agent.SetDestination(waypoints[0].position);

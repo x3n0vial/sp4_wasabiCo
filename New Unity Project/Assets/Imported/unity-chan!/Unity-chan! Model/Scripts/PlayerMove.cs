@@ -78,7 +78,12 @@ namespace UnityChan
 			bool isRun = hasHorizontalInput || hasVerticalInput;
 			anim.SetBool("IsRun", isRun);
 
-			anim.speed = animSpeed;									// Set animation speed
+            if (isRun == false)
+                rb.isKinematic = true;
+            else
+                rb.isKinematic = false;
+
+            anim.speed = animSpeed;									// Set animation speed
 			currentBaseState = anim.GetCurrentAnimatorStateInfo(0); // Set the reference state variable to the current state of Base Layer (0)
 			rb.useGravity = true; //Gravity is cut during the jump, so be affected by gravity otherwise
 
