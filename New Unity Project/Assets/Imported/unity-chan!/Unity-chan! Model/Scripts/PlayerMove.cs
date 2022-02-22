@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿ using UnityEngine;
 using System.Collections;
 
 namespace UnityChan
@@ -28,9 +28,9 @@ namespace UnityChan
         //stamina
         public float stamina = 100.0f;
         // Jump power
-        public float jumpPower = 3.0f;
-		//Reference of character controller (capsule collider)
-		private CapsuleCollider col;
+        public float jumpforce = 3.0f;
+        //Reference of character controller (capsule collider)
+        private CapsuleCollider col;
 		private Rigidbody rb;
 		// Amount of movement of the character controller(capsule collider)
 		private Vector3 velocity;
@@ -119,7 +119,9 @@ namespace UnityChan
                 {
                     if (!anim.IsInTransition(0))
                     {
-                        rb.AddForce(Vector3.up * jumpPower, ForceMode.VelocityChange);
+                        var rbv = rb.velocity;
+                        rbv.y = jumpforce;
+                        rb.velocity = rbv;
                         anim.SetBool("IsJump", true);     // Send animator a flag to switch to jump
                     }
                     else

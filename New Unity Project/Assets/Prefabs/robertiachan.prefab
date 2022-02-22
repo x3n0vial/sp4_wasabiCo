@@ -665,15 +665,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprintUI: {fileID: 0}
   turnSpeed: 20
-  animSpeed: 1.5
+  animSpeed: 1.2
   animSprintSpeed: 1.5
   useCurves: 1
   useCurvesHeight: 0.5
   baseSpeed: 2
   sprintSpeed: 4
-  speed: 3
+  speed: 2
   stamina: 100
-  jumpPower: 2
+  jumpforce: 3
 --- !u!114 &811611734496468322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -687,6 +687,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Slot: {fileID: 3302410791118539343}
+  throwForce: 500
 --- !u!1 &9019428394993196559
 GameObject:
   m_ObjectHideFlags: 0
