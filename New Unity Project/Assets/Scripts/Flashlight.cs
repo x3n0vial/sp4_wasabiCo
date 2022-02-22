@@ -12,7 +12,6 @@ public class Flashlight : MonoBehaviour
 
 
 	public Camera cam;
-	public GameObject player;
 	public FlashlightUI flashlightUI;
 	public LayerMask blockLightLayers;
 

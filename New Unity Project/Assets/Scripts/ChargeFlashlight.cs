@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class ChargeFlashlight : MonoBehaviour
 {
-    public Flashlight player_flashlight;
-
     Image progressBar;
 
     float battery = 0.0f; // max is 100.0f
@@ -16,14 +14,12 @@ public class ChargeFlashlight : MonoBehaviour
     float full_batt_translate = 535.0f;
     Vector3 original_pos;
 
-    // Start is called before the first frame update
     void Start()
     {
         progressBar = transform.Find("Panel").Find("ProgressBar").GetComponent<Image>();
         original_pos = progressBar.transform.localPosition;
     }
 
-    // Update is called once per frame
     void Update()
     {
 
@@ -32,9 +28,9 @@ public class ChargeFlashlight : MonoBehaviour
         if (Input.GetKey(KeyCode.F))
         {
             battery += charge_rate * Time.deltaTime;
-            Debug.Log("F Key Pressed, charging...Battery Level: " + battery);
         }
 
+        // translate and scale progress bar accordingly
         float perc = battery / 100.0f;
 
         progressBar.transform.localPosition = new Vector3(original_pos.x + (perc * full_batt_translate), original_pos.y, original_pos.z);
@@ -48,8 +44,8 @@ public class ChargeFlashlight : MonoBehaviour
         if (battery >= 100.0f)
         {
             gameObject.SetActive(false);
-            player_flashlight.RefillBattery();
-            player_flashlight.gameObject.SetActive(true);
+            GameHandler.instance.flashlight.RefillBattery();
+            GameHandler.instance.flashlight.gameObject.SetActive(true);
         }
 
     }
@@ -57,7 +53,7 @@ public class ChargeFlashlight : MonoBehaviour
     public void StartChargeFlashlight()
     {
         gameObject.SetActive(true);
-        player_flashlight.gameObject.SetActive(false);
+        GameHandler.instance.flashlight.gameObject.SetActive(false);
     }
 
 }
