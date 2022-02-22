@@ -5,7 +5,7 @@ using UnityEngine;
 public static class CheckpointManager
 {
     static List<Checkpoint> checkpoints = new List<Checkpoint>();
-    static CheckpointID last_ID = CheckpointID.UNSET;
+    public static CheckpointID last_ID = CheckpointID.UNSET;
 
     public static void AddCheckpoint(Checkpoint cp)
     {

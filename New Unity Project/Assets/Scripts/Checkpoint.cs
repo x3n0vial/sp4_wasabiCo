@@ -44,6 +44,8 @@ public class Checkpoint : MonoBehaviour
     {
         is_saved = true;
         pointLight.color = Color.white;
+        if (ID > CheckpointManager.last_ID)
+            CheckpointManager.last_ID = ID; 
     }
 
    
