@@ -26,4 +26,5 @@ public class GameHandler : MonoBehaviour
     public SceneLightsManager lightManager;
     public Camera mainCamera;
     public Camera UICamera;
+    public LevelLoader levelLoader;
 }

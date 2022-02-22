@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class Zombie_Controller : MonoBehaviour
 {
@@ -29,6 +30,18 @@ public class Zombie_Controller : MonoBehaviour
     //handler of trigger
     public ZombieGetUp trigger;
 
+    //death camera
+    CameraSettings camera;
+
+    //point of focus
+    Transform focusPoint;
+
+    //timer
+    float timer = 0;
+
+    //level loader
+    LevelLoader levelLoad;
+
     void Start() //initialise the variables
     {
         agent = GetComponent<NavMeshAgent>();
@@ -37,6 +50,9 @@ public class Zombie_Controller : MonoBehaviour
         //flashlight = GameHandler.instance.player.GetComponentInChildren<Flashlight>();
         agent.speed = 2.32f;
         collider = GetComponent<Collider>();
+        focusPoint = transform.Find("FocusPoint");
+        camera = GameHandler.instance.cameraSettings;
+        levelLoad = GameHandler.instance.levelLoader;
     }
     void FaceTarget() //changes direction to face the player 
     {
@@ -60,8 +76,22 @@ public class Zombie_Controller : MonoBehaviour
         {
             FaceTarget();
             agent.speed = 0;
-            //insert jumpscare kill player yes
 
+            //insert jumpscare kill player yes
+            camera.ActivateDeathCam(focusPoint);
+            target.gameObject.SetActive(false);
+
+            timer += Time.deltaTime;
+            if (timer >= 3)
+            {
+                //play a fadeout transition
+                if (timer >= 3.1)
+                {
+                    target.gameObject.SetActive(true);
+                    target.position = GameSettings.currentCheckpoint.spawnPos;
+                    levelLoad.LoadScene(levelLoad.getSceneName());
+                }
+            }
         }
         //RaycastHit hit;
         //if (Physics.Linecast(transform.position, target.position, out hit, -1)) //if behind wall, lose player

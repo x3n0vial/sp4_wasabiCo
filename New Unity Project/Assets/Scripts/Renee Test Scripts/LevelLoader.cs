@@ -10,6 +10,7 @@ public class LevelLoader : MonoBehaviour
     public float transitionTime = 1f;
     public string build;
     public PauseMenu pausemenu;
+    string SceneName;
     
     void Update()
     {   
@@ -24,6 +25,11 @@ public class LevelLoader : MonoBehaviour
     {
         build = sceneName;
         StartCoroutine(LoadLevel());
+    }
+    public string getSceneName()
+    {
+        SceneName = SceneManager.GetActiveScene().name;
+        return SceneName;
     }
 
     public void LoadScene(string sceneName)
