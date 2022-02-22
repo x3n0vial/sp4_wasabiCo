@@ -36,8 +36,8 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - Wall
+  - Floor
   - SolidObject
   - Player
   m_SortingLayers:
