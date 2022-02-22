@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class Rock : MonoBehaviour
 {
+    [SerializeField()] AudioSource breaksound;
+
     public GameObject brokenrock;
     public GameObject tallrock;
     public Flashlight flashlight;
 
-    int breaking = 0;
-    int breakspeed = 1;
+    float breaking = 0.0f;
+    float breakspeed = 1.0f;
+
+    bool breakupdate = true;
 
     // Start is called before the first frame update
     void Start()
@@ -20,13 +24,19 @@ public class Rock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (flashlight.CheckIfInFlashlight(GetComponent<BoxCollider>()) == true)
-            Debug.Log("true");
+        if (breakupdate == false)
+            return;
 
-        //breaking += breakspeed;
+        if (flashlight.CheckIfInFlashlight(tallrock.GetComponent<BoxCollider>()) == true)
+            breaking += breakspeed * Time.deltaTime;
 
-        if (breaking >= 10)
+        //Debug.Log(breaking);
+
+        if (breaking >= 5.0f)
         {
+            breakupdate = false;
+            if (breaksound != null)
+                breaksound.Play();
             brokenrock.SetActive(true);
             tallrock.SetActive(false);
         }
