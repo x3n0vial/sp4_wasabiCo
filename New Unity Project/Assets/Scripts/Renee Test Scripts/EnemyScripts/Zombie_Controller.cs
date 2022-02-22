@@ -55,21 +55,29 @@ public class Zombie_Controller : MonoBehaviour
     }
     void followPlayer() //follow the player
     {
-        RaycastHit hit;
-        if (Physics.Linecast(transform.position, target.position, out hit, -1)) //if behind wall, lose player
+        agent.SetDestination(target.position);
+        if (distance <= agent.stoppingDistance)
         {
-            if (hit.transform.CompareTag("Player"))
-            {
-                agent.SetDestination(target.position);
-                if (distance <= agent.stoppingDistance)
-                {
-                    FaceTarget();
-                    agent.speed = 0;
-                    //insert jumpscare kill player yes
+            FaceTarget();
+            agent.speed = 0;
+            //insert jumpscare kill player yes
 
-                }
-            }
         }
+        //RaycastHit hit;
+        //if (Physics.Linecast(transform.position, target.position, out hit, -1)) //if behind wall, lose player
+        //{
+        //    if (hit.transform.CompareTag("Player"))
+        //    {
+        //        agent.SetDestination(target.position);
+        //        if (distance <= agent.stoppingDistance)
+        //        {
+        //            FaceTarget();
+        //            agent.speed = 0;
+        //            //insert jumpscare kill player yes
+        //
+        //        }
+        //    }
+        //}
     }
     //bool stunned() //stunned by player's flashlight
     //{
