@@ -44,7 +44,7 @@ public class Lantern : MonoBehaviour
 
         bool withinLight = playerFlashlight.CheckIfInFlashlight(GetComponent<MeshCollider>());
 
-        float displacement = (PlayerManager.instance.player.transform.position - transform.position).magnitude;
+        float displacement = (GameHandler.instance.player.transform.position - transform.position).magnitude;
         if (displacement < trigger_radius || withinLight)
             UICanvas.gameObject.SetActive(true);
         else

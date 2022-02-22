@@ -797,10 +797,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 530989150}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebb8b5333427ee44ead76b96f1ec6e1c, type: 3}
+  m_Script: {fileID: 11500000, guid: dc2ad624c8a9a4d489f8a436dec11dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1662560400}
+  cameraSettings: {fileID: 0}
+  flashlight: {fileID: 1455733555}
+  lightManager: {fileID: 1185718807}
 --- !u!4 &530989152
 Transform:
   m_ObjectHideFlags: 0
@@ -1514,6 +1517,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ac39c56183bc304c961a07f18c61da2, type: 3}
+--- !u!114 &1455733555 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 923762610326035079, guid: 7ac39c56183bc304c961a07f18c61da2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1455733554}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0048c784e3c5434dbf05db540f80a24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1505700248
 GameObject:
   m_ObjectHideFlags: 0
@@ -1974,7 +1989,7 @@ PrefabInstance:
     - target: {fileID: 2638868754736555331, guid: 280935e6ce718b245805a2d51acc0d50,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5490710008298889900, guid: 280935e6ce718b245805a2d51acc0d50,
         type: 3}
@@ -2818,7 +2833,7 @@ PrefabInstance:
     - target: {fileID: 7592779619698303338, guid: b5f595d1a88d01141b4cc370ed378ac9,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7592779619698670922, guid: b5f595d1a88d01141b4cc370ed378ac9,
         type: 3}

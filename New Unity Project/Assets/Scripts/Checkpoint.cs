@@ -22,7 +22,7 @@ public class Checkpoint : MonoBehaviour
     void Update()
     {
         // CHeck for Save Condition
-        float displacement = (PlayerManager.instance.player.transform.position - transform.position).magnitude;
+        float displacement = (GameHandler.instance.player.transform.position - transform.position).magnitude;
         if (!is_saved && displacement <= auto_save_radius)
         {
             GameSettings.currentCheckpoint = this;

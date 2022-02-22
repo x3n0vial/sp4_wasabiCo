@@ -9,7 +9,7 @@ public class TinyZombieTrigger : MonoBehaviour
 
     void Start()
     {
-        target = PlayerManager.instance.player.transform;
+        target = GameHandler.instance.player.transform;
     }
 
     void OnTriggerEnter(Collider other)

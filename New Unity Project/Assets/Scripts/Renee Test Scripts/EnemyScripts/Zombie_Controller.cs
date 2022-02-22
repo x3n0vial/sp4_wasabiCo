@@ -33,7 +33,7 @@ public class Zombie_Controller : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
-        target = PlayerManager.instance.player.transform;
+        target = GameHandler.instance.player.transform;
         //flashlight = PlayerManager.instance.player.GetComponentInChildren<Flashlight>();
         agent.speed = 2.32f;
         collider = GetComponent<Collider>();
