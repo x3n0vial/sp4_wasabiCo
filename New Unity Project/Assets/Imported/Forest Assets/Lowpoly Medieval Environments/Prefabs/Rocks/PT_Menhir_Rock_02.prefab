@@ -287,6 +287,7 @@ GameObject:
   - component: {fileID: 7401009755507729770}
   - component: {fileID: 2373313991770608155}
   - component: {fileID: 5188533708784733380}
+  - component: {fileID: 770760690520183664}
   m_Layer: 0
   m_Name: PT_Menhir_Rock_02
   m_TagString: Untagged
@@ -350,6 +351,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 2.5, z: 1}
   m_Center: {x: -0.15, y: 1.2, z: 0}
+--- !u!114 &770760690520183664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7925908207704047568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ada6787c4fc5b33409fcb92a10b293ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brokenrock: {fileID: 6781004822254609006}
+  tallrock: {fileID: 1318376728498763124}
+  flashlight: {fileID: 555023728633604264, guid: e20585c21dc557049819d06268765aec,
+    type: 3}
 --- !u!1001 &7522695155264422278
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -424,6 +441,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0fd4e95c3d308e04fbaacb3c357d974c, type: 3}
+--- !u!1 &6781004822254609006 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3926871240113185768, guid: 0fd4e95c3d308e04fbaacb3c357d974c,
+    type: 3}
+  m_PrefabInstance: {fileID: 7522695155264422278}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6147738233703905492 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4410392080981211474, guid: 0fd4e95c3d308e04fbaacb3c357d974c,
