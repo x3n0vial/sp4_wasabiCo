@@ -10,7 +10,7 @@ public class Enemy_POV : MonoBehaviour
 
     private void Start()
     {
-        player = PlayerManager.instance.player.transform;
+        player = GameHandler.instance.player.transform;
     }
 
     void OnTriggerEnter(Collider other)
