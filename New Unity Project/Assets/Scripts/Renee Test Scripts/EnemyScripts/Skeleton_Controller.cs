@@ -46,8 +46,10 @@ public class Skeleton_Controller : MonoBehaviour
     //enemy's collider
     Collider collider;
 
-    
+    //death camera
     CameraSettings camera;
+
+    //point of focus
 
     void Start() //initialise the variables
     {

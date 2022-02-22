@@ -24,4 +24,6 @@ public class GameHandler : MonoBehaviour
     public CameraSettings cameraSettings;
     public Flashlight flashlight;
     public SceneLightsManager lightManager;
+    public Camera mainCamera;
+    public Camera UICamera;
 }
