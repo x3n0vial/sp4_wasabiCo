@@ -27,11 +27,20 @@ public class ZombieJumpscare : MonoBehaviour
 
     int steppedOn = 0;
 
+    //death camera
+    CameraSettings camera;
+
+    //point of focus
+    Transform focusPoint;
+
     // Start is called before the first frame update
     void Start()
     {
         target = GameHandler.instance.player.transform;
         anim = GetComponentInParent<Animator>();
+
+        focusPoint = transform.Find("FocusPoint");
+        camera = GameHandler.instance.cameraSettings;
     }
 
     void OnTriggerEnter(Collider other)
@@ -66,9 +75,11 @@ public class ZombieJumpscare : MonoBehaviour
             if (jumpscareDieTimer > maxJumpscareDieTimer)
             {
                 anim.ResetTrigger("Idle");
-                anim.SetTrigger("JumpscareDie");
+                anim.SetTrigger("JumpscareDie"); 
+                
                 //insert jumpscare kill player yes
-
+                camera.ActivateDeathCam(focusPoint);
+                target.gameObject.SetActive(false);
             }
         }
     }

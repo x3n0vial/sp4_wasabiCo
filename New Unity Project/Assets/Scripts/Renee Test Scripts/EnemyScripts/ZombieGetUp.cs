@@ -63,6 +63,7 @@ public class ZombieGetUp : MonoBehaviour
                 zombiePosY -= 0.000001f * Time.deltaTime;
                 if (chaseTimer > maxChaseTimer)
                 {
+                    this.transform.parent.transform.position = new Vector3(this.transform.parent.transform.position.x, this.transform.parent.transform.position.y + zombiePosY, this.transform.parent.transform.position.z);
                     this.transform.parent.gameObject.SetActive(false);
                     zombiePosY = 0;
                     zombie.SetActive(true); 
@@ -70,7 +71,6 @@ public class ZombieGetUp : MonoBehaviour
                 }
             }
         }
-        this.transform.parent.transform.position = new Vector3(this.transform.parent.transform.position.x, this.transform.parent.transform.position.y + zombiePosY, this.transform.parent.transform.position.z);
     }
 
     public bool GetTriggerStatus()

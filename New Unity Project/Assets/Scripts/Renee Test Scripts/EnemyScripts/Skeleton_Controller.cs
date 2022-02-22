@@ -50,6 +50,7 @@ public class Skeleton_Controller : MonoBehaviour
     CameraSettings camera;
 
     //point of focus
+    Transform focusPoint;
 
     void Start() //initialise the variables
     {
@@ -61,6 +62,8 @@ public class Skeleton_Controller : MonoBehaviour
         collider = GetComponent<Collider>();
         agent.speed = 0.1f;
         agent.SetDestination(waypoints[0].position);
+        focusPoint = transform.Find("FocusPoint");
+        camera = GameHandler.instance.cameraSettings;
     }
 
     void ChangeSpeed() //speed of the enemy. Increases based on what stage the level is at and the chase speed
@@ -107,7 +110,10 @@ public class Skeleton_Controller : MonoBehaviour
                     {
                         FaceTarget();
                         agent.speed = 0;
+
                         //insert jumpscare kill player yes
+                        camera.ActivateDeathCam(focusPoint);
+                        target.gameObject.SetActive(false);
 
                     }
                 }

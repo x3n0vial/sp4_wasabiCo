@@ -28,6 +28,12 @@ public class TinyZombieRun_Controller : MonoBehaviour
 
     //enemy's trigger
     public TinyZombieTrigger trigger;
+  
+    //death camera
+    CameraSettings camera;
+
+    //point of focus
+    Transform focusPoint;
 
     void Start() //initialise the variables
     {
@@ -38,6 +44,9 @@ public class TinyZombieRun_Controller : MonoBehaviour
         agent.speed = 0.1f;
         collider = GetComponent<Collider>();
         agent.speed = 6f;
+
+        focusPoint = transform.Find("FocusPoint");
+        camera = GameHandler.instance.cameraSettings;
     }
     void FaceTarget() //changes direction to face the player 
     {
@@ -66,8 +75,10 @@ public class TinyZombieRun_Controller : MonoBehaviour
                 {
                     FaceTarget();
                     agent.speed = 0;
-                    //insert jumpscare kill player yes
 
+                    //insert jumpscare kill player yes
+                    camera.ActivateDeathCam(focusPoint);
+                    target.gameObject.SetActive(false);
                 }
             }
         }
@@ -78,11 +89,7 @@ public class TinyZombieRun_Controller : MonoBehaviour
     }
     void TinyZombieAnimation() //Animation controller for tinyZombie
     {
-        if (stunned())
-        {
-            anim.SetTrigger("Stun");  
-        }
-        else if (distance <= agent.stoppingDistance)
+        if (distance <= agent.stoppingDistance)
         {
             anim.ResetTrigger("Walk");
             anim.ResetTrigger("Idle");
