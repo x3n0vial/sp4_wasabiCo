@@ -32,7 +32,7 @@ public class Zombie_Controller : MonoBehaviour
         anim = GetComponent<Animator>();
         target = PlayerManager.instance.player.transform;
         flashlight = PlayerManager.instance.player.GetComponentInChildren<Flashlight>();
-        agent.speed = 2f;
+        agent.speed = 2.32f;
         collider = GetComponent<Collider>();
     }
     void FaceTarget() //changes direction to face the player 
@@ -92,7 +92,7 @@ public class Zombie_Controller : MonoBehaviour
         ZombieAnimation();
         if (!stunned())
         {
-            agent.speed = 2f;
+            agent.speed = 2.32f;
             if (PlayerWithinViewDistance()) //turn this into an else if statement
             {
                 followPlayer();
