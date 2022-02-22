@@ -175,9 +175,8 @@ public class Flashlight : MonoBehaviour
 				RaycastHit hitData;
 				bool blocked = Physics.Linecast(transform.position, col.gameObject.transform.position, out hitData, blockLightLayers);
 				if (!blocked 
-					|| (blocked && 
-					(hitData.collider == col)
-					|| hitData.collider.gameObject.name == "Flashlight"))
+					|| blocked && hitData.collider == col)
+					
                 {
 					return true;
                 }
