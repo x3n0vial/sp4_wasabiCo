@@ -7,7 +7,6 @@ public class Lantern : MonoBehaviour
 {
 
     public Canvas UICanvas;
-    public Flashlight playerFlashlight;
 
     int LIGHT_LANTERN_POINTS = 10;
 
@@ -42,7 +41,7 @@ public class Lantern : MonoBehaviour
         if (isLit)
             return;
 
-        bool withinLight = playerFlashlight.CheckIfInFlashlight(GetComponent<MeshCollider>());
+        bool withinLight = GameHandler.instance.flashlight.CheckIfInFlashlight(GetComponent<MeshCollider>());
 
         float displacement = (GameHandler.instance.player.transform.position - transform.position).magnitude;
         if (displacement < trigger_radius || withinLight)
