@@ -28,16 +28,33 @@ public class TinyZombieRun_Controller : MonoBehaviour
 
     //enemy's trigger
     public TinyZombieTrigger trigger;
+  
+    //death camera
+    CameraSettings camera;
+
+    //point of focus
+    Transform focusPoint;
+
+    //timer
+    float timer = 0;
+
+    //level loader
+    LevelLoader levelLoad;
 
     void Start() //initialise the variables
     {
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
-        target = PlayerManager.instance.player.transform;
-        flashlight = PlayerManager.instance.player.GetComponentInChildren<Flashlight>();
+        target = GameHandler.instance.player.transform;
+        flashlight = GameHandler.instance.flashlight;
         agent.speed = 0.1f;
         collider = GetComponent<Collider>();
         agent.speed = 6f;
+
+        focusPoint = transform.Find("FocusPoint");
+        camera = GameHandler.instance.cameraSettings;
+
+        levelLoad = GameHandler.instance.levelLoader;
     }
     void FaceTarget() //changes direction to face the player 
     {
@@ -66,8 +83,22 @@ public class TinyZombieRun_Controller : MonoBehaviour
                 {
                     FaceTarget();
                     agent.speed = 0;
-                    //insert jumpscare kill player yes
 
+                    //insert jumpscare kill player yes
+                    camera.ActivateDeathCam(focusPoint);
+                    target.gameObject.SetActive(false);
+
+                    timer += Time.deltaTime;
+                    if (timer >= 3)
+                    {
+                        //play a fadeout transition
+                        if (timer >= 3.1)
+                        {
+                            target.gameObject.SetActive(true);
+                            target.position = GameSettings.currentCheckpoint.spawnPos;
+                            levelLoad.LoadScene(levelLoad.getSceneName());
+                        }
+                    }
                 }
             }
         }
@@ -78,11 +109,7 @@ public class TinyZombieRun_Controller : MonoBehaviour
     }
     void TinyZombieAnimation() //Animation controller for tinyZombie
     {
-        if (stunned())
-        {
-            anim.SetTrigger("Stun");  
-        }
-        else if (distance <= agent.stoppingDistance)
+        if (distance <= agent.stoppingDistance)
         {
             anim.ResetTrigger("Walk");
             anim.ResetTrigger("Idle");

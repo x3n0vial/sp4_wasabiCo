@@ -8,26 +8,25 @@ public class Checkpoint : MonoBehaviour
     public Vector3 spawnPos;
     public Canvas game_canvas;
     public Light pointLight;
-   // public GameObject chargeUI;
+    public CheckpointID ID;
 
     bool is_saved = false;
     float auto_save_radius = 5.0f;
     float charge_radius = 5.0f;
 
-    void Awake()
+    void Start()
     {
-        
+        CheckpointManager.AddCheckpoint(this);
     }
 
     void Update()
     {
         // CHeck for Save Condition
-        float displacement = (PlayerManager.instance.player.transform.position - transform.position).magnitude;
+        float displacement = (GameHandler.instance.player.transform.position - transform.position).magnitude;
         if (!is_saved && displacement <= auto_save_radius)
         {
             GameSettings.currentCheckpoint = this;
-            is_saved = true;
-            pointLight.color = Color.white;
+            Unlock();
         }
 
         if (is_saved && displacement <= charge_radius)
@@ -39,8 +38,12 @@ public class Checkpoint : MonoBehaviour
             game_canvas.gameObject.SetActive(false);
         }
 
-
-
+    }
+    
+    public void Unlock()
+    {
+        is_saved = true;
+        pointLight.color = Color.white;
     }
 
    
