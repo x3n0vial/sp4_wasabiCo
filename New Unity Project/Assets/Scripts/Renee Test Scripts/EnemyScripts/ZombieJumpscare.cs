@@ -83,22 +83,19 @@ public class ZombieJumpscare : MonoBehaviour
             if (jumpscareDieTimer > maxJumpscareDieTimer)
             {
                 anim.ResetTrigger("Idle");
-                anim.SetTrigger("JumpscareDie"); 
-                
+                anim.SetTrigger("JumpscareDie");
+
                 //insert jumpscare kill player yes
                 camera.ActivateDeathCam(focusPoint);
                 target.gameObject.SetActive(false);
 
                 timer += Time.deltaTime;
-                if (timer >= 3)
+                //play a fadeout transition
+                if (timer >= 3.1)
                 {
-                    //play a fadeout transition
-                    if (timer >= 3.1)
-                    {
-                        target.gameObject.SetActive(true);
-                        target.position = GameSettings.currentCheckpoint.spawnPos;
-                        levelLoad.LoadScene(levelLoad.getSceneName());
-                    }
+                    target.gameObject.SetActive(true);
+                    target.position = GameSettings.currentCheckpoint.spawnPos;
+                    levelLoad.LoadNextLevel(levelLoad.getSceneName());
                 }
             }
         }

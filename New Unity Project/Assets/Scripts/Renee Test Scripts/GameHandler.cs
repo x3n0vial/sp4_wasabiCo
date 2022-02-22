@@ -20,6 +20,15 @@ public class GameHandler : MonoBehaviour
     }
     #endregion
 
+    private void Start()
+    {
+        CheckpointManager.InitCheckpoints();
+        if (GameSettings.currentCheckpoint.ID != CheckpointID.UNSET)
+        {
+            player.transform.position = GameSettings.currentCheckpoint.spawnPos;
+        }
+    }
+
     public GameObject player;
     public CameraSettings cameraSettings;
     public Flashlight flashlight;

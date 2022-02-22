@@ -39,7 +39,10 @@ public class TinyZombieRun_Controller : MonoBehaviour
     float timer = 0;
 
     //level loader
-    LevelLoader levelLoad;
+    LevelLoader levelLoad;   
+    
+    //jumpscare boolean
+    bool jumpscare = false;
 
     void Start() //initialise the variables
     {
@@ -84,21 +87,7 @@ public class TinyZombieRun_Controller : MonoBehaviour
                     FaceTarget();
                     agent.speed = 0;
 
-                    //insert jumpscare kill player yes
-                    camera.ActivateDeathCam(focusPoint);
-                    target.gameObject.SetActive(false);
-
-                    timer += Time.deltaTime;
-                    if (timer >= 3)
-                    {
-                        //play a fadeout transition
-                        if (timer >= 3.1)
-                        {
-                            target.gameObject.SetActive(true);
-                            target.position = GameSettings.currentCheckpoint.spawnPos;
-                            levelLoad.LoadScene(levelLoad.getSceneName());
-                        }
-                    }
+                    jumpscare = true;
                 }
             }
         }
@@ -133,6 +122,23 @@ public class TinyZombieRun_Controller : MonoBehaviour
         distance = Vector3.Distance(target.position, transform.position);
 
         TinyZombieAnimation();
+
+        if (jumpscare)
+        {
+            //insert jumpscare kill player yes
+            camera.ActivateDeathCam(focusPoint);
+            target.gameObject.SetActive(false);
+
+            timer += Time.deltaTime;
+            //play a fadeout transition
+            if (timer >= 3.1)
+            {
+                target.gameObject.SetActive(true);
+                target.position = GameSettings.currentCheckpoint.spawnPos;
+                levelLoad.LoadNextLevel(levelLoad.getSceneName());
+            }
+        }
+
         if (stunned() && trigger.getTrigger())
         {
             //play spooky sound effect

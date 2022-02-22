@@ -14,7 +14,7 @@ public class Checkpoint : MonoBehaviour
     float auto_save_radius = 5.0f;
     float charge_radius = 5.0f;
 
-    void Start()
+    void Awake()
     {
         CheckpointManager.AddCheckpoint(this);
     }
@@ -25,7 +25,6 @@ public class Checkpoint : MonoBehaviour
         float displacement = (GameHandler.instance.player.transform.position - transform.position).magnitude;
         if (!is_saved && displacement <= auto_save_radius)
         {
-            GameSettings.currentCheckpoint = this;
             Unlock();
         }
 
@@ -45,7 +44,10 @@ public class Checkpoint : MonoBehaviour
         is_saved = true;
         pointLight.color = Color.white;
         if (ID > CheckpointManager.last_ID)
-            CheckpointManager.last_ID = ID; 
+        {
+            CheckpointManager.last_ID = ID;
+            GameSettings.currentCheckpoint = this;
+        }
     }
 
    

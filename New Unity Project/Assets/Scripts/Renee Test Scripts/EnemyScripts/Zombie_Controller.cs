@@ -42,6 +42,9 @@ public class Zombie_Controller : MonoBehaviour
     //level loader
     LevelLoader levelLoad;
 
+    //jumpscare boolean
+    bool jumpscare = false;
+
     void Start() //initialise the variables
     {
         agent = GetComponent<NavMeshAgent>();
@@ -77,21 +80,7 @@ public class Zombie_Controller : MonoBehaviour
             FaceTarget();
             agent.speed = 0;
 
-            //insert jumpscare kill player yes
-            camera.ActivateDeathCam(focusPoint);
-            target.gameObject.SetActive(false);
-
-            timer += Time.deltaTime;
-            if (timer >= 3)
-            {
-                //play a fadeout transition
-                if (timer >= 3.1)
-                {
-                    target.gameObject.SetActive(true);
-                    target.position = GameSettings.currentCheckpoint.spawnPos;
-                    levelLoad.LoadScene(levelLoad.getSceneName());
-                }
-            }
+            jumpscare = true;
         }
         //RaycastHit hit;
         //if (Physics.Linecast(transform.position, target.position, out hit, -1)) //if behind wall, lose player
@@ -143,6 +132,23 @@ public class Zombie_Controller : MonoBehaviour
 
         ZombieAnimation();
         agent.speed = 2.32f;
+
+        if (jumpscare)
+        {
+            //insert jumpscare kill player yes
+            camera.ActivateDeathCam(focusPoint);
+            target.gameObject.SetActive(false);
+
+            timer += Time.deltaTime;
+            //play a fadeout transition
+            if (timer >= 3.1)
+            {
+                target.gameObject.SetActive(true);
+                target.position = GameSettings.currentCheckpoint.spawnPos;
+                levelLoad.LoadNextLevel(levelLoad.getSceneName());
+            }
+        }
+
         if (trigger.GetTriggerStatus())
         {
             if (PlayerWithinViewDistance()) //turn this into an else if statement

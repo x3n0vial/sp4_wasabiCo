@@ -16,6 +16,7 @@ public static class CheckpointManager
 
     public static void InitCheckpoints()
     {
+        Debug.Log("checkpoint count: " + checkpoints.Count);
         foreach (Checkpoint cp in checkpoints)
         {
             if (cp.ID <= last_ID)
@@ -48,6 +49,9 @@ public enum CheckpointID
     NIGHTMARE_LAB,
 
     BOSS_ENTRY,
+
+    TEST1,
+    TEST2,
 
     NUM_ID_TOTAL
 }

@@ -58,6 +58,9 @@ public class Skeleton_Controller : MonoBehaviour
     //level loader
     LevelLoader levelLoad;
 
+    //jumpscare boolean
+    bool jumpscare = false;
+
     void Start() //initialise the variables
     {
         chaseSpeed = 1;
@@ -119,21 +122,7 @@ public class Skeleton_Controller : MonoBehaviour
                         FaceTarget();
                         agent.speed = 0;
 
-                        //insert jumpscare kill player yes
-                        camera.ActivateDeathCam(focusPoint);
-                        target.gameObject.SetActive(false);
-
-                        timer += Time.deltaTime;
-                        if (timer >= 3)
-                        {
-                            //play a fadeout transition
-                            if (timer >= 3.1)
-                            {
-                                target.gameObject.SetActive(true);
-                                target.position = GameSettings.currentCheckpoint.spawnPos;
-                                levelLoad.LoadScene(levelLoad.getSceneName());
-                            }
-                        }
+                        jumpscare = true;
 
                     }
                 }
@@ -208,8 +197,23 @@ public class Skeleton_Controller : MonoBehaviour
         ChangeRadius();
 
         distance = Vector3.Distance(target.position, transform.position);
-        Debug.Log("test"+stunned());
         SkeletonAnimation();
+
+        if (jumpscare)
+        {
+            //insert jumpscare kill player yes
+            camera.ActivateDeathCam(focusPoint);
+            target.gameObject.SetActive(false);
+
+            timer += Time.deltaTime;
+            //play a fadeout transition
+            if (timer >= 3.1)
+            {
+                target.gameObject.SetActive(true);
+                target.position = GameSettings.currentCheckpoint.spawnPos;
+                levelLoad.LoadNextLevel(levelLoad.getSceneName());
+            }
+        }
 
         if (!stunned())
         {
