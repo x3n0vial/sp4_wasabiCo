@@ -22,14 +22,14 @@ public class ZombieGetUp : MonoBehaviour
 
     //timer to getup
     int getupTimer = 0;
-    int maxgetupTimer = 50;
+    int maxgetupTimer = 200;
 
     //shift zombie position downwards slowly
     float zombiePosY = 0;
 
     //timer to enable physics start chasing
     int chaseTimer = 0;
-    int maxChaseTimer = 130;
+    int maxChaseTimer = 500;
 
     // Start is called before the first frame update
     void Start()
@@ -52,17 +52,14 @@ public class ZombieGetUp : MonoBehaviour
         if (getUp)
         {
             getupTimer++;
-            Debug.Log("Getup timer: " + getupTimer);
             if (getupTimer > maxgetupTimer)
             {
                 anim.SetTrigger("Getup");
                 chaseTimer++;
                 zombiePosY -= 0.000001f * Time.deltaTime;
-                Debug.Log("chase timer: " + chaseTimer);
                 if (chaseTimer > maxChaseTimer)
                 {
                     this.transform.parent.gameObject.SetActive(false);
-                    Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAA");
                     zombiePosY = 0;
                     zombie.SetActive(true); 
                     getUp = false;
