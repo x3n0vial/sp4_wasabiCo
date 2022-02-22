@@ -10,6 +10,7 @@ public class SceneNightmareSettings : MonoBehaviour
     void Start()
     {
         lightsManager.InitToStage(3);
+        GameSettings.CAMERA_MOUSEPAN_ENABLED = false;
     }
 
     // Update is called once per frame
