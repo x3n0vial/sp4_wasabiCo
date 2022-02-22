@@ -144,8 +144,8 @@ public class Zombie_Controller : MonoBehaviour
             if (timer >= 3.1)
             {
                 target.gameObject.SetActive(true);
-                target.position = GameSettings.currentCheckpoint.spawnPos;
                 levelLoad.LoadNextLevel(levelLoad.getSceneName());
+                CheckpointManager.ClearCheckpoints();
             }
         }
 

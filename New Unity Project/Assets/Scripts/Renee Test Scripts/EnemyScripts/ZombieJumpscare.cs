@@ -47,7 +47,6 @@ public class ZombieJumpscare : MonoBehaviour
 
         focusPoint = transform.Find("FocusPoint");
         camera = GameHandler.instance.cameraSettings;
-
         levelLoad = GameHandler.instance.levelLoader;
     }
 
@@ -94,8 +93,8 @@ public class ZombieJumpscare : MonoBehaviour
                 if (timer >= 3.1)
                 {
                     target.gameObject.SetActive(true);
-                    target.position = GameSettings.currentCheckpoint.spawnPos;
                     levelLoad.LoadNextLevel(levelLoad.getSceneName());
+                    CheckpointManager.ClearCheckpoints();
                 }
             }
         }

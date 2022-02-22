@@ -61,6 +61,9 @@ public class Skeleton_Controller : MonoBehaviour
     //jumpscare boolean
     bool jumpscare = false;
 
+    //enemy direction
+    Vector3 direction;
+
     void Start() //initialise the variables
     {
         chaseSpeed = 1;
@@ -88,7 +91,7 @@ public class Skeleton_Controller : MonoBehaviour
     }
     void FaceTarget() //changes direction to face the player 
     {
-        Vector3 direction = (target.position - transform.position).normalized;
+        direction = (target.position - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
     }
@@ -210,8 +213,8 @@ public class Skeleton_Controller : MonoBehaviour
             if (timer >= 3.1)
             {
                 target.gameObject.SetActive(true);
-                target.position = GameSettings.currentCheckpoint.spawnPos;
                 levelLoad.LoadNextLevel(levelLoad.getSceneName());
+                CheckpointManager.ClearCheckpoints();
             }
         }
 
