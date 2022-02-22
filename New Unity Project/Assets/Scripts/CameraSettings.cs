@@ -9,6 +9,10 @@ public class CameraSettings : MonoBehaviour
 
     public CinemachineFreeLook freelookCam;
     public CinemachineVirtualCamera standardCam;
+    public CinemachineVirtualCamera deathCam;
+    
+    public GameObject deathCamTarget;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +29,7 @@ public class CameraSettings : MonoBehaviour
             freelookCam.Priority = 0;
             standardCam.Priority = 1;
         }
+        deathCam.Priority = -1;
     }
 
     // Update is called once per frame
@@ -49,5 +54,14 @@ public class CameraSettings : MonoBehaviour
             freelookCam.Priority = 0;
             standardCam.Priority = 1;
         }
+
+       
+    }
+
+    public void ActivateDeathCam(Transform target)
+    {
+        deathCam.LookAt = target;
+        deathCam.Follow = target;
+        deathCam.Priority = 10;
     }
 }

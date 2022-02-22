@@ -170,7 +170,6 @@ public class Flashlight : MonoBehaviour
         {
 			if (go_col == col)
             {
-				Debug.Log("Lantern is within Flashlight!");
 				RaycastHit hitData;
 				bool blocked = Physics.Linecast(transform.position, col.gameObject.transform.position, out hitData, blockLightLayers);
 				if (!blocked 
