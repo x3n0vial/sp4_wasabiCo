@@ -43,6 +43,12 @@ public class TinyZombie_Controller : MonoBehaviour
     //point of focus
     Transform focusPoint;
 
+    //timer
+    float timer = 0;
+
+    //level loader
+    LevelLoader levelLoad;
+
     void Start() //initialise the variables
     {
         agent = GetComponent<NavMeshAgent>();
@@ -56,6 +62,8 @@ public class TinyZombie_Controller : MonoBehaviour
 
         focusPoint = transform.Find("FocusPoint");
         camera = GameHandler.instance.cameraSettings;
+
+        levelLoad = GameHandler.instance.levelLoader;
     }
     void ChangeSpeed() //speed of the enemy. Increases based on what stage the level is at
     {
@@ -112,6 +120,18 @@ public class TinyZombie_Controller : MonoBehaviour
                     //insert jumpscare kill player yes
                     camera.ActivateDeathCam(focusPoint);
                     target.gameObject.SetActive(false);
+
+                    timer += Time.deltaTime;
+                    if (timer >= 3)
+                    {
+                        //play a fadeout transition
+                        if (timer >= 3.1)
+                        {
+                            target.gameObject.SetActive(true);
+                            target.position = GameSettings.currentCheckpoint.spawnPos;
+                            levelLoad.LoadScene(levelLoad.getSceneName());
+                        }
+                    }
                 }
             }
         }

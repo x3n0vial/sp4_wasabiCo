@@ -33,6 +33,12 @@ public class ZombieJumpscare : MonoBehaviour
     //point of focus
     Transform focusPoint;
 
+    //timer
+    float timer = 0;
+
+    //level loader
+    LevelLoader levelLoad;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +47,8 @@ public class ZombieJumpscare : MonoBehaviour
 
         focusPoint = transform.Find("FocusPoint");
         camera = GameHandler.instance.cameraSettings;
+
+        levelLoad = GameHandler.instance.levelLoader;
     }
 
     void OnTriggerEnter(Collider other)
@@ -80,6 +88,18 @@ public class ZombieJumpscare : MonoBehaviour
                 //insert jumpscare kill player yes
                 camera.ActivateDeathCam(focusPoint);
                 target.gameObject.SetActive(false);
+
+                timer += Time.deltaTime;
+                if (timer >= 3)
+                {
+                    //play a fadeout transition
+                    if (timer >= 3.1)
+                    {
+                        target.gameObject.SetActive(true);
+                        target.position = GameSettings.currentCheckpoint.spawnPos;
+                        levelLoad.LoadScene(levelLoad.getSceneName());
+                    }
+                }
             }
         }
     }
