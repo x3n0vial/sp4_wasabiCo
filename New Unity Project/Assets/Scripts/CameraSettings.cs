@@ -64,4 +64,9 @@ public class CameraSettings : MonoBehaviour
         deathCam.Follow = target;
         deathCam.Priority = 10;
     }
+
+    public void DeactivateDeathCam()
+    {
+        deathCam.Priority = -1;
+    }
 }
