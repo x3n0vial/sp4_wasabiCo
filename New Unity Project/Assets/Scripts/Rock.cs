@@ -1,24 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Rock : MonoBehaviour
 {
-    [SerializeField()] AudioSource breaksound;
+    public AudioClip cracksound;
+    public AudioClip breaksound;
+    private AudioSource audioSource;
+
+    private bool pause = true;
 
     public GameObject brokenrock;
     public GameObject tallrock;
     public Flashlight flashlight;
 
-    float breaking = 0.0f;
-    float breakspeed = 1.0f;
+    private float breaking = 0.0f;
+    private float breakspeed = 1.0f;
 
-    bool breakupdate = true;
+    private bool breakupdate = true;
+
+    public Canvas UICanvas;
+    Image progressBar;
+    Vector3 bar_ori_pos;
+    float bar_pos_offset = 0.23f;
+    float bar_full_scale = 0.48f;
+    float trigger_radius = 5.0f;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
+
+        progressBar = UICanvas.gameObject.transform.Find("RockBar").Find("Filler").GetComponent<Image>();
+        bar_ori_pos = progressBar.transform.localPosition;
     }
 
     // Update is called once per frame
@@ -27,18 +42,47 @@ public class Rock : MonoBehaviour
         if (breakupdate == false)
             return;
 
+        float displacement = (GameHandler.instance.player.transform.position - transform.position).magnitude;
+        if (displacement < trigger_radius || flashlight.CheckIfInFlashlight(tallrock.GetComponent<BoxCollider>()) == true)
+            UICanvas.gameObject.SetActive(true);
+        else
+            UICanvas.gameObject.SetActive(false);
+
         if (flashlight.CheckIfInFlashlight(tallrock.GetComponent<BoxCollider>()) == true)
+        {
+            if (pause)
+            {
+                audioSource.clip = cracksound;
+                audioSource.Play();
+                pause = false;
+            }
             breaking += breakspeed * Time.deltaTime;
+
+            progressBar.transform.localPosition = new Vector3(bar_ori_pos.x + breaking * bar_pos_offset * 0.2f, bar_ori_pos.y, bar_ori_pos.z);
+            progressBar.transform.localScale = new Vector3(breaking * bar_full_scale * 0.2f, progressBar.transform.localScale.y, progressBar.transform.localScale.z);
+        }
+        else
+        {
+            if (!pause)
+            {
+                audioSource.Pause();
+                pause = true;
+            }
+        }
 
         //Debug.Log(breaking);
 
         if (breaking >= 5.0f)
         {
+            audioSource.clip = breaksound;
+            audioSource.Play();
+
             breakupdate = false;
-            if (breaksound != null)
-                breaksound.Play();
             brokenrock.SetActive(true);
             tallrock.SetActive(false);
+            GameHandler.instance.lightManager.DarkenSceneLight();
+
+            UICanvas.gameObject.SetActive(false);
         }
     }
 }
