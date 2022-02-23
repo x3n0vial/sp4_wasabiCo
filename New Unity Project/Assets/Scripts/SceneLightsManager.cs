@@ -26,6 +26,7 @@ public class SceneLightsManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         dir_light_intensity = dirLight.intensity;
         player_dir_light_intensity = player_dirLight.intensity;
         env_light_intensity = RenderSettings.reflectionIntensity;
@@ -58,21 +59,24 @@ public class SceneLightsManager : MonoBehaviour
 
     }
 
-    public void InitToStage(int num_stage)
+    public void InitToFinalStage()
     {
-        if (num_stage > num_stages)
-            currStage = num_stages;
-        else
-            currStage = num_stage;
+        currStage = num_stages;
 
-        float color_amt = (ambient_intensity - MinAmbientIntensity) / num_stages;
-        color_amt *= (num_stages - currStage);
-        color_amt /= 255.0f;
-        RenderSettings.ambientLight = new Color(color_amt, color_amt, color_amt, color_amt);
+        Debug.Log("initting Scene lighting to stage..." + currStage);
+
+     
+        RenderSettings.ambientLight = new Color(MinAmbientIntensity, MinAmbientIntensity, MinAmbientIntensity, MinAmbientIntensity);
 
 
-        dirLight.intensity = (dir_light_intensity - MinDirLightIntensity) * ((num_stages - currStage)/num_stages);
-        player_dirLight.intensity = (player_dir_light_intensity - MinPlayerDirLightIntensity) * ((num_stages - currStage) / num_stages);
-        RenderSettings.reflectionIntensity = (env_light_intensity - MinEnvLightIntensity) * ((num_stages - currStage) / num_stages);
+        dirLight.intensity = MinDirLightIntensity;
+        player_dirLight.intensity = MinPlayerDirLightIntensity;
+        RenderSettings.reflectionIntensity = MinEnvLightIntensity;
+
+
+        Debug.Log("Ambient Light Color Set to value: " + MinAmbientIntensity);
+        Debug.Log("Directional Light Intensity Set to: " + dirLight.intensity);
+        Debug.Log("Player Directional Light Intensity Set to: " + player_dirLight.intensity);
+        Debug.Log("Envrionment Ambient Light Multiplier Set to: " + RenderSettings.reflectionIntensity);
     }
 }
