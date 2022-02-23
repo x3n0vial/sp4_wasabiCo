@@ -10,7 +10,8 @@ public class WorldSpaceCanvas : MonoBehaviour
     {
         // Rotate canvas to face player
         // Get Facing Camera Direction
-        Vector3 targetDir = -1 * GameHandler.instance.UICamera.transform.forward;
+       // Vector3 targetDir = -1 * GameHandler.instance.UICamera.transform.forward;
+        Vector3 targetDir = Camera.main.transform.position - transform.position;
         targetDir.y = 0;
         targetDir.Normalize();
 

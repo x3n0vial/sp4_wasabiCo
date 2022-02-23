@@ -42,6 +42,8 @@ namespace UnityChan
 
         private float restTimer = 0.0f;
 
+        private bool isOnSlope = false;
+
 		// Animator Reference to each state
 		static int idleState = Animator.StringToHash("Base Layer.Idle");
 		static int runState = Animator.StringToHash("Base Layer.Run");
@@ -75,13 +77,8 @@ namespace UnityChan
 			// play animation when move
 			bool hasHorizontalInput = !Mathf.Approximately(h, 0f);
 			bool hasVerticalInput = !Mathf.Approximately(v, 0f);
-			bool isRun = hasHorizontalInput || hasVerticalInput;
+		    bool isRun = hasHorizontalInput || hasVerticalInput;
 			anim.SetBool("IsRun", isRun);
-
-            //if (isRun == false)
-            //    rb.isKinematic = true;
-            //else
-            //    rb.isKinematic = false;
 
             anim.speed = animSpeed;									// Set animation speed
 			currentBaseState = anim.GetCurrentAnimatorStateInfo(0); // Set the reference state variable to the current state of Base Layer (0)
@@ -228,5 +225,7 @@ namespace UnityChan
 			col.height = orgColHight;
 			col.center = orgVectColCenter;
 		}
-	}
+
+    
+    }
 }
