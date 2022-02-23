@@ -58,7 +58,7 @@ public class CameraSettings : MonoBehaviour
        
     }
 
-    public void ActivateDeathCam(Transform target, Vector3 direction)
+    public void ActivateDeathCam(Transform target)
     {
         deathCam.LookAt = target;
         deathCam.Follow = target;

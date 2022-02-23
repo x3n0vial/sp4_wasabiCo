@@ -175,7 +175,7 @@ public class TinyZombie_Controller : MonoBehaviour
         {
          
             //insert jumpscare kill player yes
-            camera.ActivateDeathCam(focusPoint, direction);
+            camera.ActivateDeathCam(focusPoint);
             target.gameObject.SetActive(false);
 
             timer += Time.deltaTime;
