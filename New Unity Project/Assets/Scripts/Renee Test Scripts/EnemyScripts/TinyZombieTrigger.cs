@@ -24,9 +24,4 @@ public class TinyZombieTrigger : MonoBehaviour
     {
         return trigger;
     }
-
-    void setTrigger(bool setTrigger)
-    {
-        trigger = setTrigger;
-    }
 }

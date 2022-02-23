@@ -47,15 +47,24 @@ public class TinyZombieRun_Controller : MonoBehaviour
     //enemy direction
     Vector3 direction;
 
+    //enemy speed
+    public float speed;
+
+    //enemy setspeed
+    public SetSpeed setSpeed;
+
+    //enemy type
+    public string type;
+
     void Start() //initialise the variables
     {
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
         target = GameHandler.instance.player.transform;
         flashlight = GameHandler.instance.flashlight;
-        agent.speed = 0.1f;
         collider = GetComponent<Collider>();
-        agent.speed = 6f;
+
+        agent.speed = speed;
 
         focusPoint = transform.Find("FocusPoint");
         camera = GameHandler.instance.cameraSettings;
@@ -142,15 +151,26 @@ public class TinyZombieRun_Controller : MonoBehaviour
             }
         }
 
-        if (stunned() && trigger.getTrigger())
+        if (type == "Run")
         {
-            //play spooky sound effect
-            transform.gameObject.SetActive(false);
+            if (stunned() && trigger.getTrigger())
+            {
+                //play spooky sound effect
+                transform.gameObject.SetActive(false);
+            }
         }
 
         if (!stunned() && trigger.getTrigger())
         {
-            agent.speed = 6f;
+            if (setSpeed.getSpeedStatus())
+            {
+                agent.speed = setSpeed.getSpeed();
+            }
+            else
+            {
+                agent.speed = speed;
+            }
+            
             if (PlayerWithinViewDistance()) //turn this into an else if statement
             {
                 followPlayer();
