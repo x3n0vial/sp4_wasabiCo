@@ -7,7 +7,6 @@ TagManager:
   - Floor
   - Wall
   - Pickable
-  - Slope
   - Zombie
   layers:
   - Default
