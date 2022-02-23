@@ -64,13 +64,16 @@ public class CameraSettings : MonoBehaviour
         deathCam.Follow = target;
         deathCam.Priority = 10;
         CinemachineTransposer transposer = deathCam.GetCinemachineComponent<CinemachineTransposer>();
-        Vector3 camDir = -1 * direction;
-        float theta = Mathf.Acos(Vector3.Dot(camDir, new Vector3(0, 0, -1)) / camDir.magnitude);
-        if (camDir.x > 0)
-            theta *= -1;
-        float radius = 2.0f;
-        transposer.m_FollowOffset = new Vector3(Mathf.Cos(theta) * radius, transposer.m_FollowOffset.y, Mathf.Sin(theta) * radius);
-        Debug.Log("Camera Dir = " + camDir);
+        //direction.y = 0;
+        //direction = direction.normalized;
+        //Vector3 camDir = -1 *direction;
+        //float theta = Mathf.Acos(Vector3.Dot(camDir, new Vector3(0, 0, -1)) / camDir.magnitude);
+        //if (camDir.x > 0)
+        //    theta *= -1;
+        float radius = 3.0f;
+        float theta = 180 * Mathf.Deg2Rad;
+        transposer.m_FollowOffset = new Vector3(Mathf.Sin(theta) * radius, transposer.m_FollowOffset.y, Mathf.Cos(theta) * radius);
+       // Debug.Log("Camera Dir = " + camDir);
         Debug.Log("Camera Offset = " + transposer.m_FollowOffset);
     }
 
