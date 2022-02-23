@@ -115,6 +115,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1204887619611634474, guid: 839e7716ab15f65418c5fd45079c7f36,
         type: 3}
+      propertyPath: m_Range
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1204887619611634474, guid: 839e7716ab15f65418c5fd45079c7f36,
+        type: 3}
       propertyPath: m_Intensity
       value: 1
       objectReference: {fileID: 0}
@@ -207,6 +212,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1204887619611634474, guid: 839e7716ab15f65418c5fd45079c7f36,
+        type: 3}
+      propertyPath: m_Range
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1204887619611634474, guid: 839e7716ab15f65418c5fd45079c7f36,
         type: 3}
@@ -305,6 +315,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1204887619611634474, guid: 839e7716ab15f65418c5fd45079c7f36,
         type: 3}
+      propertyPath: m_Range
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1204887619611634474, guid: 839e7716ab15f65418c5fd45079c7f36,
+        type: 3}
       propertyPath: m_Intensity
       value: 1.5
       objectReference: {fileID: 0}
@@ -397,6 +412,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1204887619611634474, guid: 839e7716ab15f65418c5fd45079c7f36,
+        type: 3}
+      propertyPath: m_Range
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1204887619611634474, guid: 839e7716ab15f65418c5fd45079c7f36,
         type: 3}
@@ -501,7 +521,7 @@ PrefabInstance:
     - target: {fileID: 2647087188391277091, guid: f13f9e91e7112f7469fd20e9525539c8,
         type: 3}
       propertyPath: m_Range
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2647087188391277091, guid: f13f9e91e7112f7469fd20e9525539c8,
         type: 3}
@@ -596,7 +616,7 @@ PrefabInstance:
     - target: {fileID: 8219705868876034055, guid: b1da491eb5a1316448237497873cd284,
         type: 3}
       propertyPath: m_Range
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8219705868876034055, guid: b1da491eb5a1316448237497873cd284,
         type: 3}
