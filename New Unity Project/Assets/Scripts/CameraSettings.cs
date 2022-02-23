@@ -70,11 +70,11 @@ public class CameraSettings : MonoBehaviour
         //float theta = Mathf.Acos(Vector3.Dot(camDir, new Vector3(0, 0, -1)) / camDir.magnitude);
         //if (camDir.x > 0)
         //    theta *= -1;
-        float radius = 3.0f;
-        float theta = 180 * Mathf.Deg2Rad;
-        transposer.m_FollowOffset = new Vector3(Mathf.Sin(theta) * radius, transposer.m_FollowOffset.y, Mathf.Cos(theta) * radius);
+      //  float radius = 3.0f;
+       // float theta = 180 * Mathf.Deg2Rad;
+       // transposer.m_FollowOffset = new Vector3(Mathf.Sin(theta) * radius, transposer.m_FollowOffset.y, Mathf.Cos(theta) * radius);
        // Debug.Log("Camera Dir = " + camDir);
-        Debug.Log("Camera Offset = " + transposer.m_FollowOffset);
+       // Debug.Log("Camera Offset = " + transposer.m_FollowOffset);
     }
 
     public void DeactivateDeathCam()
