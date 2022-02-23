@@ -1,6 +1,8 @@
+//Nicole
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class BossAI : MonoBehaviour
 {
@@ -9,11 +11,14 @@ public class BossAI : MonoBehaviour
 
     private int waypointIndex;
     private float dist, distToPlayer;
-    private double restTime = 1.5f, attackTime = 0f;
+    private double restTime = 1.5f, stunTime = 0.5f, flashTime = 0f;
 
-    public UnityEngine.AI.NavMeshAgent agent;
+    public NavMeshAgent agent;
     public Animator anim;
+    public Collider collider;
+
     public GameObject Player;
+    public Flashlight flashlight;
 
     public float angleOfView, rangeofView;
 
@@ -25,13 +30,21 @@ public class BossAI : MonoBehaviour
         waypointIndex = 0;
         transform.LookAt(waypoints[waypointIndex].position);
         wallLayer = LayerMask.GetMask("Wall");
+        //anim = GetComponent<Animator>();
+        //agent = GetComponent<NavMeshAgent>();
+        //collider = GetComponent<Collider>();
     }
 
     // Update is called once per frame
     void Update()
     {
         dist = Vector3.Distance(transform.position, waypoints[waypointIndex].position);
-        if(dist<1f)
+        distToPlayer = Vector3.Distance(transform.position, Player.transform.position);
+
+        if (distToPlayer > 10f)
+            Patrol();
+
+        if (dist<1f)
         {
             if (restTime <= 0f)
             {
@@ -42,24 +55,23 @@ public class BossAI : MonoBehaviour
             }
             else
             {
+                // rest for a while before moving to next waypoint
                 restTime -= Time.deltaTime;
                 anim.SetBool("Rest", true);
                 anim.SetBool("Patrol", false);
             }
         }
 
-        //Vector3 dir = transform.rotation * Vector3.forward;
-        //float theta = Mathf.Acos(Vector3.Dot(Player.transform.position - transform.position, dir) / ((Player.transform.position - transform.position).magnitude * dir.magnitude));
-        //RaycastHit hit;
-        distToPlayer = Vector3.Distance(transform.position, Player.transform.position);
-        if (distToPlayer < 10f && distToPlayer > 5f)
+        if (distToPlayer < 10f && distToPlayer > 3f)
         {
             if (canSeePlayer())
             {
+                // if enemy can see player
                 Follow();
             }
             else
             {
+                // continue patrol if cannot see player
                 anim.SetBool("Follow", false);
                 Patrol();
             }
@@ -69,20 +81,49 @@ public class BossAI : MonoBehaviour
             anim.SetBool("Follow", false);
         }
 
-        if (distToPlayer<5f)
-
+        if (distToPlayer < 3f)
         {
-                Attack();
+            // attack player if within range
+            Attack();
         }
         else
         {
             anim.SetBool("Attack", false);
         }
 
-        if (distToPlayer > 10f)
-            Patrol();
+
+
+        if (isStunned())
+        {
+            Stun();
+        }
+        else
+        {
+            anim.SetBool("Stun", false);
+            stunTime = 0.5f;
+        }
     }
     
+    bool isStunned()
+    {
+        if(stunTime>0f)
+        {
+            if (flashlight.CheckIfInFlashlight(collider))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    void Stun()
+    {
+        stunTime -= Time.deltaTime;
+        anim.SetBool("Stun", true);
+        Debug.Log("Stunned");
+        // anim.SetBool("Attack", false);
+    }
+
     bool canSeePlayer()
     {
         Vector3 dirToPlayer = Player.transform.position - transform.position;
@@ -91,7 +132,10 @@ public class BossAI : MonoBehaviour
             if (Physics.Raycast(transform.position, dirToPlayer, out RaycastHit hit, rangeofView))
             {
                 if (hit.collider.tag=="Player")
-                    return true;
+                {
+                    return true;                
+                }
+
             }
         }
         return false;
@@ -106,6 +150,8 @@ public class BossAI : MonoBehaviour
     {
         agent.SetDestination(Player.transform.position);
         anim.SetBool("Follow", true);
+        anim.SetBool("Patrol", false);
+        anim.SetBool("Attack", false);
     }
 
     void Patrol()

@@ -78,10 +78,10 @@ namespace UnityChan
 			bool isRun = hasHorizontalInput || hasVerticalInput;
 			anim.SetBool("IsRun", isRun);
 
-            if (isRun == false)
-                rb.isKinematic = true;
-            else
-                rb.isKinematic = false;
+            //if (isRun == false)
+            //    rb.isKinematic = true;
+            //else
+            //    rb.isKinematic = false;
 
             anim.speed = animSpeed;									// Set animation speed
 			currentBaseState = anim.GetCurrentAnimatorStateInfo(0); // Set the reference state variable to the current state of Base Layer (0)

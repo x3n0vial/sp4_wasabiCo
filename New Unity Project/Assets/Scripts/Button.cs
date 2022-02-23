@@ -6,18 +6,21 @@ public class Button : MonoBehaviour
 {
     // Start is called before the first frame update
     public Elevator elevator;
+    public float TargetPositionY;
 
 
     //FOR TESTING
-    public void StartElevator(float TargetPosY)
+    public void StartElevator()
     {
-        elevator.StartElevator(TargetPosY);
+        elevator.StartElevator(TargetPositionY);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        // if item hit,
-       // elevator.StartElevator();
+        if (other.CompareTag("Pickable"))
+        {
+            elevator.StartElevator(TargetPositionY);
+        }
     }
 
 }

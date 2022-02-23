@@ -34,6 +34,7 @@ public class Elevator : MonoBehaviour
     private float door_speed = 1.5f; // Speed of door open/close
     private float elevator_speed = 3.0f; // Speed of elevator movement
     private float temp_dis_moved = 0.0f; // Temp Var
+    private float DOOR_OPEN_OFFSET = 5.0f;
 
     // DOOR ORIGINAL POSITIONS
     private Vector3 enterDoorL_oriPos, enterDoorR_oriPos;
@@ -45,6 +46,8 @@ public class Elevator : MonoBehaviour
         enterDoorR_oriPos = enterDoorR.transform.position;
         exitDoorL_oriPos = exitDoorL.transform.position;
         exitDoorR_oriPos = exitDoorR.transform.position;
+
+        DOOR_OPEN_OFFSET *= transform.localScale.z;
     }
 
     // Update is called once per frame
@@ -59,7 +62,7 @@ public class Elevator : MonoBehaviour
                 enterDoorL.transform.position = new Vector3(enterDoorL.transform.position.x, enterDoorL.transform.position.y, enterDoorL.transform.position.z + deltaZ);
                 enterDoorR.transform.position = new Vector3(enterDoorR.transform.position.x, enterDoorR.transform.position.y, enterDoorR.transform.position.z - deltaZ);
                 temp_dis_moved += deltaZ;
-                if (temp_dis_moved >= 5.0f)
+                if (temp_dis_moved >= DOOR_OPEN_OFFSET)
                     state = LIFT_STATES.ENTER_WAITING;
                 break;
             case LIFT_STATES.ENTER_WAITING:
@@ -84,7 +87,7 @@ public class Elevator : MonoBehaviour
                 float deltaY = elevator_speed * Time.deltaTime;
                 if (target_pos_y < transform.position.y)
                     deltaY *= -1;
-                transform.position = new Vector3(transform.position.x, transform.position.y + deltaY, transform.position.z);
+                transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y + deltaY, transform.localPosition.z);
                 Debug.Log("Moving Lift");
                 if ((deltaY < 0 && transform.position.y < target_pos_y)
                     || (deltaY > 0 && transform.position.y > target_pos_y))
@@ -101,7 +104,7 @@ public class Elevator : MonoBehaviour
                 exitDoorL.transform.position = new Vector3(exitDoorL.transform.position.x, exitDoorL.transform.position.y, exitDoorL.transform.position.z - deltaZ);
                 exitDoorR.transform.position = new Vector3(exitDoorR.transform.position.x, exitDoorR.transform.position.y, exitDoorR.transform.position.z + deltaZ);
                 temp_dis_moved += deltaZ;
-                if (temp_dis_moved >= 5.0f)
+                if (temp_dis_moved >= DOOR_OPEN_OFFSET)
                     state = LIFT_STATES.EXIT_WAITING;
                 break;
             case LIFT_STATES.EXIT_WAITING:

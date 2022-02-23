@@ -9,7 +9,7 @@ public class SceneNightmareSettings : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        lightsManager.InitToStage(3);
+        lightsManager.InitToFinalStage();
         GameSettings.CAMERA_MOUSEPAN_ENABLED = false;
     }
 
