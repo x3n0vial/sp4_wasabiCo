@@ -2618,8 +2618,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5792511593912579256}
-  m_LocalRotation: {x: -0.7071067, y: 5.302452e-33, z: 5.302451e-33, w: 0.7071068}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -1, w: 0}
+  m_LocalPosition: {x: -0, y: 0.216, z: -0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children:
   - {fileID: 5794756396886151804}
@@ -2639,7 +2639,7 @@ Transform:
   - {fileID: 5794464897083750882}
   m_Father: {fileID: 5794526363542072584}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 180, y: 180, z: 0}
 --- !u!1 &5792512756524764742
 GameObject:
   m_ObjectHideFlags: 0
@@ -4041,8 +4041,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5792744366562842766}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 1.413, z: 0}
   m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_Children:
   - {fileID: 5794489086867466104}
@@ -4051,7 +4051,7 @@ Transform:
   - {fileID: 8521604364984387854}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!95 &5850578553012415794
 Animator:
   serializedVersion: 3
@@ -4095,10 +4095,10 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5792744366562842766}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 5779b1a41ccf45b45bfc238034373133, type: 3}
 --- !u!114 &2527483994018310817
@@ -4117,8 +4117,11 @@ MonoBehaviour:
   speed: 7
   agent: {fileID: 6467679190872339611}
   anim: {fileID: 5850578553012415794}
+  collider: {fileID: 0}
   Player: {fileID: 0}
-  fieldOfView: 0
+  flashlight: {fileID: 0}
+  angleOfView: 0
+  rangeofView: 0
 --- !u!195 &6467679190872339611
 NavMeshAgent:
   m_ObjectHideFlags: 0
