@@ -44,6 +44,9 @@ public class TinyZombieRun_Controller : MonoBehaviour
     //jumpscare boolean
     bool jumpscare = false;
 
+    //enemy direction
+    Vector3 direction;
+
     void Start() //initialise the variables
     {
         agent = GetComponent<NavMeshAgent>();
@@ -61,7 +64,7 @@ public class TinyZombieRun_Controller : MonoBehaviour
     }
     void FaceTarget() //changes direction to face the player 
     {
-        Vector3 direction = (target.position - transform.position).normalized;
+        direction = (target.position - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
     }
@@ -126,7 +129,7 @@ public class TinyZombieRun_Controller : MonoBehaviour
         if (jumpscare)
         {
             //insert jumpscare kill player yes
-            camera.ActivateDeathCam(focusPoint);
+            camera.ActivateDeathCam(focusPoint, direction);
             target.gameObject.SetActive(false);
 
             timer += Time.deltaTime;

@@ -205,7 +205,7 @@ public class Skeleton_Controller : MonoBehaviour
         if (jumpscare)
         {
             //insert jumpscare kill player yes
-            camera.ActivateDeathCam(focusPoint);
+            camera.ActivateDeathCam(focusPoint, direction);
             target.gameObject.SetActive(false);
 
             timer += Time.deltaTime;

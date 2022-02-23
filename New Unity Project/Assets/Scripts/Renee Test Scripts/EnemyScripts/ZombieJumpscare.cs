@@ -85,7 +85,7 @@ public class ZombieJumpscare : MonoBehaviour
                 anim.SetTrigger("JumpscareDie");
 
                 //insert jumpscare kill player yes
-                camera.ActivateDeathCam(focusPoint);
+               // camera.ActivateDeathCam(focusPoint);
                 target.gameObject.SetActive(false);
 
                 timer += Time.deltaTime;
