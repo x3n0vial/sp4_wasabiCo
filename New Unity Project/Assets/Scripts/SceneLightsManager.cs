@@ -64,5 +64,15 @@ public class SceneLightsManager : MonoBehaviour
             currStage = num_stages;
         else
             currStage = num_stage;
+
+        float color_amt = (ambient_intensity - MinAmbientIntensity) / num_stages;
+        color_amt *= (num_stages - currStage);
+        color_amt /= 255.0f;
+        RenderSettings.ambientLight = new Color(color_amt, color_amt, color_amt, color_amt);
+
+
+        dirLight.intensity = (dir_light_intensity - MinDirLightIntensity) * ((num_stages - currStage)/num_stages);
+        player_dirLight.intensity = (player_dir_light_intensity - MinPlayerDirLightIntensity) * ((num_stages - currStage) / num_stages);
+        RenderSettings.reflectionIntensity = (env_light_intensity - MinEnvLightIntensity) * ((num_stages - currStage) / num_stages);
     }
 }

@@ -23,7 +23,7 @@ public class GameHandler : MonoBehaviour
     private void Start()
     {
         CheckpointManager.InitCheckpoints();
-        if (GameSettings.currentCheckpoint.ID != CheckpointID.UNSET)
+        if (CheckpointManager.last_ID != CheckpointID.UNSET)
         {
             player.transform.position = GameSettings.currentCheckpoint.spawnPos;
         }
