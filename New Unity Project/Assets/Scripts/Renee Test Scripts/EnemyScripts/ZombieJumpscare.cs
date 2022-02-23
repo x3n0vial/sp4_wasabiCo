@@ -14,18 +14,18 @@ public class ZombieJumpscare : MonoBehaviour
     bool jumpscare = false;
 
     //timer to jumpscare
-    int jumpscareTimer = 0;
-    int maxJumpscareTimer = 50;
+    float jumpscareTimer = 0;
+    float maxJumpscareTimer = 0.3f;
 
     //timer back to idle
-    int idle = 0;
-    int maxIdle = 200;
+    float idle = 0;
+    float maxIdle = 2.5f;
 
     //timer to jumpscare die, player dies if they step on zombie again
-    int jumpscareDieTimer = 0;
-    int maxJumpscareDieTimer = 50;
+    float jumpscareDieTimer = 0;
+    float maxJumpscareDieTimer = 0.3f;
 
-    int steppedOn = 0;
+    bool steppedOn = false;
 
     //death camera
     CameraSettings camera;
@@ -55,7 +55,10 @@ public class ZombieJumpscare : MonoBehaviour
         if (other.transform == target)
         {
             jumpscare = true;
-            steppedOn++;
+            if (idle > maxIdle)
+            {
+                steppedOn = true;
+            }
         }
     }
 
@@ -63,11 +66,11 @@ public class ZombieJumpscare : MonoBehaviour
     {
         if (jumpscare)
         {
-            jumpscareTimer++;
+            jumpscareTimer+=Time.deltaTime;
             if (jumpscareTimer > maxJumpscareTimer)
             {
                 anim.SetTrigger("Jumpscare");
-                idle++;
+                idle+=Time.deltaTime;
                 if (idle > maxIdle)
                 {
                     anim.ResetTrigger("Jumpscare");
@@ -76,9 +79,9 @@ public class ZombieJumpscare : MonoBehaviour
             }
         }
 
-        if (steppedOn > 1)
+        if (steppedOn)
         {
-            jumpscareDieTimer++;
+            jumpscareDieTimer+=Time.deltaTime;
             if (jumpscareDieTimer > maxJumpscareDieTimer)
             {
                 anim.ResetTrigger("Idle");

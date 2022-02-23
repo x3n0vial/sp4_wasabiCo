@@ -24,15 +24,15 @@ public class ZombieGetUp : MonoBehaviour
     bool doorDown = false;
 
     //timer to getup
-    int getupTimer = 0;
-    int maxgetupTimer = 200;
+    float getupTimer = 0;
+    float maxgetupTimer = 0.5f;
 
     //shift zombie position downwards slowly
     float zombiePosY = 0;
 
     //timer to enable physics start chasing
-    int chaseTimer = 0;
-    int maxChaseTimer = 500;
+    float chaseTimer = 0;
+    float maxChaseTimer = 3f;
 
     // Start is called before the first frame update
     void Start()
@@ -55,11 +55,11 @@ public class ZombieGetUp : MonoBehaviour
     {
         if (getUp)
         {
-            getupTimer++;
+            getupTimer+=Time.deltaTime;
             if (getupTimer > maxgetupTimer)
             {
                 anim.SetTrigger("Getup");
-                chaseTimer++;
+                chaseTimer+=Time.deltaTime;
                 zombiePosY -= 0.000001f * Time.deltaTime;
                 if (chaseTimer > maxChaseTimer)
                 {
