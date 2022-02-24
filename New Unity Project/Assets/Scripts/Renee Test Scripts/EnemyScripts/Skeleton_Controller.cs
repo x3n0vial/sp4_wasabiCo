@@ -64,6 +64,11 @@ public class Skeleton_Controller : MonoBehaviour
     //enemy direction
     Vector3 direction;
 
+    //enemy audio
+    public AudioClip attackSound;
+    public AudioClip zombieSound;
+    public AudioClip jumpscareSound;
+    private AudioSource audioSource;
     void Start() //initialise the variables
     {
         chaseSpeed = 1;
@@ -78,6 +83,8 @@ public class Skeleton_Controller : MonoBehaviour
         camera = GameHandler.instance.cameraSettings;
 
         levelLoad = GameHandler.instance.levelLoader;
+
+        audioSource = gameObject.GetComponent<AudioSource>();
     }
 
     void ChangeSpeed() //speed of the enemy. Increases based on what stage the level is at and the chase speed
@@ -202,13 +209,27 @@ public class Skeleton_Controller : MonoBehaviour
         distance = Vector3.Distance(target.position, transform.position);
         SkeletonAnimation();
 
+        if (!audioSource.isPlaying)
+        {
+            audioSource.Play();
+        }
+
+        if (!jumpscare && lightsCount > 0 && stunned())
+        {
+            audioSource.clip = attackSound;
+        }
+        else if (!jumpscare && lightsCount > 0)
+        {
+            audioSource.clip = zombieSound;
+        }
+
         if (jumpscare)
         {
             //insert jumpscare kill player yes
             camera.ActivateDeathCam(focusPoint);
             target.gameObject.SetActive(false);
-
             transform.Find("light").gameObject.SetActive(true);
+            audioSource.clip = jumpscareSound;
 
             timer += Time.deltaTime;
             //play a fadeout transition
