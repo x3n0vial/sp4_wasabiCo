@@ -11,7 +11,8 @@ public class BossAI : MonoBehaviour
 
     private int waypointIndex;
     private float dist, distToPlayer;
-    private double restTime = 1.5f, stunTime = 0.5f, flashTime = 0f;
+    private double restTime = 1.5f, stunTime = 0f, flashTime = 1f;
+    private float stunMeter = 0f, stunRate = 0.5f;
 
     public NavMeshAgent agent;
     public Animator anim;
@@ -93,20 +94,47 @@ public class BossAI : MonoBehaviour
 
 
 
-        if (isStunned())
+        if (isInFlashlight())
         {
-            Stun();
+            //Stun();
+            if(stunMeter<1f)
+            {
+                stunMeter += stunRate * Time.deltaTime;
+                //anim.SetBool("Stun", false);
+                //Debug.Log(stunMeter);
+            }
+            else if (stunMeter>=0f)
+            {
+                stunTime = 2f;
+                stunMeter = 0f;
+
+            }
         }
         else
         {
+            if (stunMeter > 0f)
+            {
+                stunMeter -= stunRate * Time.deltaTime * 2;
+            }
+               
+        }
+
+        if (stunTime <= 2f && stunTime >= 0f)
+        {
+            anim.SetBool("Stun", true);
+            stunTime -= Time.deltaTime;
+            agent.speed = 0;
+            Debug.Log(stunTime);
+        }
+        else if (stunTime <= 0f) 
+        {
             anim.SetBool("Stun", false);
-            stunTime = 0.5f;
         }
     }
     
-    bool isStunned()
+    bool isInFlashlight()
     {
-        if(stunTime>0f)
+        //if(stunTime>0f)
         {
             if (flashlight.CheckIfInFlashlight(collider))
             {
@@ -118,9 +146,11 @@ public class BossAI : MonoBehaviour
 
     void Stun()
     {
+        agent.speed = 0;
         stunTime -= Time.deltaTime;
         anim.SetBool("Stun", true);
-        Debug.Log("Stunned");
+        // anim.SetBool("Patrol", false);
+        // Debug.Log("Stunned");
         // anim.SetBool("Attack", false);
     }
 
@@ -152,12 +182,14 @@ public class BossAI : MonoBehaviour
         anim.SetBool("Follow", true);
         anim.SetBool("Patrol", false);
         anim.SetBool("Attack", false);
+        agent.speed = 3.5f;
     }
 
     void Patrol()
     {
         // transform.Translate(Vector3.forward * speed * Time.deltaTime);
         agent.SetDestination(waypoints[waypointIndex].position);
+        agent.speed = 2.0f;
     }
 
     void Die()
