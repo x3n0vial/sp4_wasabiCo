@@ -9,6 +9,7 @@ public class InventoryManager : MonoBehaviour
     Text count;
     GameObject pickupNotice;
     GameObject placeNotice;
+    GameObject leaveNotice;
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +17,7 @@ public class InventoryManager : MonoBehaviour
         count = transform.Find("Panel").Find("count").gameObject.GetComponent<Text>();
         pickupNotice = transform.Find("PickupNotice").gameObject;
         placeNotice = transform.Find("PlaceNotice").gameObject;
+        leaveNotice = transform.Find("LeaveNotice").gameObject;
     }
 
     // Update is called once per frame
@@ -39,6 +41,14 @@ public class InventoryManager : MonoBehaviour
     public void HidePlaceNotice()
     {
         placeNotice.SetActive(false);
+    }
+    public void ShowLeaveNotice()
+    {
+        leaveNotice.SetActive(true);
+    }
+    public void HideLeaveNotice()
+    {
+        leaveNotice.SetActive(false);
     }
     public void PlusOne()
     {
