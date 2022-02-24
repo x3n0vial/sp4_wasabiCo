@@ -48,6 +48,11 @@ public class Zombie_Controller : MonoBehaviour
     //enemy direction
     Vector3 direction;
 
+    //enemy audio
+    public AudioClip attackSound;
+    public AudioClip jumpscareSound;
+    private AudioSource audioSource;
+
     void Start() //initialise the variables
     {
         agent = GetComponent<NavMeshAgent>();
@@ -59,6 +64,7 @@ public class Zombie_Controller : MonoBehaviour
         focusPoint = transform.Find("FocusPoint");
         camera = GameHandler.instance.cameraSettings;
         levelLoad = GameHandler.instance.levelLoader;
+        audioSource = gameObject.GetComponent<AudioSource>();
     }
     void FaceTarget() //changes direction to face the player 
     {
@@ -134,6 +140,21 @@ public class Zombie_Controller : MonoBehaviour
         distance = Vector3.Distance(target.position, transform.position);
 
         ZombieAnimation();
+
+        if (!audioSource.isPlaying)
+        {
+            audioSource.Play();
+        }
+
+        if (jumpscare)
+        {
+            audioSource.clip = jumpscareSound;
+        }
+        else
+        {
+            audioSource.clip = attackSound;
+        }
+
         agent.speed = 2.32f;
 
         if (jumpscare)
@@ -141,6 +162,7 @@ public class Zombie_Controller : MonoBehaviour
             //insert jumpscare kill player yes
             camera.ActivateDeathCam(focusPoint);
             target.gameObject.SetActive(false);
+            transform.Find("light").gameObject.SetActive(true);
 
             timer += Time.deltaTime;
             //play a fadeout transition

@@ -39,6 +39,13 @@ public class ZombieJumpscare : MonoBehaviour
     //level loader
     LevelLoader levelLoad;
 
+    //enemy audio
+    public AudioClip attackSound;
+    public AudioClip jumpscareSound;
+    private AudioSource audioSource;
+
+    float audioTimer = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +55,7 @@ public class ZombieJumpscare : MonoBehaviour
         focusPoint = transform.Find("FocusPoint");
         camera = GameHandler.instance.cameraSettings;
         levelLoad = GameHandler.instance.levelLoader;
+        audioSource = gameObject.GetComponent<AudioSource>();
     }
 
     void OnTriggerEnter(Collider other)
@@ -63,21 +71,12 @@ public class ZombieJumpscare : MonoBehaviour
     }
 
     void Update()
-    {
-        if (jumpscare)
+    {   
+        if (!audioSource.isPlaying)
         {
-            jumpscareTimer+=Time.deltaTime;
-            if (jumpscareTimer > maxJumpscareTimer)
-            {
-                anim.SetTrigger("Jumpscare");
-                idle+=Time.deltaTime;
-                if (idle > maxIdle)
-                {
-                    anim.ResetTrigger("Jumpscare");
-                    anim.SetTrigger("Idle");   
-                }
-            }
+            audioSource.Play();
         }
+
 
         if (steppedOn)
         {
@@ -90,6 +89,7 @@ public class ZombieJumpscare : MonoBehaviour
                 //insert jumpscare kill player yes
                 camera.ActivateDeathCam(focusPoint);
                 target.gameObject.SetActive(false);
+                transform.Find("light").gameObject.SetActive(true);
 
                 timer += Time.deltaTime;
                 //play a fadeout transition
@@ -98,6 +98,31 @@ public class ZombieJumpscare : MonoBehaviour
                     target.gameObject.SetActive(true);
                     levelLoad.LoadNextLevel(levelLoad.getSceneName());
                     CheckpointManager.ClearCheckpoints();
+                }
+            }
+        }
+
+        if (steppedOn && jumpscareDieTimer > maxJumpscareDieTimer)
+        {
+            audioSource.clip = jumpscareSound;
+        }
+        else if (jumpscare)
+        {
+            audioSource.clip = attackSound;
+        }
+
+
+        if (jumpscare)
+        { 
+            jumpscareTimer += Time.deltaTime;
+            if (jumpscareTimer > maxJumpscareTimer)
+            {
+                anim.SetTrigger("Jumpscare");
+                idle += Time.deltaTime;
+                if (idle > maxIdle)
+                {
+                    anim.ResetTrigger("Jumpscare");
+                    anim.SetTrigger("Idle");
                 }
             }
         }

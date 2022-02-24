@@ -32,7 +32,11 @@ public class ZombieGetUp : MonoBehaviour
 
     //timer to enable physics start chasing
     float chaseTimer = 0;
-    float maxChaseTimer = 3f;
+    float maxChaseTimer = 2.9f;
+
+    //enemy audio
+    public AudioClip jumpscareSound;
+    private AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +44,8 @@ public class ZombieGetUp : MonoBehaviour
         target = GameHandler.instance.player.transform;
         anim = GetComponentInParent<Animator>();
         agent = GetComponentInParent<NavMeshAgent>();
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     void OnTriggerEnter(Collider other)
@@ -53,8 +59,13 @@ public class ZombieGetUp : MonoBehaviour
 
     void Update()
     {
+        if (!audioSource.isPlaying)
+        {
+            audioSource.Play();
+        }
         if (getUp)
         {
+            audioSource.clip = jumpscareSound;
             getupTimer+=Time.deltaTime;
             if (getupTimer > maxgetupTimer)
             {

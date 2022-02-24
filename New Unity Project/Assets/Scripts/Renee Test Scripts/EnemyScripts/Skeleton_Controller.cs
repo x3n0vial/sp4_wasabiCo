@@ -208,6 +208,8 @@ public class Skeleton_Controller : MonoBehaviour
             camera.ActivateDeathCam(focusPoint);
             target.gameObject.SetActive(false);
 
+            transform.Find("light").gameObject.SetActive(true);
+
             timer += Time.deltaTime;
             //play a fadeout transition
             if (timer >= 3.1)
