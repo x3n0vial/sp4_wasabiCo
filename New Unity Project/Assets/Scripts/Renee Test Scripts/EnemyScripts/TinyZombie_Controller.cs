@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using System.Linq;
+using UnityEngine.Audio;
 
 public class TinyZombie_Controller : MonoBehaviour
 {
@@ -55,6 +56,13 @@ public class TinyZombie_Controller : MonoBehaviour
     //enemy direction
     Vector3 direction;
 
+    //enemy audio
+    public AudioClip attackSound;
+    public AudioClip zombieSound;
+    public AudioClip jumpscareSound;
+    private AudioSource audioSource;
+
+
     void Start() //initialise the variables
     {
         agent = GetComponent<NavMeshAgent>();
@@ -70,6 +78,8 @@ public class TinyZombie_Controller : MonoBehaviour
         camera = GameHandler.instance.cameraSettings;
 
         levelLoad = GameHandler.instance.levelLoader;
+
+        audioSource = gameObject.GetComponent<AudioSource>();
     }
     void ChangeSpeed() //speed of the enemy. Increases based on what stage the level is at
     {
@@ -162,7 +172,7 @@ public class TinyZombie_Controller : MonoBehaviour
         if (lightsCount > 4)
         {
             lightsCount = 4;
-        } 
+        }
         ChangeSpeed();
         ChangeRadius();
         RenderMaterials();
@@ -171,19 +181,33 @@ public class TinyZombie_Controller : MonoBehaviour
 
         TinyZombieAnimation();
 
+        if (!audioSource.isPlaying)
+        {
+            audioSource.Play();
+        }
+
+        if (!jumpscare && lightsCount > 0 && stunned())
+        {
+            audioSource.clip = attackSound;
+        }
+        else if (!jumpscare && lightsCount > 0)
+        {
+            audioSource.clip = zombieSound;
+        }
         if (jumpscare)
         {
-         
             //insert jumpscare kill player yes
             camera.ActivateDeathCam(focusPoint);
             target.gameObject.SetActive(false);
+            transform.Find("light").gameObject.SetActive(true);
+            audioSource.clip = jumpscareSound;
 
             timer += Time.deltaTime;
             //play a fadeout transition
             if (timer >= 3.1)
             {
                 target.gameObject.SetActive(true);
-                //levelLoad.LoadNextLevel(levelLoad.getSceneName());
+                levelLoad.LoadNextLevel(levelLoad.getSceneName());
                 CheckpointManager.ClearCheckpoints();
             }
         }

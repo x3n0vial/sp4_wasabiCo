@@ -56,6 +56,13 @@ public class TinyZombieRun_Controller : MonoBehaviour
     //enemy type
     public string type;
 
+    //enemy audio
+    public AudioClip dissapearSound;
+    public AudioClip attackSound;
+    public AudioClip zombieSound;
+    public AudioClip jumpscareSound;
+    private AudioSource audioSource;
+
     void Start() //initialise the variables
     {
         agent = GetComponent<NavMeshAgent>();
@@ -70,6 +77,7 @@ public class TinyZombieRun_Controller : MonoBehaviour
         camera = GameHandler.instance.cameraSettings;
 
         levelLoad = GameHandler.instance.levelLoader;
+        audioSource = gameObject.GetComponent<AudioSource>();
     }
     void FaceTarget() //changes direction to face the player 
     {
@@ -110,7 +118,7 @@ public class TinyZombieRun_Controller : MonoBehaviour
     }
     void TinyZombieAnimation() //Animation controller for tinyZombie
     {
-        if (distance <= agent.stoppingDistance)
+        if (distance <= agent.stoppingDistance || stunned())
         {
             anim.ResetTrigger("Walk");
             anim.ResetTrigger("Idle");
@@ -135,13 +143,35 @@ public class TinyZombieRun_Controller : MonoBehaviour
 
         TinyZombieAnimation();
 
+        if (!audioSource.isPlaying)
+        {
+            audioSource.Play();
+        }
+
+        if (!jumpscare && stunned() && trigger.getTrigger() && type == "Run")
+        {
+            audioSource.clip = dissapearSound;
+        }
+        else if (!jumpscare && stunned())
+        {
+            audioSource.clip = attackSound;
+        }
+        else if (!jumpscare)
+        {
+            audioSource.clip = zombieSound;
+        }
+        else if (jumpscare)
+        {
+            audioSource.clip = jumpscareSound;
+        }
+
         if (jumpscare)
         {
             //insert jumpscare kill player yes
             camera.ActivateDeathCam(focusPoint);
             target.gameObject.SetActive(false);
-
-            timer += Time.deltaTime;
+            timer += Time.deltaTime; 
+            transform.Find("light").gameObject.SetActive(true);
             //play a fadeout transition
             if (timer >= 3.1)
             {
@@ -155,7 +185,6 @@ public class TinyZombieRun_Controller : MonoBehaviour
         {
             if (stunned() && trigger.getTrigger())
             {
-                //play spooky sound effect
                 transform.gameObject.SetActive(false);
             }
         }

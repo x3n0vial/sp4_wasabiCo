@@ -413,7 +413,7 @@ PrefabInstance:
     - target: {fileID: 6593246707106117698, guid: 7c4fb79b9fc1dbf4e8f05dd3a27bdc83,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6593246707106117699, guid: 7c4fb79b9fc1dbf4e8f05dd3a27bdc83,
         type: 3}
@@ -2254,7 +2254,7 @@ PrefabInstance:
     - target: {fileID: 1691527929928478607, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.025527963
+      value: 0.025527958
       objectReference: {fileID: 0}
     - target: {fileID: 1691527929928478607, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
@@ -2264,7 +2264,7 @@ PrefabInstance:
     - target: {fileID: 1691527929928478607, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.016450722
+      value: -0.01645072
       objectReference: {fileID: 0}
     - target: {fileID: 1691527930011682745, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
@@ -2379,7 +2379,7 @@ PrefabInstance:
     - target: {fileID: 1691527931124164817, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.56063557
+      value: 0.5606355
       objectReference: {fileID: 0}
     - target: {fileID: 1691527931124164817, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
@@ -2394,7 +2394,7 @@ PrefabInstance:
     - target: {fileID: 1691527931124164817, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.186892
+      value: -0.18689199
       objectReference: {fileID: 0}
     - target: {fileID: 1691527931124164818, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
@@ -2657,7 +2657,7 @@ GameObject:
   - component: {fileID: 1817888544}
   - component: {fileID: 1817888543}
   - component: {fileID: 1817888542}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3030,7 +3030,7 @@ PrefabInstance:
     - target: {fileID: 8375289764553085806, guid: 487adcf1d717ad04fba7c7e051a2878c,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8375289764553085806, guid: 487adcf1d717ad04fba7c7e051a2878c,
         type: 3}
@@ -3508,6 +3508,11 @@ PrefabInstance:
       propertyPath: m_StoppingDistance
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3268659872771981524, guid: b41ec98d3cf800348be884248253190b,
+        type: 3}
+      propertyPath: Priority
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 3410447435423946946, guid: b41ec98d3cf800348be884248253190b,
         type: 3}
       propertyPath: lights
@@ -3518,6 +3523,16 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1662560409}
+    - target: {fileID: 3410447435423946946, guid: b41ec98d3cf800348be884248253190b,
+        type: 3}
+      propertyPath: zombieSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 857c3a907bc9405439b80972882b4b5b, type: 3}
+    - target: {fileID: 3410447435423946946, guid: b41ec98d3cf800348be884248253190b,
+        type: 3}
+      propertyPath: jumpscareSound
+      value: 
+      objectReference: {fileID: 8300000, guid: cff7a393399cbba4d8057f2ebb5c8b46, type: 3}
     - target: {fileID: 6026572860914234913, guid: b41ec98d3cf800348be884248253190b,
         type: 3}
       propertyPath: m_RootOrder
@@ -3581,7 +3596,7 @@ PrefabInstance:
     - target: {fileID: 6032291736091481077, guid: b41ec98d3cf800348be884248253190b,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6032291736091481077, guid: b41ec98d3cf800348be884248253190b,
         type: 3}
