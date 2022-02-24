@@ -13,6 +13,7 @@ public class Rock : MonoBehaviour
 
     public GameObject brokenrock;
     public GameObject tallrock;
+    public GameObject mushroom;
     public Flashlight flashlight;
 
     private float breaking = 0.0f;
@@ -79,6 +80,7 @@ public class Rock : MonoBehaviour
 
             breakupdate = false;
             brokenrock.SetActive(true);
+            mushroom.SetActive(true);
             tallrock.SetActive(false);
             GameHandler.instance.lightManager.DarkenSceneLight();
 
