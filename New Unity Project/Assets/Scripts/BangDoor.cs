@@ -22,8 +22,8 @@ public class BangDoor : MonoBehaviour
     float progress = 0.0f;
     float progress_vel = 0.0f;
     float progress_accel = 0.0f;
-    float decline_accel = -0.5f;
-    float push_accel = 3.0f;
+    public float decline_accel = -2.0f;
+    public float push_accel = 8.0f;
 
     Vector3 bar_ori_pos;
     float bar_pos_offset = 0.95f;
