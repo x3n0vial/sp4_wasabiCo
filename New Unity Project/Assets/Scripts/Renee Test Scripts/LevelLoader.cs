@@ -36,6 +36,20 @@ public class LevelLoader : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
+
+    public void LoadLastSavedLevel()
+    {
+        if (CheckpointManager.last_ID < CheckpointID.SCENE_NIGHTMARE_START)
+            build = "ForestScene";
+        else if (CheckpointManager.last_ID < CheckpointID.SCENE_BOSS_START)
+            build = "SceneNightmare";
+        else
+            build = "SceneBossRoom";
+
+        SceneManager.LoadScene(build);
+        CheckpointManager.ClearCheckpoints();
+    }
+
     IEnumerator LoadLevel()
     {
         //play anim

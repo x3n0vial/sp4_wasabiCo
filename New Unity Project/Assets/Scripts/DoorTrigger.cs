@@ -11,8 +11,8 @@ public class DoorTrigger : MonoBehaviour
     GameObject door;
    
     float theta = 0.0f;
-    float FALL_SPEED = 50.0f;
-    float FALL_ACCEL = 40.0f;
+    public float FALL_SPEED = 50.0f;
+    public float FALL_ACCEL = 40.0f;
     bool isTriggered = false;
 
     void Start()
