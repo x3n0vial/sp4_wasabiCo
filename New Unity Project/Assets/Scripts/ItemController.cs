@@ -22,6 +22,14 @@ public class ItemController : MonoBehaviour
     {
         if (canpickup == true) // if you enter thecollider of the objecct
         {
+            if(hasItem) // drop curr item if player is already holding sth
+            {
+                Pickable.GetComponent<Collider>().enabled = true;
+                Pickable.GetComponent<Rigidbody>().isKinematic = false; // make the rigidbody work again
+                Pickable.GetComponent<Rigidbody>().useGravity = true;
+                Pickable.transform.parent = null;
+            }
+
             if (Input.GetKeyDown(GameSettings.PICKUP_ITEM_KEY))  // pickup 
             { 
                 Collider[] collider = Pickable.GetComponents<BoxCollider>();
