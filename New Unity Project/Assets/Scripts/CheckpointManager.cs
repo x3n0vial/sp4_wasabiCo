@@ -16,6 +16,7 @@ public static class CheckpointManager
 
     public static void InitCheckpoints()
     {
+        Debug.Log("Initting Checkpoints...");
         Debug.Log("checkpoint count: " + checkpoints.Count);
         foreach (Checkpoint cp in checkpoints)
         {
@@ -41,12 +42,15 @@ public static class CheckpointManager
 public enum CheckpointID
 {
     UNSET,
-
     FOREST_ENTRY,
+
+    SCENE_NIGHTMARE_START,
 
     NIGHTMARE_ENTRY,
     NIGHTMARE_MORGUE,
     NIGHTMARE_LAB,
+
+    SCENE_BOSS_START,
 
     BOSS_ENTRY,
 
