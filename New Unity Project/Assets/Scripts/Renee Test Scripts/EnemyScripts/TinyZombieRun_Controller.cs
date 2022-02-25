@@ -15,7 +15,7 @@ public class TinyZombieRun_Controller : MonoBehaviour
     Flashlight flashlight;
 
     //how far the enemy follows the player
-    float lookRadius = 50f;
+    float lookRadius = 1000f;
 
     //enemy's agent
     NavMeshAgent agent;
@@ -97,11 +97,11 @@ public class TinyZombieRun_Controller : MonoBehaviour
     }
     void followPlayer() //follow the player
     {
-        RaycastHit hit;
-        if (Physics.Linecast(transform.position, target.position, out hit, -1)) //if behind wall, lose player
-        {
-            if (hit.transform.CompareTag("Player"))
-            {
+        //RaycastHit hit;
+        //if (Physics.Linecast(transform.position, target.position, out hit, -1)) //if behind wall, lose player
+        //{
+        //    if (hit.transform.CompareTag("Player"))
+        //    {
                 agent.SetDestination(target.position);
                 if (distance <= agent.stoppingDistance)
                 {
@@ -110,8 +110,8 @@ public class TinyZombieRun_Controller : MonoBehaviour
 
                     jumpscare = true;
                 }
-            }
-        }
+        //    }
+        //}
     }
     bool stunned() //stunned by player's flashlight
     {
