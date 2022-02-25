@@ -15,7 +15,7 @@ public class TinyZombieRun_Controller : MonoBehaviour
     Flashlight flashlight;
 
     //how far the enemy follows the player
-    float lookRadius = 10f;
+    float lookRadius = 50f;
 
     //enemy's agent
     NavMeshAgent agent;
@@ -61,6 +61,7 @@ public class TinyZombieRun_Controller : MonoBehaviour
     public AudioClip attackSound;
     public AudioClip zombieSound;
     public AudioClip jumpscareSound;
+    public AudioClip jumpscareSound2;
     private AudioSource audioSource;
 
     void Start() //initialise the variables
@@ -152,6 +153,10 @@ public class TinyZombieRun_Controller : MonoBehaviour
         {
             audioSource.clip = dissapearSound;
         }
+        else if (!jumpscare && trigger.getTrigger() && type == "n")
+        {
+            audioSource.clip = dissapearSound;
+        }
         else if (!jumpscare && stunned())
         {
             audioSource.clip = attackSound;
@@ -187,6 +192,12 @@ public class TinyZombieRun_Controller : MonoBehaviour
             {
                 transform.gameObject.SetActive(false);
             }
+        }
+
+        if (type == "n")
+        {
+            transform.Find("light2").gameObject.SetActive(true);
+            //audioSource.clip = jumpscareSound2;
         }
 
         if (!stunned() && trigger.getTrigger())

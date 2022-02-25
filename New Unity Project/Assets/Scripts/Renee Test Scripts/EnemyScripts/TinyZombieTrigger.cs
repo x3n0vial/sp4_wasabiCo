@@ -6,6 +6,7 @@ public class TinyZombieTrigger : MonoBehaviour
 {
     Transform target;
     bool trigger = false;
+    public GameObject zombie;
 
     void Start()
     {
@@ -23,5 +24,13 @@ public class TinyZombieTrigger : MonoBehaviour
     public bool getTrigger()
     {
         return trigger;
+    }
+
+    public void Update()
+    {
+        if (trigger)
+        {
+            zombie.SetActive(true);
+        }
     }
 }
