@@ -20,13 +20,13 @@ public class SceneLightsManager : MonoBehaviour
     private float dir_light_intensity;
     private float player_dir_light_intensity;
     private float env_light_intensity;
-    
-   
+
+    private float exposure = 1.0f;
    
     // Start is called before the first frame update
     void Start()
     {
-        
+        RenderSettings.skybox.SetFloat("_Exposure", exposure);
         dir_light_intensity = dirLight.intensity;
         player_dir_light_intensity = player_dirLight.intensity;
         env_light_intensity = RenderSettings.reflectionIntensity;
@@ -42,6 +42,9 @@ public class SceneLightsManager : MonoBehaviour
     public void DarkenSceneLight()
     {
         currStage++;
+
+        exposure -= 0.3f;
+        RenderSettings.skybox.SetFloat("_Exposure", exposure);
 
         if (currStage > num_stages)
         {
