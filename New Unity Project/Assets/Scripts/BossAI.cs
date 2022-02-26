@@ -14,7 +14,7 @@ public class BossAI : MonoBehaviour
 
     private int waypointIndex;
     private float distToCurrWaypoint, distToPlayer;
-    private double restTime = 1.6f, stunTime = 0f, flashTime = 1f;
+    private double restTime = 1.6f, stunTime = 0f;
     private float stunMeter = 0f, stunRate = 2f;
 
     public NavMeshAgent agent;
@@ -147,17 +147,6 @@ public class BossAI : MonoBehaviour
                     anim.SetBool("Stun", false);
                 }
             }
-            //if (stunTime <= 2f && stunTime >= 0f)
-            //{
-            //    anim.SetBool("Stun", true);
-            //    stunTime -= Time.deltaTime;
-            //    agent.speed = 0;
-            //    Debug.Log(stunTime);
-            //}
-            //else if (stunTime <= 0f)
-            //{
-            //    anim.SetBool("Stun", false);
-            //}
         }
     }
     
@@ -186,9 +175,7 @@ public class BossAI : MonoBehaviour
     {
         agent.speed = 0;
         anim.SetBool("Stun", true);
-        // anim.SetBool("Patrol", false);
          Debug.Log("Stunned");
-        // anim.SetBool("Attack", false);
     }
 
     bool canSeePlayer()

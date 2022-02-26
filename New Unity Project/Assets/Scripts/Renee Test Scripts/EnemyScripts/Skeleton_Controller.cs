@@ -69,6 +69,10 @@ public class Skeleton_Controller : MonoBehaviour
     public AudioClip zombieSound;
     public AudioClip jumpscareSound;
     private AudioSource audioSource;
+
+    //ui overlay
+    GameObject UIOverlay;
+
     void Start() //initialise the variables
     {
         chaseSpeed = 1;
@@ -85,6 +89,8 @@ public class Skeleton_Controller : MonoBehaviour
         levelLoad = GameHandler.instance.levelLoader;
 
         audioSource = gameObject.GetComponent<AudioSource>();
+
+        UIOverlay = GameHandler.instance.UILayout;
     }
 
     void ChangeSpeed() //speed of the enemy. Increases based on what stage the level is at and the chase speed
@@ -230,7 +236,7 @@ public class Skeleton_Controller : MonoBehaviour
             target.gameObject.SetActive(false);
             transform.Find("light").gameObject.SetActive(true);
             audioSource.clip = jumpscareSound;
-
+            UIOverlay.SetActive(false);
             timer += Time.deltaTime;
             //play a fadeout transition
             if (timer >= 3.1)

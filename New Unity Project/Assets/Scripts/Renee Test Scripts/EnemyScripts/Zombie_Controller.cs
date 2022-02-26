@@ -53,6 +53,9 @@ public class Zombie_Controller : MonoBehaviour
     public AudioClip jumpscareSound;
     private AudioSource audioSource;
 
+    //ui overlay
+    GameObject UIOverlay;
+
     void Start() //initialise the variables
     {
         agent = GetComponent<NavMeshAgent>();
@@ -65,6 +68,7 @@ public class Zombie_Controller : MonoBehaviour
         camera = GameHandler.instance.cameraSettings;
         levelLoad = GameHandler.instance.levelLoader;
         audioSource = gameObject.GetComponent<AudioSource>();
+        UIOverlay = GameHandler.instance.UILayout;
     }
     void FaceTarget() //changes direction to face the player 
     {
@@ -91,26 +95,8 @@ public class Zombie_Controller : MonoBehaviour
 
             jumpscare = true;
         }
-        //RaycastHit hit;
-        //if (Physics.Linecast(transform.position, target.position, out hit, -1)) //if behind wall, lose player
-        //{
-        //    if (hit.transform.CompareTag("Player"))
-        //    {
-        //        agent.SetDestination(target.position);
-        //        if (distance <= agent.stoppingDistance)
-        //        {
-        //            FaceTarget();
-        //            agent.speed = 0;
-        //            //insert jumpscare kill player yes
-        //
-        //        }
-        //    }
-        //}
     }
-    //bool stunned() //stunned by player's flashlight
-    //{
-    //    return (flashlight.CheckIfInFlashlight(collider));
-    //}
+    
     void ZombieAnimation() //Animation controller for tinyZombie
     {
         if (trigger.GetTriggerStatus())
@@ -165,6 +151,7 @@ public class Zombie_Controller : MonoBehaviour
             transform.Find("light").gameObject.SetActive(true);
 
             timer += Time.deltaTime;
+            UIOverlay.SetActive(false);
             //play a fadeout transition
             if (timer >= 3.1)
             {

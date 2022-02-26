@@ -64,6 +64,9 @@ public class TinyZombieRun_Controller : MonoBehaviour
     public AudioClip jumpscareSound2;
     private AudioSource audioSource;
 
+    //ui overlay
+    GameObject UIOverlay;
+
     void Start() //initialise the variables
     {
         agent = GetComponent<NavMeshAgent>();
@@ -79,6 +82,7 @@ public class TinyZombieRun_Controller : MonoBehaviour
 
         levelLoad = GameHandler.instance.levelLoader;
         audioSource = gameObject.GetComponent<AudioSource>();
+        UIOverlay = GameHandler.instance.UILayout;
     }
     void FaceTarget() //changes direction to face the player 
     {
@@ -177,6 +181,7 @@ public class TinyZombieRun_Controller : MonoBehaviour
             target.gameObject.SetActive(false);
             timer += Time.deltaTime; 
             transform.Find("light").gameObject.SetActive(true);
+            UIOverlay.SetActive(false);
             //play a fadeout transition
             if (timer >= 3.1)
             {

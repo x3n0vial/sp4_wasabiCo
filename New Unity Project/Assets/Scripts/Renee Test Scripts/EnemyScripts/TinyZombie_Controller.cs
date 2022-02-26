@@ -62,6 +62,8 @@ public class TinyZombie_Controller : MonoBehaviour
     public AudioClip jumpscareSound;
     private AudioSource audioSource;
 
+    //ui overlay
+    GameObject UIOverlay;
 
     void Start() //initialise the variables
     {
@@ -80,6 +82,7 @@ public class TinyZombie_Controller : MonoBehaviour
         levelLoad = GameHandler.instance.levelLoader;
 
         audioSource = gameObject.GetComponent<AudioSource>();
+        UIOverlay = GameHandler.instance.UILayout;
     }
     void ChangeSpeed() //speed of the enemy. Increases based on what stage the level is at
     {
@@ -200,7 +203,8 @@ public class TinyZombie_Controller : MonoBehaviour
             camera.ActivateDeathCam(focusPoint);
             target.gameObject.SetActive(false);
             transform.Find("light").gameObject.SetActive(true);
-            audioSource.clip = jumpscareSound;
+            audioSource.clip = jumpscareSound; 
+            UIOverlay.SetActive(false);
 
             timer += Time.deltaTime;
             //play a fadeout transition
