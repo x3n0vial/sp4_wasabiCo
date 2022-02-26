@@ -54,8 +54,6 @@ public enum CheckpointID
 
     BOSS_ENTRY,
 
-    TEST1,
-    TEST2,
 
     NUM_ID_TOTAL
 }
