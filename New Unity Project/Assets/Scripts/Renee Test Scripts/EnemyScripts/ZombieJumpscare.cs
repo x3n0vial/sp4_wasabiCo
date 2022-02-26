@@ -46,6 +46,9 @@ public class ZombieJumpscare : MonoBehaviour
 
     float audioTimer = 0;
 
+    //ui overlay
+    GameObject UIOverlay;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,6 +59,7 @@ public class ZombieJumpscare : MonoBehaviour
         camera = GameHandler.instance.cameraSettings;
         levelLoad = GameHandler.instance.levelLoader;
         audioSource = gameObject.GetComponent<AudioSource>();
+        UIOverlay = GameHandler.instance.UILayout;
     }
 
     void OnTriggerEnter(Collider other)
@@ -119,6 +123,7 @@ public class ZombieJumpscare : MonoBehaviour
             {
                 anim.SetTrigger("Jumpscare");
                 idle += Time.deltaTime;
+                UIOverlay.SetActive(false);
                 if (idle > maxIdle)
                 {
                     anim.ResetTrigger("Jumpscare");
