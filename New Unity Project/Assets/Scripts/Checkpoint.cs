@@ -7,6 +7,7 @@ public class Checkpoint : MonoBehaviour
 {
     public Vector3 spawnPos;
     public Canvas game_canvas;
+    public ChargeFlashlight ChargeUICanvas;
     public Light pointLight;
     public CheckpointID ID;
 
@@ -31,6 +32,8 @@ public class Checkpoint : MonoBehaviour
         if (is_saved && displacement <= charge_radius)
         {
             game_canvas.gameObject.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.E) && !ChargeUICanvas.gameObject.activeSelf)
+                ChargeUICanvas.StartChargeFlashlight();
         }
         else
         {

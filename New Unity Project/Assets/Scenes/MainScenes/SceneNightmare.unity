@@ -11592,6 +11592,11 @@ PrefabInstance:
       propertyPath: spawnPos.z
       value: -9.36
       objectReference: {fileID: 0}
+    - target: {fileID: 2933626085770622350, guid: 215ccd6226f3d3c468acd503b68d550d,
+        type: 3}
+      propertyPath: ChargeUICanvas
+      value: 
+      objectReference: {fileID: 876821640}
     - target: {fileID: 2933626085770622351, guid: 215ccd6226f3d3c468acd503b68d550d,
         type: 3}
       propertyPath: m_RootOrder
@@ -24992,7 +24997,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4095817}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &604558246
+--- !u!114 &604558248
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -32490,7 +32495,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1511251410}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &772163129
+--- !u!114 &772163131
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -36468,6 +36473,11 @@ PrefabInstance:
       propertyPath: spawnPos.z
       value: -11
       objectReference: {fileID: 0}
+    - target: {fileID: 2933626085770622350, guid: 215ccd6226f3d3c468acd503b68d550d,
+        type: 3}
+      propertyPath: ChargeUICanvas
+      value: 
+      objectReference: {fileID: 876821640}
     - target: {fileID: 2933626085770622351, guid: 215ccd6226f3d3c468acd503b68d550d,
         type: 3}
       propertyPath: m_RootOrder
@@ -36526,7 +36536,7 @@ PrefabInstance:
     - target: {fileID: 2933626086027278595, guid: 215ccd6226f3d3c468acd503b68d550d,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2933626086089014572, guid: 215ccd6226f3d3c468acd503b68d550d,
         type: 3}
@@ -49098,7 +49108,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 808065736}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1113011016
+--- !u!114 &1113011018
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -59932,7 +59942,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 742752001}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1351541000
+--- !u!114 &1351541002
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -69055,7 +69065,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1532143752}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1589349282
+--- !u!114 &1589349284
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -79195,7 +79205,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 19.51
+  field of view: 100
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -79220,8 +79230,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1822655586}
-  m_LocalRotation: {x: -0.09054921, y: 0.03360208, z: 0.003056948, w: 0.99532026}
-  m_LocalPosition: {x: 210.151, y: -19.643013, z: -4.402}
+  m_LocalRotation: {x: -0.011088276, y: -0.71110916, z: -0.0112176975, w: 0.70290476}
+  m_LocalPosition: {x: 161.98409, y: -15.922102, z: -9.585814}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 45497273}
@@ -92700,6 +92710,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChargeFlashlightUI
       objectReference: {fileID: 0}
+    - target: {fileID: 1482872170779911820, guid: 731be00e395001b428bbccc9f0625b84,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 731be00e395001b428bbccc9f0625b84, type: 3}
 --- !u!1001 &1691527930585234335
@@ -92767,7 +92782,7 @@ PrefabInstance:
     - target: {fileID: 1691527929928478607, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.021349411
+      value: 0.021349408
       objectReference: {fileID: 0}
     - target: {fileID: 1691527929928478607, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
@@ -92777,7 +92792,7 @@ PrefabInstance:
     - target: {fileID: 1691527929928478607, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.021598602
+      value: 0.0215986
       objectReference: {fileID: 0}
     - target: {fileID: 1691527930011682745, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
@@ -93152,6 +93167,11 @@ PrefabInstance:
       propertyPath: ID
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2933626085770622350, guid: 215ccd6226f3d3c468acd503b68d550d,
+        type: 3}
+      propertyPath: ChargeUICanvas
+      value: 
+      objectReference: {fileID: 876821640}
     - target: {fileID: 2933626085770622351, guid: 215ccd6226f3d3c468acd503b68d550d,
         type: 3}
       propertyPath: m_RootOrder
