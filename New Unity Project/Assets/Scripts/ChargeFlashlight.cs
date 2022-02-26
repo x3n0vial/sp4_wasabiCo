@@ -54,6 +54,7 @@ public class ChargeFlashlight : MonoBehaviour
     {
         gameObject.SetActive(true);
         GameHandler.instance.flashlight.gameObject.SetActive(false);
+        battery = GameHandler.instance.flashlight.GetBattery();
     }
 
 }
