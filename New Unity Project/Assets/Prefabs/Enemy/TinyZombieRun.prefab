@@ -978,7 +978,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 1.06
-  m_BaseOffset: -0.07
+  m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!136 &1230329193628458853
@@ -1032,6 +1032,7 @@ MonoBehaviour:
   zombieSound: {fileID: 8300000, guid: 857c3a907bc9405439b80972882b4b5b, type: 3}
   jumpscareSound: {fileID: 8300000, guid: cff7a393399cbba4d8057f2ebb5c8b46, type: 3}
   jumpscareSound2: {fileID: 8300000, guid: 8b36e133223d6f64098dbd5535229f51, type: 3}
+  triggerDisable: {fileID: 0}
 --- !u!82 &6640740206048863851
 AudioSource:
   m_ObjectHideFlags: 0
