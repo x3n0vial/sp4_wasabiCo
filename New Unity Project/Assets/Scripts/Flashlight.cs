@@ -22,7 +22,7 @@ public class Flashlight : MonoBehaviour
 	private bool is_enabled = true;
 
 	private float battery_amt = 100.0f;
-	private float battery_use_rate = 0.5f;
+	private float battery_use_rate = 0.75f;
 
 	private List<Collider> withinLightList = new List<Collider>();
 
