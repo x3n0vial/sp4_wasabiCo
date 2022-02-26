@@ -241,7 +241,6 @@ public class Skeleton_Controller : MonoBehaviour
             //play a fadeout transition
             if (timer >= 3.1)
             {
-                target.gameObject.SetActive(true);
                 levelLoad.LoadNextLevel(levelLoad.getSceneName());
                 CheckpointManager.ClearCheckpoints();
             }

@@ -299,7 +299,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 760946796401551024}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 293185930}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f311fde04fe8a7141b33d838a232d5c8, type: 3}
@@ -311,7 +311,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 760946796401551024}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 293185930}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 08de47231fd07cf40b9f558afb5d2ceb, type: 3}
@@ -637,6 +637,12 @@ Transform:
   m_Father: {fileID: 1285989724}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &293185930 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 760946796549825378, guid: 20e028e1579ef314daf4ecd4aa52b38b,
+    type: 3}
+  m_PrefabInstance: {fileID: 760946796401551024}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &322154549
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1568,6 +1574,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TinyZombieRun
       objectReference: {fileID: 0}
+    - target: {fileID: 8375289764553085806, guid: 487adcf1d717ad04fba7c7e051a2878c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 487adcf1d717ad04fba7c7e051a2878c, type: 3}
 --- !u!1 &1236549043
@@ -2347,7 +2358,7 @@ PrefabInstance:
     - target: {fileID: 1691527929928478607, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.025527958
+      value: 0.025527963
       objectReference: {fileID: 0}
     - target: {fileID: 1691527929928478607, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
@@ -2357,7 +2368,7 @@ PrefabInstance:
     - target: {fileID: 1691527929928478607, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.01645072
+      value: -0.016450722
       objectReference: {fileID: 0}
     - target: {fileID: 1691527930011682745, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
@@ -2442,7 +2453,7 @@ PrefabInstance:
     - target: {fileID: 1691527930245141456, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.075284004
+      value: 0.07528399
       objectReference: {fileID: 0}
     - target: {fileID: 1691527930245141456, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
@@ -2472,17 +2483,17 @@ PrefabInstance:
     - target: {fileID: 1691527931124164817, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.5606355
+      value: 0.56063557
       objectReference: {fileID: 0}
     - target: {fileID: 1691527931124164817, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.13165061
+      value: 0.13165063
       objectReference: {fileID: 0}
     - target: {fileID: 1691527931124164817, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7958815
+      value: 0.79588145
       objectReference: {fileID: 0}
     - target: {fileID: 1691527931124164817, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
@@ -3024,12 +3035,12 @@ PrefabInstance:
     - target: {fileID: 97596206913190303, guid: 487adcf1d717ad04fba7c7e051a2878c,
         type: 3}
       propertyPath: type
-      value: N
+      value: Run
       objectReference: {fileID: 0}
     - target: {fileID: 97596206913190303, guid: 487adcf1d717ad04fba7c7e051a2878c,
         type: 3}
       propertyPath: speed
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 97596206913190303, guid: 487adcf1d717ad04fba7c7e051a2878c,
         type: 3}
@@ -3041,6 +3052,11 @@ PrefabInstance:
       propertyPath: setSpeed
       value: 
       objectReference: {fileID: 154043862}
+    - target: {fileID: 97596206913190303, guid: 487adcf1d717ad04fba7c7e051a2878c,
+        type: 3}
+      propertyPath: triggerDisable
+      value: 
+      objectReference: {fileID: 293185930}
     - target: {fileID: 637355188359862361, guid: 487adcf1d717ad04fba7c7e051a2878c,
         type: 3}
       propertyPath: lights
@@ -3181,7 +3197,7 @@ PrefabInstance:
     - target: {fileID: 760946796549825378, guid: 20e028e1579ef314daf4ecd4aa52b38b,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 760946796549825379, guid: 20e028e1579ef314daf4ecd4aa52b38b,
         type: 3}
@@ -3243,6 +3259,11 @@ PrefabInstance:
       propertyPath: zombie
       value: 
       objectReference: {fileID: 1913595440}
+    - target: {fileID: 760946796549825382, guid: 20e028e1579ef314daf4ecd4aa52b38b,
+        type: 3}
+      propertyPath: speed
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20e028e1579ef314daf4ecd4aa52b38b, type: 3}
 --- !u!4 &1064434661347976610 stripped
