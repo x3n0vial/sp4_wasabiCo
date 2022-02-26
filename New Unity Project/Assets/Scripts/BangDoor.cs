@@ -24,6 +24,7 @@ public class BangDoor : MonoBehaviour
     float progress_accel = 0.0f;
     public float decline_accel = -2.0f;
     public float push_accel = 8.0f;
+    public float MaxPushAccel = 25.0f;
 
     Vector3 bar_ori_pos;
     float bar_pos_offset = 0.95f;
@@ -41,15 +42,18 @@ public class BangDoor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.E))
+        {
             progress_accel += push_accel;
+            if (progress_accel > MaxPushAccel)
+                progress_accel = MaxPushAccel;
+        }
 
         if (bangDoorCanvas.gameObject.activeSelf)
         {
             if (progress_accel >= 0)
                 progress_accel += decline_accel;
            
-
            
             progress_vel += progress_accel * Time.deltaTime;
 
@@ -64,10 +68,7 @@ public class BangDoor : MonoBehaviour
                 progress += progress_vel * Time.deltaTime;
             }
 
-           
-            
-
-            Debug.Log("Progress Velocity: " + progress_vel);
+          
 
             progressBar.transform.localPosition = new Vector3(bar_ori_pos.x + progress * bar_pos_offset,
                    bar_ori_pos.y, bar_ori_pos.z);

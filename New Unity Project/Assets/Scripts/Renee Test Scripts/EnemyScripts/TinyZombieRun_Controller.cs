@@ -15,7 +15,7 @@ public class TinyZombieRun_Controller : MonoBehaviour
     Flashlight flashlight;
 
     //how far the enemy follows the player
-    float lookRadius = 1000f;
+    float lookRadius = 100f;
 
     //enemy's agent
     NavMeshAgent agent;
@@ -67,6 +67,9 @@ public class TinyZombieRun_Controller : MonoBehaviour
     //ui overlay
     GameObject UIOverlay;
 
+    //disable trigger
+    public GameObject triggerDisable;
+
     void Start() //initialise the variables
     {
         agent = GetComponent<NavMeshAgent>();
@@ -101,21 +104,14 @@ public class TinyZombieRun_Controller : MonoBehaviour
     }
     void followPlayer() //follow the player
     {
-        //RaycastHit hit;
-        //if (Physics.Linecast(transform.position, target.position, out hit, -1)) //if behind wall, lose player
-        //{
-        //    if (hit.transform.CompareTag("Player"))
-        //    {
-                agent.SetDestination(target.position);
-                if (distance <= agent.stoppingDistance)
-                {
-                    FaceTarget();
-                    agent.speed = 0;
+        agent.SetDestination(target.position);
+        if (distance <= agent.stoppingDistance)
+        {
+            FaceTarget();
+            agent.speed = 0;
 
-                    jumpscare = true;
-                }
-        //    }
-        //}
+            jumpscare = true;
+        }
     }
     bool stunned() //stunned by player's flashlight
     {
@@ -142,8 +138,12 @@ public class TinyZombieRun_Controller : MonoBehaviour
             anim.SetTrigger("Idle");
         }
     }
+
+
     void Update()
     {
+        //Debug.Log(flashlight.CheckIfInFlashlight(collider));
+
         distance = Vector3.Distance(target.position, transform.position);
 
         TinyZombieAnimation();
@@ -181,11 +181,14 @@ public class TinyZombieRun_Controller : MonoBehaviour
             target.gameObject.SetActive(false);
             timer += Time.deltaTime; 
             transform.Find("light").gameObject.SetActive(true);
+            if (type == "n")
+            {
+                transform.Find("light2").gameObject.SetActive(true);
+            }
             UIOverlay.SetActive(false);
             //play a fadeout transition
             if (timer >= 3.1)
             {
-                target.gameObject.SetActive(true);
                 levelLoad.LoadNextLevel(levelLoad.getSceneName());
                 CheckpointManager.ClearCheckpoints();
             }
@@ -193,13 +196,13 @@ public class TinyZombieRun_Controller : MonoBehaviour
 
         if (type == "Run")
         {
-            if (stunned() && trigger.getTrigger())
+            if (stunned())
             {
                 transform.gameObject.SetActive(false);
+                triggerDisable.gameObject.SetActive(false);
             }
         }
-
-        if (type == "n")
+        else if (type == "n")
         {
             transform.Find("light2").gameObject.SetActive(true);
             //audioSource.clip = jumpscareSound2;

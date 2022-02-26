@@ -59,12 +59,12 @@ public class ZombieGetUp : MonoBehaviour
 
     void Update()
     {
-        if (!audioSource.isPlaying)
-        {
-            audioSource.Play();
-        }
         if (getUp)
         {
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
             audioSource.clip = jumpscareSound;
             getupTimer+=Time.deltaTime;
             if (getupTimer > maxgetupTimer)
