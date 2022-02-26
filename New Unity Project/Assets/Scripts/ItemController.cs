@@ -26,17 +26,25 @@ public class ItemController : MonoBehaviour
             {
                 if (hasItem) // drop curr item if player is already holding sth
                 {
+
+                    Collider[] collider1 = Pickable.GetComponents<Collider>();
+                    foreach (Collider d in collider1)
+                    {
+                        d.enabled = true;
+                    }
                     Pickable.GetComponent<Collider>().enabled = true;
                     Pickable.GetComponent<Rigidbody>().isKinematic = false; // make the rigidbody work again
                     Pickable.GetComponent<Rigidbody>().useGravity = true;
                     Pickable.transform.parent = null;
+                    Debug.Log("Drop");
                 }
 
-                Collider[] collider = Pickable.GetComponents<BoxCollider>();
+                Collider[] collider = Pickable.GetComponents<Collider>();
                 foreach (Collider c in collider)
                 {
                     c.enabled = false;
                 }
+                Pickable.transform.rotation = new Quaternion(0, 0, 0, 0);
                 Pickable.GetComponent<Rigidbody>().isKinematic = true;   //makes the rigidbody not be acted upon by forces
                 Pickable.transform.position = Slot.transform.position; // sets the position of the object to your hand position
                 Pickable.transform.parent = Slot.transform; //makes the object become a child of the parent so that it moves with the hands
@@ -46,7 +54,7 @@ public class ItemController : MonoBehaviour
         }
         if (Input.GetKeyDown(GameSettings.THROW_ITEM_KEY) && hasItem == true) // drop
         {
-            Collider[] collider = Pickable.GetComponents<BoxCollider>();
+            Collider[] collider = Pickable.GetComponents<Collider>();
             foreach (Collider c in collider)
             {
                 c.enabled = true;

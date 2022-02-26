@@ -804,6 +804,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 332656724594077016, guid: 3cbb80945b533fc48b6379a688829730,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 639953173359507494, guid: 3cbb80945b533fc48b6379a688829730,
         type: 3}
       propertyPath: m_UseGravity
