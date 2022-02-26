@@ -41,7 +41,7 @@ public class BangDoor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.E))
             progress_accel += push_accel;
 
         if (bangDoorCanvas.gameObject.activeSelf)
