@@ -19,6 +19,7 @@ public class ZombieGetUp : MonoBehaviour
 
     //boolean to check if jumpscare is triggered
     bool getUp = false;
+    bool getUpNull = false;
 
     //boolean to check if door is triggered
     bool doorDown = false;
@@ -52,7 +53,10 @@ public class ZombieGetUp : MonoBehaviour
     {
         if (other.transform == target)
         {
-            getUp = true;
+            if (zombie != null)
+            {
+                getUp = true;
+            }
             doorDown = true;
         }
     }
