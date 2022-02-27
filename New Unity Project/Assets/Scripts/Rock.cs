@@ -30,9 +30,8 @@ public class Rock : MonoBehaviour
     float bar_full_scale = 0.48f;
     float trigger_radius = 5.0f;
 
-    int ID = 0;
-    public static int numRock = 0;
-
+    public const RockID ID;
+ 
     // Start is called before the first frame update
     void Awake()
     {
@@ -40,9 +39,6 @@ public class Rock : MonoBehaviour
 
         progressBar = UICanvas.gameObject.transform.Find("RockBar").Find("Filler").GetComponent<Image>();
         bar_ori_pos = progressBar.transform.localPosition;
-
-        ID = numRock;
-        numRock++;
 
         if (SceneForestSettings.rockStatus[ID])
         {
@@ -109,4 +105,14 @@ public class Rock : MonoBehaviour
             SceneForestSettings.rockStatus[ID] = true;
         }
     }
+}
+
+public enum RockID
+{
+    ROCK_ROBERT,
+    ROCK_ROBERTIA,
+    ROCK_NOONIONS,
+    ROCK_JEREMY,
+
+    NUM_TOTAL
 }

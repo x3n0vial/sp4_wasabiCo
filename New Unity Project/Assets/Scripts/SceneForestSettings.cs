@@ -9,6 +9,6 @@ public class SceneForestSettings
 
     public static void ResetForest()
     {
-        Rock.numRock = 0;
+       //...
     }
 }

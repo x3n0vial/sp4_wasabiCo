@@ -39,4 +39,5 @@ public class GameHandler : MonoBehaviour
     public Camera UICamera;
     public LevelLoader levelLoader;
     public GameObject UILayout;
+    public BgmManager BGMManager;
 }

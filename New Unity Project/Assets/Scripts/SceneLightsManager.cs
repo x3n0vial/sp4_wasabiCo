@@ -24,7 +24,7 @@ public class SceneLightsManager : MonoBehaviour
     private float exposure = 1.0f;
    
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         RenderSettings.skybox.SetFloat("_Exposure", exposure);
         dir_light_intensity = dirLight.intensity;
