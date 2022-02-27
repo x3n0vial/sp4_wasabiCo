@@ -26,10 +26,10 @@ public class BossAI : MonoBehaviour
 
     public float angleOfView, rangeofView;
 
-    //GameObject UIOverlay;
+    GameObject UIOverlay;
     Transform focusPoint;
     bool isAttack = false;
-    double deathTimer = 3f;
+    double deathTimer = 1f;
 
     LayerMask wallLayer;
 
@@ -37,14 +37,9 @@ public class BossAI : MonoBehaviour
     void Start()
     {
         waypointIndex = 0;
-       // agent.SetDestination(waypoints[waypointIndex].position);
         wallLayer = LayerMask.GetMask("SolidObject");
-        //getUpTime = 5f;
-        //anim = GetComponent<Animator>();
-        //agent = GetComponent<NavMeshAgent>();
-        //collider = GetComponent<Collider>();
-        //UIOverlay = GameHandler.instance.UILayout;
         focusPoint = transform.Find("FocusPoint");
+        UIOverlay = GameHandler.instance.UILayout;
     }
 
     // Update is called once per frame
@@ -69,7 +64,7 @@ public class BossAI : MonoBehaviour
             distToCurrWaypoint = Vector3.Distance(transform.position, waypoints[waypointIndex].position);
             distToPlayer = Vector3.Distance(transform.position, Player.transform.position);
 
-            if (distToPlayer > 10f)
+            if (distToPlayer > 20f)
                 Patrol();
             if (isPatrolling)
             {
@@ -91,7 +86,7 @@ public class BossAI : MonoBehaviour
                 }
             }
 
-            if (distToPlayer <= 10f && distToPlayer >= 3f)
+            if (distToPlayer <= 20f && distToPlayer >= 3f)
             {
                 if (canSeePlayer())
                 {
@@ -109,8 +104,8 @@ public class BossAI : MonoBehaviour
                 // attack player if within range
                 Attack();
                 isAttack = true;
-                //GameHandler.instance.cameraSettings.ActivateDeathCam(focusPoint);
-                //UIOverlay.SetActive(false);
+                GameHandler.instance.cameraSettings.ActivateDeathCam(focusPoint);
+                UIOverlay.SetActive(false);
             }
             else
             {
@@ -125,7 +120,7 @@ public class BossAI : MonoBehaviour
                 }
                 else if (deathTimer <= 0f)
                 {
-                    deathTimer = 3f;
+                    deathTimer = 1f;
                     GameHandler.instance.levelLoader.LoadNextLevel(GameHandler.instance.levelLoader.getSceneName());
                     CheckpointManager.ClearCheckpoints();
                 }
@@ -256,6 +251,5 @@ public class BossAI : MonoBehaviour
         {
             waypointIndex = 0;
         }
-        //transform.LookAt(waypoints[waypointIndex].position);
     }
 }
