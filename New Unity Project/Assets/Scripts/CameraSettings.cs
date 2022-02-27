@@ -13,6 +13,8 @@ public class CameraSettings : MonoBehaviour
     
     public GameObject deathCamTarget;
 
+    const float deathFOV = 20.0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +32,7 @@ public class CameraSettings : MonoBehaviour
             standardCam.Priority = 1;
         }
         deathCam.Priority = -1;
+       
     }
 
     // Update is called once per frame
@@ -58,23 +61,14 @@ public class CameraSettings : MonoBehaviour
        
     }
 
-    public void ActivateDeathCam(Transform target)
+    public void ActivateDeathCam(Transform target, float FOV=deathFOV)
     {
         deathCam.LookAt = target;
         deathCam.Follow = target;
         deathCam.Priority = 10;
         CinemachineTransposer transposer = deathCam.GetCinemachineComponent<CinemachineTransposer>();
-        //direction.y = 0;
-        //direction = direction.normalized;
-        //Vector3 camDir = -1 *direction;
-        //float theta = Mathf.Acos(Vector3.Dot(camDir, new Vector3(0, 0, -1)) / camDir.magnitude);
-        //if (camDir.x > 0)
-        //    theta *= -1;
-      //  float radius = 3.0f;
-       // float theta = 180 * Mathf.Deg2Rad;
-       // transposer.m_FollowOffset = new Vector3(Mathf.Sin(theta) * radius, transposer.m_FollowOffset.y, Mathf.Cos(theta) * radius);
-       // Debug.Log("Camera Dir = " + camDir);
-       // Debug.Log("Camera Offset = " + transposer.m_FollowOffset);
+        deathCam.m_Lens.FieldOfView = FOV;
+       
     }
 
     public void DeactivateDeathCam()
