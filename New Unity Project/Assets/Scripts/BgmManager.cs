@@ -49,7 +49,6 @@ public class BgmManager : MonoBehaviour
         }
         else if (count == 2)
         {
-            Debug.Log("count:" + count);
             audioSource.clip = bgm2;
             audioSource.Play();
             count++;
