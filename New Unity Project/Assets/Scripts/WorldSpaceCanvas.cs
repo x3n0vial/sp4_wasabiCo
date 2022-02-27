@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class WorldSpaceCanvas : MonoBehaviour
 {
-
-    // Update is called once per frame
+    // script to auto rotate world space canvases to face player
     void Update()
     {
         // Rotate canvas to face player
         // Get Facing Camera Direction
-       // Vector3 targetDir = -1 * GameHandler.instance.UICamera.transform.forward;
         Vector3 targetDir = Camera.main.transform.position - transform.position;
         targetDir.y = 0;
         targetDir.Normalize();

@@ -49,6 +49,7 @@ public class Lantern : MonoBehaviour
         else
             UICanvas.gameObject.SetActive(false);
 
+        // update lantern light progress when within flashlight
         if (withinLight)
         {
             light_progress += light_speed * Time.deltaTime;

@@ -40,7 +40,7 @@ public class CameraSettings : MonoBehaviour
     {
 
 
-        // FOR TESTING
+        // M to Switch between Cameras
         if (Input.GetKeyDown(KeyCode.M))
             GameSettings.CAMERA_MOUSEPAN_ENABLED = !GameSettings.CAMERA_MOUSEPAN_ENABLED;
 
