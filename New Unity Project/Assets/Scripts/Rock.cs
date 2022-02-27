@@ -32,7 +32,7 @@ public class Rock : MonoBehaviour
     public static int numRock = 0;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         audioSource = GetComponent<AudioSource>();
 
@@ -41,8 +41,6 @@ public class Rock : MonoBehaviour
 
         ID = numRock;
         numRock++;
-        Debug.Log(ID+"ID");
-        Debug.Log(SceneForestSettings.rockStatus[ID]);
 
         if (SceneForestSettings.rockStatus[ID])
         {
