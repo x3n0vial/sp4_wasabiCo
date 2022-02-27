@@ -2768,8 +2768,6 @@ MonoBehaviour:
     m_Options:
     - m_Text: E
       m_Image: {fileID: 0}
-    - m_Text: F
-      m_Image: {fileID: 0}
     - m_Text: R
       m_Image: {fileID: 0}
     - m_Text: Q
