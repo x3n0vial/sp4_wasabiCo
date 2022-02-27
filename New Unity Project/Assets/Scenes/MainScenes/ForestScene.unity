@@ -377,6 +377,11 @@ PrefabInstance:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3764280944491711924, guid: fcca7022c382e2447a7a287e628f03d9,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 457138334}
     - target: {fileID: 3764280945444295755, guid: fcca7022c382e2447a7a287e628f03d9,
         type: 3}
       propertyPath: m_NavMeshLayer
@@ -1151,6 +1156,11 @@ PrefabInstance:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3764280944491711924, guid: fcca7022c382e2447a7a287e628f03d9,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 457138334}
     - target: {fileID: 3764280945444295755, guid: fcca7022c382e2447a7a287e628f03d9,
         type: 3}
       propertyPath: m_NavMeshLayer
@@ -1483,7 +1493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 5
-  m_FollowOffset: {x: 0, y: 3.39, z: -5.41}
+  m_FollowOffset: {x: 0, y: 2.1, z: -2.86}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -2182,6 +2192,11 @@ PrefabInstance:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3764280944491711924, guid: fcca7022c382e2447a7a287e628f03d9,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 457138334}
     - target: {fileID: 3764280945444295755, guid: fcca7022c382e2447a7a287e628f03d9,
         type: 3}
       propertyPath: m_NavMeshLayer
@@ -2549,6 +2564,11 @@ PrefabInstance:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3764280944491711924, guid: fcca7022c382e2447a7a287e628f03d9,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 457138334}
     - target: {fileID: 3764280945444295755, guid: fcca7022c382e2447a7a287e628f03d9,
         type: 3}
       propertyPath: m_NavMeshLayer
@@ -2937,6 +2957,11 @@ PrefabInstance:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3764280944491711924, guid: fcca7022c382e2447a7a287e628f03d9,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 457138334}
     - target: {fileID: 3764280945444295755, guid: fcca7022c382e2447a7a287e628f03d9,
         type: 3}
       propertyPath: m_NavMeshLayer
@@ -3052,6 +3077,11 @@ PrefabInstance:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3764280944491711924, guid: fcca7022c382e2447a7a287e628f03d9,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 457138334}
     - target: {fileID: 3764280945444295755, guid: fcca7022c382e2447a7a287e628f03d9,
         type: 3}
       propertyPath: m_NavMeshLayer
@@ -3394,6 +3424,11 @@ PrefabInstance:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3764280944491711924, guid: fcca7022c382e2447a7a287e628f03d9,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 457138334}
     - target: {fileID: 3764280945444295755, guid: fcca7022c382e2447a7a287e628f03d9,
         type: 3}
       propertyPath: m_NavMeshLayer
@@ -3957,6 +3992,11 @@ PrefabInstance:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3764280944491711924, guid: fcca7022c382e2447a7a287e628f03d9,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 457138334}
     - target: {fileID: 3764280945444295755, guid: fcca7022c382e2447a7a287e628f03d9,
         type: 3}
       propertyPath: m_NavMeshLayer
@@ -4468,6 +4508,11 @@ PrefabInstance:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3764280944491711924, guid: fcca7022c382e2447a7a287e628f03d9,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 457138334}
     - target: {fileID: 3764280945444295755, guid: fcca7022c382e2447a7a287e628f03d9,
         type: 3}
       propertyPath: m_NavMeshLayer
@@ -4583,6 +4628,11 @@ PrefabInstance:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3764280944491711924, guid: fcca7022c382e2447a7a287e628f03d9,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 457138334}
     - target: {fileID: 3764280945444295755, guid: fcca7022c382e2447a7a287e628f03d9,
         type: 3}
       propertyPath: m_NavMeshLayer
@@ -4776,6 +4826,11 @@ PrefabInstance:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3764280944491711924, guid: fcca7022c382e2447a7a287e628f03d9,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 457138334}
     - target: {fileID: 3764280945444295755, guid: fcca7022c382e2447a7a287e628f03d9,
         type: 3}
       propertyPath: m_NavMeshLayer
@@ -5106,6 +5161,11 @@ PrefabInstance:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3764280944491711924, guid: fcca7022c382e2447a7a287e628f03d9,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 457138334}
     - target: {fileID: 3764280945444295755, guid: fcca7022c382e2447a7a287e628f03d9,
         type: 3}
       propertyPath: m_NavMeshLayer
@@ -5281,6 +5341,11 @@ PrefabInstance:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3764280944491711924, guid: fcca7022c382e2447a7a287e628f03d9,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 457138334}
     - target: {fileID: 3764280945444295755, guid: fcca7022c382e2447a7a287e628f03d9,
         type: 3}
       propertyPath: m_NavMeshLayer
@@ -5351,7 +5416,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 68.29
+  field of view: 100
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -5376,8 +5441,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1046722609}
-  m_LocalRotation: {x: 0.27624106, y: -1.9145985e-15, z: 7.949516e-16, w: 0.9610884}
-  m_LocalPosition: {x: 44.03, y: 6.393113, z: 35.718655}
+  m_LocalRotation: {x: 0.31141087, y: 0, z: 0, w: 0.95027536}
+  m_LocalPosition: {x: 44.03, y: 5.103113, z: 38.268654}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 457138332}
@@ -5605,6 +5670,11 @@ PrefabInstance:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3764280944491711924, guid: fcca7022c382e2447a7a287e628f03d9,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 457138334}
     - target: {fileID: 3764280945444295755, guid: fcca7022c382e2447a7a287e628f03d9,
         type: 3}
       propertyPath: m_NavMeshLayer
@@ -6250,6 +6320,11 @@ PrefabInstance:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3764280944491711924, guid: fcca7022c382e2447a7a287e628f03d9,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 457138334}
     - target: {fileID: 3764280945444295755, guid: fcca7022c382e2447a7a287e628f03d9,
         type: 3}
       propertyPath: m_NavMeshLayer
@@ -6535,6 +6610,11 @@ PrefabInstance:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3764280944491711924, guid: fcca7022c382e2447a7a287e628f03d9,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 457138334}
     - target: {fileID: 3764280945444295755, guid: fcca7022c382e2447a7a287e628f03d9,
         type: 3}
       propertyPath: m_NavMeshLayer
@@ -6884,6 +6964,11 @@ PrefabInstance:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3764280944491711924, guid: fcca7022c382e2447a7a287e628f03d9,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 457138334}
     - target: {fileID: 3764280945444295755, guid: fcca7022c382e2447a7a287e628f03d9,
         type: 3}
       propertyPath: m_NavMeshLayer
@@ -7085,6 +7170,11 @@ PrefabInstance:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3764280944491711924, guid: fcca7022c382e2447a7a287e628f03d9,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 457138334}
     - target: {fileID: 3764280945444295755, guid: fcca7022c382e2447a7a287e628f03d9,
         type: 3}
       propertyPath: m_NavMeshLayer
@@ -7200,6 +7290,11 @@ PrefabInstance:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3764280944491711924, guid: fcca7022c382e2447a7a287e628f03d9,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 457138334}
     - target: {fileID: 3764280945444295755, guid: fcca7022c382e2447a7a287e628f03d9,
         type: 3}
       propertyPath: m_NavMeshLayer
@@ -8251,6 +8346,11 @@ PrefabInstance:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3764280944491711924, guid: fcca7022c382e2447a7a287e628f03d9,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 457138334}
     - target: {fileID: 3764280945444295755, guid: fcca7022c382e2447a7a287e628f03d9,
         type: 3}
       propertyPath: m_NavMeshLayer
@@ -9404,6 +9504,11 @@ PrefabInstance:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3764280944491711924, guid: fcca7022c382e2447a7a287e628f03d9,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 457138334}
     - target: {fileID: 3764280945444295755, guid: fcca7022c382e2447a7a287e628f03d9,
         type: 3}
       propertyPath: m_NavMeshLayer
@@ -9651,7 +9756,7 @@ PrefabInstance:
     - target: {fileID: 1691527930245141456, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.6393388
+      value: 0.63933873
       objectReference: {fileID: 0}
     - target: {fileID: 1691527930245141456, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
@@ -9661,12 +9766,12 @@ PrefabInstance:
     - target: {fileID: 1691527930245141456, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7636914
+      value: 0.7636915
       objectReference: {fileID: 0}
     - target: {fileID: 1691527930245141456, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.06867365
+      value: -0.068673655
       objectReference: {fileID: 0}
     - target: {fileID: 1691527931124164817, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
@@ -9676,32 +9781,32 @@ PrefabInstance:
     - target: {fileID: 1691527931124164817, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -36.286873
+      value: -37.576874
       objectReference: {fileID: 0}
     - target: {fileID: 1691527931124164817, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 35.718655
+      value: 38.268654
       objectReference: {fileID: 0}
     - target: {fileID: 1691527931124164817, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9610884
+      value: 0.95027536
       objectReference: {fileID: 0}
     - target: {fileID: 1691527931124164817, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.27624106
+      value: 0.31141087
       objectReference: {fileID: 0}
     - target: {fileID: 1691527931124164817, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -1.9145985e-15
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1691527931124164817, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 7.949516e-16
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1691527931124164818, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
@@ -9713,6 +9818,11 @@ PrefabInstance:
       propertyPath: m_LookAt
       value: 
       objectReference: {fileID: 1593510566}
+    - target: {fileID: 1691527931124164818, guid: 17a73bd056336034dbec8b232f96313d,
+        type: 3}
+      propertyPath: m_Lens.FieldOfView
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 1691527931224395137, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10368,6 +10478,11 @@ PrefabInstance:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3764280944491711924, guid: fcca7022c382e2447a7a287e628f03d9,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 457138334}
     - target: {fileID: 3764280945444295755, guid: fcca7022c382e2447a7a287e628f03d9,
         type: 3}
       propertyPath: m_NavMeshLayer
@@ -10805,6 +10920,11 @@ PrefabInstance:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3764280944491711924, guid: fcca7022c382e2447a7a287e628f03d9,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 457138334}
     - target: {fileID: 3764280945444295755, guid: fcca7022c382e2447a7a287e628f03d9,
         type: 3}
       propertyPath: m_NavMeshLayer
