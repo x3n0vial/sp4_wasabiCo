@@ -158,7 +158,8 @@ public class Flashlight : MonoBehaviour
 	public void RefillBattery()
     {
 		battery_amt = 100.0f;
-    }
+		flashlightUI.UpdateBatteryBar(battery_amt);
+	}
 
 	public bool CheckIfInFlashlight(Collider col)
     {
