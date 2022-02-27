@@ -28,13 +28,11 @@ public class BgmManager : MonoBehaviour
 
     public void SwitchBGM1()
     {
-        FadeOut();
         audioSource.clip = bgm1;
         audioSource.Play();
     }
     public void SwitchBGM2()
     {
-        FadeOut();
         audioSource.clip = bgm2;
         audioSource.Play();
     }

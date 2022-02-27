@@ -26,6 +26,7 @@ public class PlayerStatus
         {
             is_chased = false;
             chasing_enemy = null;
+            GameHandler.instance.BGMManager.FadeOut();
             GameHandler.instance.BGMManager.SwitchBGM1();
             Debug.Log("Player no longer being chased");
         }
