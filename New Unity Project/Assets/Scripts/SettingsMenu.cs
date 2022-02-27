@@ -21,7 +21,17 @@ public class SettingsMenu : MonoBehaviour
 
     public void UpdateFlashlightKeybind()
     {
-        //GameSettings.FLASHLIGHT_KEY
+        switch (DropDown_flashlightKey.options[DropDown_flashlightKey.value].text)
+        {
+            case "F":
+                GameSettings.FLASHLIGHT_KEY = KeyCode.F;
+                break;
+            case "TAB":
+                GameSettings.FLASHLIGHT_KEY = KeyCode.Tab;
+                break;
+            default:
+                break;
+        }
     }
 
     public void UpdatePickUpKeybind()

@@ -23,6 +23,8 @@ public class FlashlightUI : MonoBehaviour
 
         default_batt_scale_y = batteryBar.transform.localScale.y;
         default_batt_pos_y = batteryBar.transform.localPosition.y;
+
+        //transform.Find("Key").Find("Text")
     }
 
     public void UpdateBatteryBar(float battery_amt)
