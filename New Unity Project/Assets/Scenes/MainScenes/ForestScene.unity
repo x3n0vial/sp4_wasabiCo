@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 995991008}
-  m_IndirectSpecularColor: {r: 0.24674556, g: 0.27405635, b: 0.31721568, a: 1}
+  m_IndirectSpecularColor: {r: 0.3913747, g: 0.43501526, b: 0.50372523, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -519,6 +519,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 306428853}
     m_Modifications:
+    - target: {fileID: 770760690520183664, guid: 335946c4528dd1e4cb26cd4893d8ac70,
+        type: 3}
+      propertyPath: ID
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 770760690520183664, guid: 335946c4528dd1e4cb26cd4893d8ac70,
         type: 3}
       propertyPath: bgm
@@ -2442,8 +2447,9 @@ MonoBehaviour:
     - This washing machine looks important...
     - It even has a flashlight charging station here!
     - Let's rest here for a bit..
-    - '(Note: Shine flashlight over the washing machine to activate checkpoints.)'
-    - '(Note: Press ''E'' to recharge your flashlight''s battery when you''re near
+    - '(Note: Walk near the washing machine to activate checkpoints.)'
+    - '(Note: Press ''E'' to bring up the flashlight recharge bar.)'
+    - '(Note: Hold ''F'' to recharge your flashlight''s battery when you''re near
       the washing machine.)'
 --- !u!114 &375457784
 MonoBehaviour:
@@ -3812,6 +3818,7 @@ MonoBehaviour:
   UICamera: {fileID: 457138334}
   levelLoader: {fileID: 242990894}
   UILayout: {fileID: 1905015688}
+  BGMManager: {fileID: 0}
 --- !u!4 &682875755
 Transform:
   m_ObjectHideFlags: 0
@@ -4232,6 +4239,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 306428853}
     m_Modifications:
+    - target: {fileID: 770760690520183664, guid: 335946c4528dd1e4cb26cd4893d8ac70,
+        type: 3}
+      propertyPath: ID
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 770760690520183664, guid: 335946c4528dd1e4cb26cd4893d8ac70,
         type: 3}
       propertyPath: bgm
@@ -9783,7 +9795,7 @@ PrefabInstance:
     - target: {fileID: 1691527930245141456, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.63933873
+      value: 0.6393388
       objectReference: {fileID: 0}
     - target: {fileID: 1691527930245141456, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
@@ -9793,12 +9805,12 @@ PrefabInstance:
     - target: {fileID: 1691527930245141456, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7636915
+      value: 0.7636914
       objectReference: {fileID: 0}
     - target: {fileID: 1691527930245141456, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.068673655
+      value: -0.06867365
       objectReference: {fileID: 0}
     - target: {fileID: 1691527931124164817, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
@@ -10672,6 +10684,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 306428853}
     m_Modifications:
+    - target: {fileID: 770760690520183664, guid: 335946c4528dd1e4cb26cd4893d8ac70,
+        type: 3}
+      propertyPath: ID
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 770760690520183664, guid: 335946c4528dd1e4cb26cd4893d8ac70,
         type: 3}
       propertyPath: bgm
