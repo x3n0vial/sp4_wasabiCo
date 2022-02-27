@@ -14,15 +14,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainScenes/ForestScene.unity
     guid: 3ceb6a749508c0a40979dad972b8033e
-  - enabled: 0
-    path: Assets/Scenes/TestScene/SceneTestMono.unity
-    guid: 59f08bb9846ef084db27bf9689174488
   - enabled: 1
     path: Assets/Scenes/MainScenes/SceneNightmare.unity
     guid: 39e4b50151a52214399eed51a652b037
   - enabled: 1
     path: Assets/Scenes/MainScenes/SceneBossRoom.unity
     guid: 552a7723aeb47474fa1d9dd20cab8941
+  - enabled: 1
+    path: Assets/Scenes/MainScenes/SceneCredits.unity
+    guid: 04ff4ac9f81d47e43bc9ba445e8589b0
   - enabled: 1
     path: Assets/Scenes/TestScene/TestSceneRenee.unity
     guid: d00cef1c467832c43b0329bbf192c361
