@@ -15,6 +15,7 @@ public class BangDoor : MonoBehaviour
     public float FALL_ACCEL = 40.0f;
 
     bool isFalling = false;
+    bool isBanged = false;
     float theta = 0.0f;
 
     Image progressBar;
@@ -79,6 +80,7 @@ public class BangDoor : MonoBehaviour
             {
                 isFalling = true;
                 bangDoorCanvas.gameObject.SetActive(false);
+                isBanged = true;
             }
         }
 
@@ -99,7 +101,7 @@ public class BangDoor : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !isBanged)
         {
             bangDoorCanvas.gameObject.SetActive(true);
         }

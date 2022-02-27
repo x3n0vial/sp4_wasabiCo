@@ -14,24 +14,62 @@ public class SettingsMenu : MonoBehaviour
 
     public GameObject GO_mouseSensitivity;
 
-    void Start()
-    {
-       
-    }
-
+  
     public void UpdateFlashlightKeybind()
     {
-        //GameSettings.FLASHLIGHT_KEY
+        switch (DropDown_flashlightKey.options[DropDown_flashlightKey.value].text)
+        {
+            case "F":
+                GameSettings.FLASHLIGHT_KEY = KeyCode.F;
+                break;
+            case "TAB":
+                GameSettings.FLASHLIGHT_KEY = KeyCode.Tab;
+                break;
+            default:
+                break;
+        }
     }
 
     public void UpdatePickUpKeybind()
     {
-       
+        switch (DropDown_pickupItemKey.options[DropDown_pickupItemKey.value].text)
+        {
+            case "E":
+                GameSettings.PICKUP_ITEM_KEY = KeyCode.E;
+                break;
+            case "R":
+                GameSettings.PICKUP_ITEM_KEY = KeyCode.R;
+                break;
+            case "Q":
+                GameSettings.PICKUP_ITEM_KEY = KeyCode.Q;
+                break;
+            case "Z":
+                GameSettings.PICKUP_ITEM_KEY = KeyCode.Z;
+                break;
+            case "X":
+                GameSettings.PICKUP_ITEM_KEY = KeyCode.X;
+                break;
+            case "C":
+                GameSettings.PICKUP_ITEM_KEY = KeyCode.C;
+                break;
+            default:
+                break;
+        }
     }
 
     public void UpdateThrowKeybind()
     {
-
+        switch (DropDown_throwItemKey.options[DropDown_throwItemKey.value].text)
+        {
+            case "Left Mouse Button":
+                GameSettings.THROW_ITEM_KEY = KeyCode.Mouse0;
+                break;
+            case "Right Mouse Button":
+                GameSettings.THROW_ITEM_KEY = KeyCode.Mouse1;
+                break;
+            default:
+                break;
+        }
     }
     
 

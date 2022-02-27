@@ -22,6 +22,7 @@ public class DoorTrigger : MonoBehaviour
 
     void Update()
     {
+        // start rotating door upon reaching target waypoint
         if (isTriggered)
         {
             FALL_SPEED += FALL_ACCEL * Time.deltaTime;

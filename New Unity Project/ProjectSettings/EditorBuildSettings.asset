@@ -23,9 +23,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainScenes/SceneBossRoom.unity
     guid: 552a7723aeb47474fa1d9dd20cab8941
-  - enabled: 0
-    path: Assets/Scenes/TestScene/SampleScene.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/Scenes/TestScene/TestSceneRenee.unity
     guid: d00cef1c467832c43b0329bbf192c361
