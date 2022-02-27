@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class ItemController : MonoBehaviour
 {
-    public GameObject Slot; //reference to your hands/the position where you want your object to go
+    //public GameObject Slot; //reference to your hands/the position where you want your object to go
     bool canpickup; //a bool to see if you can or cant pick up the item
     GameObject Pickable; // the gameobject onwhich you collided with
-    ItemSlot itemSlot;
+    public ItemSlot itemSlot;
 
     public float throwForce = 5000;
 
@@ -28,6 +28,8 @@ public class ItemController : MonoBehaviour
 
                 }
 
+                Debug.Log("PickUpKey pressed, picking up " + Pickable.name + " now.");
+
                 Collider[] collider = Pickable.GetComponents<Collider>();
                 foreach (Collider c in collider)
                 {
@@ -35,8 +37,8 @@ public class ItemController : MonoBehaviour
                 }
                 Pickable.transform.rotation = new Quaternion(0, 0, 0, 0);
                 Pickable.GetComponent<Rigidbody>().isKinematic = true;   //makes the rigidbody not be acted upon by forces
-                Pickable.transform.position = Slot.transform.position; // sets the position of the object to your hand position
-                Pickable.transform.parent = Slot.transform; //makes the object become a child of the parent so that it moves with the hands
+                Pickable.transform.position = itemSlot.transform.position; // sets the position of the object to your hand position
+                Pickable.transform.parent = itemSlot.transform; //makes the object become a child of the parent so that it moves with the hands
         
                 Pickable.GetComponent<Rigidbody>().useGravity = false;
                 itemSlot.setHasItem(true);
@@ -50,27 +52,31 @@ public class ItemController : MonoBehaviour
                 c.enabled = true;
             }
 
+            Debug.Log("ThrowItemKey pressed, throwing " + Pickable.name + " now.");
+
             Pickable.GetComponent<Collider>().enabled = true;
             Pickable.GetComponent<Rigidbody>().isKinematic = false; // make the rigidbody work again
             Pickable.GetComponent<Rigidbody>().useGravity = true;
 
-            Vector3 dir = transform.rotation * Vector3.forward;
+            Vector3 dir = transform.rotation * Vector3.forward + Vector3.up * 0.5f;
             Pickable.GetComponent<Rigidbody>().AddForce(dir * throwForce);
 
-            Pickable.transform.parent = null; // make the object no be a child of the hands
+            Pickable.transform.parent = null; // make the object no be a child of the hands\
+            itemSlot.setHasItem(false);
         }
     }
     private void OnTriggerEnter(Collider other) // to see when the player enters the collider
     {
-        if (other.gameObject.tag == "Pickable") //on the object you want to pick up set the tag to be anything, in this case "object"
+        if (other.gameObject.tag == "Pickable" && !itemSlot.getHasItem()) //on the object you want to pick up set the tag to be anything, in this case "object"
         {
             canpickup = true;  //set the pick up bool to true
             Pickable = other.gameObject; //set the gameobject you collided with to one you can reference
+            Debug.Log(other.gameObject.name + "is in range and can be picked up.");
         }
     }
     private void OnTriggerExit(Collider other)
     {
         canpickup = false; //when you leave the collider set the canpickup bool to false
-
+        Debug.Log("Pickup has been disabled.");
     }
 }
