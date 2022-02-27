@@ -136,8 +136,6 @@ public class Skeleton_Controller : MonoBehaviour
                     if (distance <= agent.stoppingDistance)
                     {
                         FaceTarget();
-                        //agent.speed = 0;
-
                         jumpscare = true;
 
                     }
