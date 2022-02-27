@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4279319312786278251}
   - component: {fileID: 6971093276865645136}
+  - component: {fileID: 5238654713547080224}
   m_Layer: 0
   m_Name: test
   m_TagString: Untagged
@@ -44,6 +45,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.61693573, y: 0.26940632, z: 0.46907425}
   m_Center: {x: -0.19153214, y: -0.049772978, z: -0.26546288}
+--- !u!114 &5238654713547080224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2780750409288624986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e68e5b9a69884cd43a60e36e8f3ea44c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Slot: {fileID: 3302410791118539343}
+  throwForce: 500
 --- !u!1 &3302410791118539343
 GameObject:
   m_ObjectHideFlags: 0
@@ -477,7 +492,6 @@ GameObject:
   - component: {fileID: 9019428394982992721}
   - component: {fileID: 9019428394982992723}
   - component: {fileID: 937464919153673512}
-  - component: {fileID: 811611734496468322}
   m_Layer: 31
   m_Name: robertiachan
   m_TagString: Player
@@ -719,20 +733,6 @@ MonoBehaviour:
   speed: 2
   stamina: 100
   jumpforce: 3
---- !u!114 &811611734496468322
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9019428394993196557}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e68e5b9a69884cd43a60e36e8f3ea44c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Slot: {fileID: 3302410791118539343}
-  throwForce: 500
 --- !u!1 &9019428394993196559
 GameObject:
   m_ObjectHideFlags: 0
