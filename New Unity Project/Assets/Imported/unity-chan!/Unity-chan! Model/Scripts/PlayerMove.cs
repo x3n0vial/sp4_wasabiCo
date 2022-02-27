@@ -98,7 +98,6 @@ namespace UnityChan
                 speed = sprintSpeed;
                 anim.speed = animSprintSpeed;
                 sprintUI.UpdateStaminaBar(stamina);
-                Debug.Log(stamina);
             }
             else
             {
@@ -116,7 +115,6 @@ namespace UnityChan
 
             if (Input.GetKeyDown(KeyCode.Space))
             {   //You can jump if you are not in a state transition
-                Debug.Log("space pressed");
                 if (currentBaseState.nameHash == idleState || currentBaseState.nameHash == runState || currentBaseState.nameHash == restState)
                 {
                     if (!anim.IsInTransition(0))
@@ -126,13 +124,6 @@ namespace UnityChan
                         rb.velocity = rbv;
                         anim.SetBool("IsJump", true);     // Send animator a flag to switch to jump
                     }
-                    else
-                    {
-                        Debug.Log("Anim transition got issue");
-                    }
-                }
-                else {
-                    Debug.Log("current base state got issue");// + currentBaseState.nameHash.ToString());
                 }
             }
 
