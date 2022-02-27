@@ -1029,7 +1029,7 @@ MonoBehaviour:
   type: 
   dissapearSound: {fileID: 8300000, guid: 709fe5326540cd4469c923de3637e3d7, type: 3}
   attackSound: {fileID: 8300000, guid: e3c7aba6b5ed2974aaeea4b730eafddd, type: 3}
-  zombieSound: {fileID: 8300000, guid: 857c3a907bc9405439b80972882b4b5b, type: 3}
+  zombieSound: {fileID: 8300000, guid: 0910ddf1e2b626b49899fe126509c331, type: 3}
   jumpscareSound: {fileID: 8300000, guid: cff7a393399cbba4d8057f2ebb5c8b46, type: 3}
   jumpscareSound2: {fileID: 8300000, guid: 8b36e133223d6f64098dbd5535229f51, type: 3}
   triggerDisable: {fileID: 0}

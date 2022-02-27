@@ -8,11 +8,14 @@ public class Button : MonoBehaviour
     public Elevator elevator;
     public float TargetPositionY;
 
+    AudioSource audioSource;
 
-    //FOR TESTING
-    public void StartElevator()
+
+
+
+    private void Start()
     {
-        elevator.StartElevator(TargetPositionY);
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -20,6 +23,7 @@ public class Button : MonoBehaviour
         if (other.CompareTag("Pickable"))
         {
             elevator.StartElevator(TargetPositionY);
+            audioSource.Play();
         }
     }
 

@@ -1875,7 +1875,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aed67b56f98c01a4384b1d49131039e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackSound: {fileID: 8300000, guid: f654122b52498b5479c68c247bbe359a, type: 3}
+  attackSound: {fileID: 8300000, guid: 87a2b612cc590d940bc93c920d8a0bb4, type: 3}
   jumpscareSound: {fileID: 8300000, guid: cff7a393399cbba4d8057f2ebb5c8b46, type: 3}
 --- !u!82 &8457303622905948959
 AudioSource:
