@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class SceneForestSettings
 {
-    public static bool[] rockStatus = new bool[4];
+    public static bool[] rockStatus = new bool[(int)RockID.NUM_TOTAL];
   
 
     public static void ResetForest()
     {
-        Rock.numRock = 0;
+       //...
     }
 }

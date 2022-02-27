@@ -55,9 +55,9 @@ public class Flashlight : MonoBehaviour
 			targetDir.Normalize();
 			// Transform based on camera's direction
 			targetDir = Camera.main.transform.TransformDirection(targetDir);
+			targetDir.y = 0;
 			// Get angle to rotate
 			float theta = Mathf.Acos(Vector3.Dot(targetDir, new Vector3(0, 0, -1) / (targetDir.magnitude)));
-			
 			if (targetDir.x > 0)
 				theta *= -1;
 			
