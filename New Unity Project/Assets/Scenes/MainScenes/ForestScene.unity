@@ -718,6 +718,85 @@ Transform:
   m_Father: {fileID: 1905015689}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &86849463
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 86849464}
+  - component: {fileID: 86849467}
+  - component: {fileID: 86849466}
+  - component: {fileID: 86849465}
+  m_Layer: 0
+  m_Name: DialogueCollider (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &86849464
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86849463}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 14.57, y: -4.59726, z: 11.07}
+  m_LocalScale: {x: 0.9004629, y: 0.9004629, z: 0.9004629}
+  m_Children: []
+  m_Father: {fileID: 1570633618}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &86849465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86849463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbed0fb6fa8990428563f7d649e3430, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Robertia
+    sentences:
+    - The light seems darker...
+    - Was that always moving?
+    - This is getting kind of worrying... but oh well.
+    - Let's break the rest of these rocks.
+--- !u!114 &86849466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86849463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35e215819bb4d4f4b89de6e941a22a19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueTrigger: {fileID: 86849465}
+--- !u!136 &86849467
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86849463}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 3.96
+  m_Height: 8.16
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &110339625 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7592779619698670922, guid: b5f595d1a88d01141b4cc370ed378ac9,
@@ -1306,6 +1385,85 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 206197247}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &230968264
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 230968265}
+  - component: {fileID: 230968268}
+  - component: {fileID: 230968267}
+  - component: {fileID: 230968266}
+  m_Layer: 0
+  m_Name: DialogueCollider (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &230968265
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230968264}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 31.91, y: -4.59726, z: -6.4}
+  m_LocalScale: {x: 0.9004629, y: 0.9004629, z: 0.9004629}
+  m_Children: []
+  m_Father: {fileID: 1570633618}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &230968266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230968264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbed0fb6fa8990428563f7d649e3430, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Robertia
+    sentences:
+    - I have a strong urge to place the mushrooms here...
+    - Let's put them in.
+    - I hope this takes us to a safe place...
+    - The monsters here are scary.
+--- !u!114 &230968267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230968264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35e215819bb4d4f4b89de6e941a22a19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueTrigger: {fileID: 230968266}
+--- !u!136 &230968268
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230968264}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 3.96
+  m_Height: 8.16
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &242990892
 GameObject:
   m_ObjectHideFlags: 0
@@ -1353,6 +1511,88 @@ MonoBehaviour:
   transitionTime: 1
   build: 
   pausemenu: {fileID: 0}
+--- !u!1 &249535334
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 249535335}
+  - component: {fileID: 249535338}
+  - component: {fileID: 249535337}
+  - component: {fileID: 249535336}
+  m_Layer: 0
+  m_Name: DialogueCollider (6)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &249535335
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 249535334}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 7.76, y: -4.59726, z: 1.57}
+  m_LocalScale: {x: 0.9004629, y: 0.9004629, z: 0.9004629}
+  m_Children: []
+  m_Father: {fileID: 1570633618}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &249535336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 249535334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbed0fb6fa8990428563f7d649e3430, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Robertia
+    sentences:
+    - My head hurts... Where am I?
+    - And why do I have a flashlight?
+    - ...
+    - Something feels off about this place...
+    - '(Note: To stun enemies, shine the flashlight over them!)'
+    - '(Note: But becareful, you can use up your flashlight battery easily.)'
+    - '(Note: You''ll only be able to charge it once you find another checkpoint.)'
+--- !u!114 &249535337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 249535334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35e215819bb4d4f4b89de6e941a22a19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueTrigger: {fileID: 249535336}
+--- !u!136 &249535338
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 249535334}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 3.96
+  m_Height: 8.16
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &279037045
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1652,6 +1892,84 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &319389974
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 319389975}
+  - component: {fileID: 319389978}
+  - component: {fileID: 319389977}
+  - component: {fileID: 319389976}
+  m_Layer: 0
+  m_Name: DialogueCollider (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &319389975
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 319389974}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -26.4, y: 0.6, z: 11.73}
+  m_LocalScale: {x: 0.9004629, y: 0.9004629, z: 0.9004629}
+  m_Children: []
+  m_Father: {fileID: 1570633618}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &319389976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 319389974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbed0fb6fa8990428563f7d649e3430, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Robertia
+    sentences:
+    - This seems to be the last weird rock.
+    - There's a faint red glow past the bridge...
+    - Let's check it out!
+--- !u!114 &319389977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 319389974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35e215819bb4d4f4b89de6e941a22a19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueTrigger: {fileID: 319389976}
+--- !u!136 &319389978
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 319389974}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 3.96
+  m_Height: 8.16
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &327586020
 GameObject:
   m_ObjectHideFlags: 0
@@ -2724,6 +3042,84 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 524930762}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &527303065
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 527303066}
+  - component: {fileID: 527303069}
+  - component: {fileID: 527303068}
+  - component: {fileID: 527303067}
+  m_Layer: 0
+  m_Name: DialogueCollider (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &527303066
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527303065}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -21.5, y: -3.1, z: -11.7}
+  m_LocalScale: {x: 0.9004629, y: 0.9004629, z: 0.9004629}
+  m_Children: []
+  m_Father: {fileID: 1570633618}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &527303067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527303065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbed0fb6fa8990428563f7d649e3430, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Robertia
+    sentences:
+    - Strange, the more of these rocks I break, the darker it becomes...
+    - The monsters here are also moving faster.
+    - I should be careful while I can.
+--- !u!114 &527303068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527303065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35e215819bb4d4f4b89de6e941a22a19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueTrigger: {fileID: 527303067}
+--- !u!136 &527303069
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527303065}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 3.96
+  m_Height: 8.16
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &538974219
 GameObject:
   m_ObjectHideFlags: 0
@@ -4952,8 +5348,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1046722609}
-  m_LocalRotation: {x: 0.22860117, y: -0.006079624, z: 0.0014276416, w: 0.97350013}
-  m_LocalPosition: {x: 38.459557, y: 6.383099, z: 34.329185}
+  m_LocalRotation: {x: 0.21328455, y: 0.3503956, z: -0.08228125, w: 0.9082745}
+  m_LocalPosition: {x: 39.463055, y: 6.383099, z: 36.090496}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 457138332}
@@ -6484,6 +6880,86 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1747095172}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1441395692
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1441395693}
+  - component: {fileID: 1441395696}
+  - component: {fileID: 1441395695}
+  - component: {fileID: 1441395694}
+  m_Layer: 0
+  m_Name: DialogueCollider (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1441395693
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441395692}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.66, y: -4.59726, z: -10.56}
+  m_LocalScale: {x: 0.9004629, y: 0.9004629, z: 0.9004629}
+  m_Children: []
+  m_Father: {fileID: 1570633618}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1441395694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441395692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbed0fb6fa8990428563f7d649e3430, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Robertia
+    sentences:
+    - There seems to be light emitting from this stone...
+    - Let's shine a light over it!
+    - ...
+    - There's a mushroom in here? How strange. Let's take it with us.
+    - '(Note: Press ''E'' to pickup mushroom.)'
+--- !u!114 &1441395695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441395692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35e215819bb4d4f4b89de6e941a22a19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueTrigger: {fileID: 1441395694}
+--- !u!136 &1441395696
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441395692}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 3.96
+  m_Height: 8.16
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1448348988
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6903,6 +7379,12 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 375457782}
+  - {fileID: 1441395693}
+  - {fileID: 86849464}
+  - {fileID: 319389975}
+  - {fileID: 527303066}
+  - {fileID: 230968265}
+  - {fileID: 249535335}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7056,7 +7538,7 @@ PrefabInstance:
     - target: {fileID: 9019428394993156653, guid: 7ac39c56183bc304c961a07f18c61da2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 38.374626
+      value: 44.03
       objectReference: {fileID: 0}
     - target: {fileID: 9019428394993156653, guid: 7ac39c56183bc304c961a07f18c61da2,
         type: 3}
@@ -8960,8 +9442,18 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1691527929693493597, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -22.674324
+      objectReference: {fileID: 0}
+    - target: {fileID: 1691527929693493597, guid: 17a73bd056336034dbec8b232f96313d,
+        type: 3}
       propertyPath: m_LocalPosition.y
       value: -39.298973
+      objectReference: {fileID: 0}
+    - target: {fileID: 1691527929693493597, guid: 17a73bd056336034dbec8b232f96313d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 40.879887
       objectReference: {fileID: 0}
     - target: {fileID: 1691527929693493598, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
@@ -8973,6 +9465,36 @@ PrefabInstance:
       propertyPath: m_LookAt
       value: 
       objectReference: {fileID: 1593510566}
+    - target: {fileID: 1691527929928478607, guid: 17a73bd056336034dbec8b232f96313d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1691527929928478607, guid: 17a73bd056336034dbec8b232f96313d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1691527929928478607, guid: 17a73bd056336034dbec8b232f96313d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7477717
+      objectReference: {fileID: 0}
+    - target: {fileID: 1691527929928478607, guid: 17a73bd056336034dbec8b232f96313d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.022719929
+      objectReference: {fileID: 0}
+    - target: {fileID: 1691527929928478607, guid: 17a73bd056336034dbec8b232f96313d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.66326106
+      objectReference: {fileID: 0}
+    - target: {fileID: 1691527929928478607, guid: 17a73bd056336034dbec8b232f96313d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.020152204
+      objectReference: {fileID: 0}
     - target: {fileID: 1691527930011682745, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
       propertyPath: m_RootOrder
@@ -9035,8 +9557,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1691527930245141456, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1691527930245141456, guid: 17a73bd056336034dbec8b232f96313d,
+        type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1691527930245141456, guid: 17a73bd056336034dbec8b232f96313d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1691527930245141456, guid: 17a73bd056336034dbec8b232f96313d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7451103
+      objectReference: {fileID: 0}
+    - target: {fileID: 1691527930245141456, guid: 17a73bd056336034dbec8b232f96313d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.06700282
+      objectReference: {fileID: 0}
+    - target: {fileID: 1691527930245141456, guid: 17a73bd056336034dbec8b232f96313d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.6609004
+      objectReference: {fileID: 0}
+    - target: {fileID: 1691527930245141456, guid: 17a73bd056336034dbec8b232f96313d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.059430376
+      objectReference: {fileID: 0}
+    - target: {fileID: 1691527931124164817, guid: 17a73bd056336034dbec8b232f96313d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -25.17194
       objectReference: {fileID: 0}
     - target: {fileID: 1691527931124164817, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
@@ -9045,23 +9602,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1691527931124164817, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 36.090496
+      objectReference: {fileID: 0}
+    - target: {fileID: 1691527931124164817, guid: 17a73bd056336034dbec8b232f96313d,
+        type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.97350013
+      value: 0.9082745
       objectReference: {fileID: 0}
     - target: {fileID: 1691527931124164817, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.22860117
+      value: 0.21328455
       objectReference: {fileID: 0}
     - target: {fileID: 1691527931124164817, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.006079624
+      value: 0.3503956
       objectReference: {fileID: 0}
     - target: {fileID: 1691527931124164817, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0014276416
+      value: -0.08228125
       objectReference: {fileID: 0}
     - target: {fileID: 1691527931124164818, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
@@ -9075,23 +9637,33 @@ PrefabInstance:
       objectReference: {fileID: 1593510566}
     - target: {fileID: 1691527931224395137, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1691527931224395137, guid: 17a73bd056336034dbec8b232f96313d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1691527931224395137, guid: 17a73bd056336034dbec8b232f96313d,
+        type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.98171914
+      value: 0.7478378
       objectReference: {fileID: 0}
     - target: {fileID: 1691527931224395137, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.026817877
+      value: -0.0204288
       objectReference: {fileID: 0}
     - target: {fileID: 1691527931224395137, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.18836656
+      value: 0.6633197
       objectReference: {fileID: 0}
     - target: {fileID: 1691527931224395137, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0051456583
+      value: 0.018120006
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17a73bd056336034dbec8b232f96313d, type: 3}
