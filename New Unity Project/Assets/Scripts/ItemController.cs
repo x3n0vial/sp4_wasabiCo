@@ -7,14 +7,13 @@ public class ItemController : MonoBehaviour
     public GameObject Slot; //reference to your hands/the position where you want your object to go
     bool canpickup; //a bool to see if you can or cant pick up the item
     GameObject Pickable; // the gameobject onwhich you collided with
-    bool hasItem; // a bool to see if you have an item in your hand
+    ItemSlot itemSlot;
 
     public float throwForce = 5000;
 
     void Start()
     {
         canpickup = false;    //setting both to false
-        hasItem = false;
     }
 
     // Update is called once per frame
@@ -24,7 +23,7 @@ public class ItemController : MonoBehaviour
         {
             if (Input.GetKeyDown(GameSettings.PICKUP_ITEM_KEY))  // pickup 
             {
-                if (hasItem) // drop curr item if player is already holding sth
+                if (itemSlot.getHasItem()) // drop curr item if player is already holding sth
                 {
 
                 }
@@ -40,10 +39,10 @@ public class ItemController : MonoBehaviour
                 Pickable.transform.parent = Slot.transform; //makes the object become a child of the parent so that it moves with the hands
         
                 Pickable.GetComponent<Rigidbody>().useGravity = false;
-                hasItem = true;
+                itemSlot.setHasItem(true);
             }
         }
-        if (Input.GetKeyDown(GameSettings.THROW_ITEM_KEY) && hasItem == true) // drop
+        if (Input.GetKeyDown(GameSettings.THROW_ITEM_KEY) && itemSlot.getHasItem()) // throw
         {
             Collider[] collider = Pickable.GetComponents<Collider>();
             foreach (Collider c in collider)
@@ -58,7 +57,6 @@ public class ItemController : MonoBehaviour
             Vector3 dir = transform.rotation * Vector3.forward;
             Pickable.GetComponent<Rigidbody>().AddForce(dir * throwForce);
 
-            hasItem = false;
             Pickable.transform.parent = null; // make the object no be a child of the hands
         }
     }

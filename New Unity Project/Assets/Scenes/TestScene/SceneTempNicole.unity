@@ -508,6 +508,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prefab_BigBarrel_color01
       objectReference: {fileID: 0}
+    - target: {fileID: 1964431040936758, guid: ae95d385019def448981b67e58f4dcc2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4529784397573094, guid: ae95d385019def448981b67e58f4dcc2, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -755,6 +759,10 @@ PrefabInstance:
     - target: {fileID: 1743537859050268, guid: 3cbb80945b533fc48b6379a688829730, type: 3}
       propertyPath: m_Name
       value: CanOld
+      objectReference: {fileID: 0}
+    - target: {fileID: 1743537859050268, guid: 3cbb80945b533fc48b6379a688829730, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1743537859050268, guid: 3cbb80945b533fc48b6379a688829730, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -1301,7 +1309,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 111292, guid: 332254905319da1469830bd3e8725b48, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 494698, guid: 332254905319da1469830bd3e8725b48, type: 3}
       propertyPath: m_RootOrder
