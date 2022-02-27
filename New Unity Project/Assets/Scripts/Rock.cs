@@ -28,13 +28,30 @@ public class Rock : MonoBehaviour
     float bar_full_scale = 0.48f;
     float trigger_radius = 5.0f;
 
+    int ID = 0;
+    public static int numRock = 0;
+
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         audioSource = GetComponent<AudioSource>();
 
         progressBar = UICanvas.gameObject.transform.Find("RockBar").Find("Filler").GetComponent<Image>();
         bar_ori_pos = progressBar.transform.localPosition;
+
+        ID = numRock;
+        numRock++;
+
+        if (SceneForestSettings.rockStatus[ID])
+        {
+            breakupdate = false;
+            brokenrock.SetActive(true);
+            mushroom.SetActive(true);
+            tallrock.SetActive(false);
+            GameHandler.instance.lightManager.DarkenSceneLight();
+
+            UICanvas.gameObject.SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -85,6 +102,8 @@ public class Rock : MonoBehaviour
             GameHandler.instance.lightManager.DarkenSceneLight();
 
             UICanvas.gameObject.SetActive(false);
+
+            SceneForestSettings.rockStatus[ID] = true;
         }
     }
 }

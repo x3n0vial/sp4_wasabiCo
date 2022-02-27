@@ -27,6 +27,8 @@ public class GameHandler : MonoBehaviour
         {
             player.transform.position = GameSettings.currentCheckpoint.spawnPos;
         }
+        if (CheckpointManager.last_ID < CheckpointID.SCENE_NIGHTMARE_START)
+            SceneForestSettings.ResetForest();
     }
 
     public GameObject player;

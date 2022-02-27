@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 2933626084619238727}
   - component: {fileID: 2933626084619238726}
   m_Layer: 0
-  m_Name: Point Light
+  m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -220,7 +220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPos: {x: 26, y: 3.5, z: 27}
   game_canvas: {fileID: 2933626086027278599}
-  pointLight: {fileID: 2933626084619238726}
+  ChargeUICanvas: {fileID: 0}
   ID: 0
 --- !u!1 &2933626085996422580
 GameObject:
