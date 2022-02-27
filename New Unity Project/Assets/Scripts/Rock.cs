@@ -30,7 +30,7 @@ public class Rock : MonoBehaviour
     float bar_full_scale = 0.48f;
     float trigger_radius = 5.0f;
 
-    public const RockID ID;
+    public RockID ID;
  
     // Start is called before the first frame update
     void Awake()
@@ -40,7 +40,7 @@ public class Rock : MonoBehaviour
         progressBar = UICanvas.gameObject.transform.Find("RockBar").Find("Filler").GetComponent<Image>();
         bar_ori_pos = progressBar.transform.localPosition;
 
-        if (SceneForestSettings.rockStatus[ID])
+        if (SceneForestSettings.rockStatus[(int)ID])
         {
             breakupdate = false;
             brokenrock.SetActive(true);
@@ -102,7 +102,7 @@ public class Rock : MonoBehaviour
 
             UICanvas.gameObject.SetActive(false);
 
-            SceneForestSettings.rockStatus[ID] = true;
+            SceneForestSettings.rockStatus[(int)ID] = true;
         }
     }
 }
