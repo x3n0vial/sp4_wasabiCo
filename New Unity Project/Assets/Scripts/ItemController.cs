@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class ItemController : MonoBehaviour
 {
-    public GameObject Slot; //reference to your hands/the position where you want your object to go
+    //public GameObject Slot; //reference to your hands/the position where you want your object to go
     bool canpickup; //a bool to see if you can or cant pick up the item
     GameObject Pickable; // the gameobject onwhich you collided with
-    ItemSlot itemSlot;
+    public ItemSlot itemSlot;
 
     public float throwForce = 5000;
 
@@ -35,8 +35,8 @@ public class ItemController : MonoBehaviour
                 }
                 Pickable.transform.rotation = new Quaternion(0, 0, 0, 0);
                 Pickable.GetComponent<Rigidbody>().isKinematic = true;   //makes the rigidbody not be acted upon by forces
-                Pickable.transform.position = Slot.transform.position; // sets the position of the object to your hand position
-                Pickable.transform.parent = Slot.transform; //makes the object become a child of the parent so that it moves with the hands
+                Pickable.transform.position = itemSlot.transform.position; // sets the position of the object to your hand position
+                Pickable.transform.parent = itemSlot.transform; //makes the object become a child of the parent so that it moves with the hands
         
                 Pickable.GetComponent<Rigidbody>().useGravity = false;
                 itemSlot.setHasItem(true);
