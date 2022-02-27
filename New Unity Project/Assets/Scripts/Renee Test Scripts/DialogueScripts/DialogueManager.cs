@@ -16,11 +16,19 @@ public class DialogueManager : MonoBehaviour
         sentences = new Queue<string>();
     }
 
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            DisplayNextSentence();
+        }
+    }
+
     public void StartDialogue(Dialogue dialogue)
     {
         animator.SetBool("IsOpen", true);
         Debug.Log("Starting conversation with " + dialogue.name);
-        //nameText.text = dialogue.name;
+        nameText.text = dialogue.name;
         sentences.Clear();
         foreach (string sentence in dialogue.sentences)
         {

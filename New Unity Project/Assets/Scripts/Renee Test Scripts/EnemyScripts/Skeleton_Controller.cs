@@ -173,33 +173,36 @@ public class Skeleton_Controller : MonoBehaviour
     }
     void SkeletonAnimation() //Animation controller for the skeleton
     {
-        if (distance <= agent.stoppingDistance || stunned())
-        { //plays attack
-            anim.ResetTrigger("Run");
-            anim.ResetTrigger("Walk");
-            anim.ResetTrigger("Idle");
-            anim.SetTrigger("Attack");
-        }
-        else if (PlayerWithinChaseRadius() && enemyPOV.GetPlayerInView())
-        { //plays run
-            anim.ResetTrigger("Attack");
-            anim.ResetTrigger("Walk");
-            anim.ResetTrigger("Idle");
-            anim.SetTrigger("Run");
-        }
-        else if ((agent.remainingDistance < agent.stoppingDistance))
-        { //plays idle
-            anim.ResetTrigger("Attack");
-            anim.ResetTrigger("Walk");
-            anim.ResetTrigger("Run");
-            anim.SetTrigger("Idle");
-        }
-        else
-        { //plays walk
-            anim.ResetTrigger("Attack");
-            anim.ResetTrigger("Run");
-            anim.ResetTrigger("Idle");
-            anim.SetTrigger("Walk");
+        if (lights.GetCurrentStage() > 0)
+        {
+            if (distance <= agent.stoppingDistance || stunned())
+            { //plays attack
+                anim.ResetTrigger("Run");
+                anim.ResetTrigger("Walk");
+                anim.ResetTrigger("Idle");
+                anim.SetTrigger("Attack");
+            }
+            else if (PlayerWithinChaseRadius() && enemyPOV.GetPlayerInView())
+            { //plays run
+                anim.ResetTrigger("Attack");
+                anim.ResetTrigger("Walk");
+                anim.ResetTrigger("Idle");
+                anim.SetTrigger("Run");
+            }
+            else if ((agent.remainingDistance < agent.stoppingDistance))
+            { //plays idle
+                anim.ResetTrigger("Attack");
+                anim.ResetTrigger("Walk");
+                anim.ResetTrigger("Run");
+                anim.SetTrigger("Idle");
+            }
+            else
+            { //plays walk
+                anim.ResetTrigger("Attack");
+                anim.ResetTrigger("Run");
+                anim.ResetTrigger("Idle");
+                anim.SetTrigger("Walk");
+            }
         }
     }
     void Update()

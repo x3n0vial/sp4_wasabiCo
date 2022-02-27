@@ -40,6 +40,13 @@ public class PauseMenu : MonoBehaviour
         GamePaused = true;
     }
 
+    public void PauseDialogue()
+    {
+        GameSettings.CAMERA_MOUSEPAN_ENABLED = false;
+        Time.timeScale = 0f;
+        GamePaused = true;
+    }
+
     public void LoadLevel()
     {
         levelLoader.LoadNextLevel(menuScene);
