@@ -9,6 +9,8 @@ public class Rock : MonoBehaviour
     public AudioClip breaksound;
     private AudioSource audioSource;
 
+    public BgmManager bgm;
+
     private bool pause = true;
 
     public GameObject brokenrock;
@@ -94,6 +96,7 @@ public class Rock : MonoBehaviour
         {
             audioSource.clip = breaksound;
             audioSource.Play();
+            bgm.ForestBGM();
 
             breakupdate = false;
             brokenrock.SetActive(true);
