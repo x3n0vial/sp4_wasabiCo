@@ -31,6 +31,8 @@ public class BangDoor : MonoBehaviour
     float bar_pos_offset = 0.95f;
     float bar_full_scale = 1.9f;
 
+    AudioSource audioSource;
+
     void Start()
     {
         progressBar = bangDoorCanvas.gameObject.transform.Find("ProgressBar").GetComponent<Image>();
@@ -38,6 +40,8 @@ public class BangDoor : MonoBehaviour
         if (progressBar == null)
             Debug.Log("Lantern::Could not find Progress Bar Image Component from Lantern");
         bar_ori_pos = progressBar.transform.localPosition;
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -45,9 +49,13 @@ public class BangDoor : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
+
             progress_accel += push_accel;
             if (progress_accel > MaxPushAccel)
                 progress_accel = MaxPushAccel;
+
+            // Play Audio
+            audioSource.Play();
         }
 
         if (bangDoorCanvas.gameObject.activeSelf)

@@ -15,13 +15,17 @@ public class DoorTrigger : MonoBehaviour
     public float FALL_ACCEL = 40.0f;
     bool isTriggered = false;
 
+    AudioSource audioSource;
+
     void Start()
     {
         door = transform.parent.gameObject;
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
     {
+
         // start rotating door upon reaching target waypoint
         if (isTriggered)
         {
@@ -50,5 +54,8 @@ public class DoorTrigger : MonoBehaviour
     void StartFall()
     {
         isTriggered = true;
+        // Play Audio
+        if (audioSource != null)
+            audioSource.Play();
     }
 }
