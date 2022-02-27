@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class SceneBossSettings : MonoBehaviour
 {
-    // Start is called before the first frame update
     void Start()
     {
+        // Scene Related Inits Before Start of Each Level
         GameHandler.instance.lightManager.InitToFinalStage();
     }
 

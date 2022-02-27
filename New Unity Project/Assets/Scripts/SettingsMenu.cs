@@ -14,11 +14,7 @@ public class SettingsMenu : MonoBehaviour
 
     public GameObject GO_mouseSensitivity;
 
-    void Start()
-    {
-       
-    }
-
+  
     public void UpdateFlashlightKeybind()
     {
         switch (DropDown_flashlightKey.options[DropDown_flashlightKey.value].text)
