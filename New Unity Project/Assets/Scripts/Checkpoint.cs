@@ -8,8 +8,9 @@ public class Checkpoint : MonoBehaviour
     public Vector3 spawnPos;
     public Canvas game_canvas;
     public ChargeFlashlight ChargeUICanvas;
-    public Light pointLight;
     public CheckpointID ID;
+
+    Light pointLight;
 
     bool is_saved = false;
     float auto_save_radius = 5.0f;
@@ -17,7 +18,9 @@ public class Checkpoint : MonoBehaviour
 
     void Awake()
     {
+        pointLight = transform.Find("Light").GetComponent<Light>();
         CheckpointManager.AddCheckpoint(this);
+        
     }
 
     void Update()

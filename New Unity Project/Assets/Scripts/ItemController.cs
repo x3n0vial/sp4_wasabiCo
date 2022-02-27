@@ -58,7 +58,7 @@ public class ItemController : MonoBehaviour
             Pickable.GetComponent<Rigidbody>().isKinematic = false; // make the rigidbody work again
             Pickable.GetComponent<Rigidbody>().useGravity = true;
 
-            Vector3 dir = transform.rotation * Vector3.forward;
+            Vector3 dir = transform.rotation * Vector3.forward + Vector3.up * 0.5f;
             Pickable.GetComponent<Rigidbody>().AddForce(dir * throwForce);
 
             Pickable.transform.parent = null; // make the object no be a child of the hands\
