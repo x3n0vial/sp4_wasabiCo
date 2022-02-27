@@ -41,7 +41,6 @@ public class PlayerHeartbeat : MonoBehaviour
     {
         if (trigger)
         {
-            Debug.Log("AAAAAAAAA");
             if (!audioSource.isPlaying)
             {
                 audioSource.Play();
@@ -52,7 +51,6 @@ public class PlayerHeartbeat : MonoBehaviour
         }
         else
         {
-            Debug.Log("BB");
             audioSource.Pause();
         }
     }
