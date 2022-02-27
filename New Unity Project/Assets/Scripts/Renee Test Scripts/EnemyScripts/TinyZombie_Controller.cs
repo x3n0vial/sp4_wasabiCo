@@ -220,10 +220,12 @@ public class TinyZombie_Controller : MonoBehaviour
             if (PlayerWithinViewDistance()) //turn this into an else if statement
             {
                 followPlayer();
+                PlayerStatus.ActivateChaseStatus(this.gameObject);
             }
             else
             {
                 agent.speed = 0;
+                PlayerStatus.DeactivateChaseStatus(this.gameObject);
             }
         }
         else

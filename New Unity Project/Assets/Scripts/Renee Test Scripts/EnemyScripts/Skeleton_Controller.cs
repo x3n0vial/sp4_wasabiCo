@@ -252,10 +252,12 @@ public class Skeleton_Controller : MonoBehaviour
             if (PlayerWithinViewDistance() && enemyPOV.GetPlayerInView()) //turn this into a else if statement
             {
                 followPlayer();
+                PlayerStatus.ActivateChaseStatus(this.gameObject);
             }
             else
             {
                 followWaypoint();
+                PlayerStatus.DeactivateChaseStatus(this.gameObject);
             }
         }
         else
