@@ -95,6 +95,8 @@ public class ZombieJumpscare : MonoBehaviour
                 target.gameObject.SetActive(false);
                 transform.Find("light").gameObject.SetActive(true);
 
+                UIOverlay.SetActive(false);
+
                 timer += Time.deltaTime;
                 //play a fadeout transition
                 if (timer >= 3.1)
@@ -122,7 +124,6 @@ public class ZombieJumpscare : MonoBehaviour
             {
                 anim.SetTrigger("Jumpscare");
                 idle += Time.deltaTime;
-                UIOverlay.SetActive(false);
                 if (idle > maxIdle)
                 {
                     anim.ResetTrigger("Jumpscare");
