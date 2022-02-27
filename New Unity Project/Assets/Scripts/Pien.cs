@@ -22,6 +22,7 @@ public class Pien : MonoBehaviour
         {
             this.gameObject.SetActive(false);
             pienManager.subtractNoOfPien();
+            pienManager.playAudio();
         }
     }
 }
