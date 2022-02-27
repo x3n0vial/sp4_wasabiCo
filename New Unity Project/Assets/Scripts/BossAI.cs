@@ -26,6 +26,10 @@ public class BossAI : MonoBehaviour
 
     public float angleOfView, rangeofView;
 
+    AudioSource SFX;
+    public AudioClip SFX_Growl;
+    public AudioClip SFX_Kill;
+
     GameObject UIOverlay;
     Transform focusPoint;
     bool isAttack = false;
@@ -40,11 +44,26 @@ public class BossAI : MonoBehaviour
         wallLayer = LayerMask.GetMask("SolidObject");
         focusPoint = transform.Find("FocusPoint");
         UIOverlay = GameHandler.instance.UILayout;
+        SFX = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!SFX.isPlaying)
+        {
+            SFX.Play();
+        }
+
+        if (isAttack)
+        {
+            SFX.clip = SFX_Growl;
+        }
+        else
+        {
+            SFX.clip = SFX_Kill;
+        }
+
         if (start)
         {
             if (getUpTime >= 0f)
@@ -117,10 +136,12 @@ public class BossAI : MonoBehaviour
                 if (deathTimer > 0f)
                 {
                     deathTimer -= Time.deltaTime;
+                    isAttack = true;
                 }
                 else if (deathTimer <= 0f)
                 {
                     deathTimer = 1f;
+                    isAttack = false;
                     GameHandler.instance.levelLoader.LoadNextLevel(GameHandler.instance.levelLoader.getSceneName());
                     CheckpointManager.ClearCheckpoints();
                 }
@@ -217,7 +238,7 @@ public class BossAI : MonoBehaviour
     {
         anim.SetBool("Attack", true);
         anim.SetBool("Follow", false);
-        Debug.Log("atk");
+        anim.SetBool("Stun", false);
     }
 
     void Follow()
