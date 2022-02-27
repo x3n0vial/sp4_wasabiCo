@@ -7839,6 +7839,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skeleton (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 7592779619698303338, guid: b5f595d1a88d01141b4cc370ed378ac9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7592779619698670922, guid: b5f595d1a88d01141b4cc370ed378ac9,
         type: 3}
       propertyPath: m_RootOrder
@@ -9795,7 +9800,7 @@ PrefabInstance:
     - target: {fileID: 1691527930245141456, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.6393388
+      value: 0.63933873
       objectReference: {fileID: 0}
     - target: {fileID: 1691527930245141456, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
@@ -9805,12 +9810,12 @@ PrefabInstance:
     - target: {fileID: 1691527930245141456, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7636914
+      value: 0.7636915
       objectReference: {fileID: 0}
     - target: {fileID: 1691527930245141456, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.06867365
+      value: -0.068673655
       objectReference: {fileID: 0}
     - target: {fileID: 1691527931124164817, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
@@ -9990,7 +9995,7 @@ PrefabInstance:
     - target: {fileID: 6593246708865500964, guid: 7c4fb79b9fc1dbf4e8f05dd3a27bdc83,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c4fb79b9fc1dbf4e8f05dd3a27bdc83, type: 3}
@@ -10083,6 +10088,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1905015689}
     m_Modifications:
+    - target: {fileID: 2571968076188374576, guid: 9ea9360e66b90ba4d9b0b44578412548,
+        type: 3}
+      propertyPath: m_Text
+      value: Hi my name is Robertia! Text mega wonky AA daskete kudasai omg im in
+        pain perpetual pain IWILLSENDYOUTOJESUSWORKGODAMMIT
+      objectReference: {fileID: 0}
     - target: {fileID: 2571968077088931350, guid: 9ea9360e66b90ba4d9b0b44578412548,
         type: 3}
       propertyPath: m_Name
