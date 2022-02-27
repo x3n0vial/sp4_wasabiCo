@@ -8,6 +8,9 @@ TagManager:
   - Wall
   - Pickable
   - Zombie
+  - TinyZombie
+  - Skeleton
+  - BigZombie
   layers:
   - Default
   - TransparentFX

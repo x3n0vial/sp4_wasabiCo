@@ -3931,7 +3931,7 @@ PrefabInstance:
     - target: {fileID: 6032291736091481077, guid: b41ec98d3cf800348be884248253190b,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: TinyZombie
       objectReference: {fileID: 0}
     - target: {fileID: 6931900650615359673, guid: b41ec98d3cf800348be884248253190b,
         type: 3}
