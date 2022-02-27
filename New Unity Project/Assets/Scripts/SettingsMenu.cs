@@ -42,9 +42,8 @@ public class SettingsMenu : MonoBehaviour
 
     public void UpdateVolume()
     {
-        // get value from Slider_masterVolume.value
+        float newVolume = Slider_masterVolume.value;
+        PlayerPrefs.SetFloat("volume", newVolume);
+        AudioListener.volume = PlayerPrefs.GetFloat("volume");
     }
-
-
-   
 }
