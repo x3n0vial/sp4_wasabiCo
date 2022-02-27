@@ -26,6 +26,11 @@ public class BossAI : MonoBehaviour
 
     public float angleOfView, rangeofView;
 
+    //GameObject UIOverlay;
+    Transform focusPoint;
+    bool isAttack = false;
+    double deathTimer = 3f;
+
     LayerMask wallLayer;
 
     // Start is called before the first frame update
@@ -38,6 +43,8 @@ public class BossAI : MonoBehaviour
         //anim = GetComponent<Animator>();
         //agent = GetComponent<NavMeshAgent>();
         //collider = GetComponent<Collider>();
+        //UIOverlay = GameHandler.instance.UILayout;
+        focusPoint = transform.Find("FocusPoint");
     }
 
     // Update is called once per frame
@@ -97,16 +104,32 @@ public class BossAI : MonoBehaviour
                 }
             }
 
-            //if (distToPlayer < 3f)
-            //{
-            //    // attack player if within range
-            //    Attack();
-            //}
-            //else
-            //{
-            //    anim.SetBool("Attack", false);
-            //}
+            if (distToPlayer < 3f)
+            {
+                // attack player if within range
+                Attack();
+                isAttack = true;
+                //GameHandler.instance.cameraSettings.ActivateDeathCam(focusPoint);
+                //UIOverlay.SetActive(false);
+            }
+            else
+            {
+                anim.SetBool("Attack", false);
+            }
 
+            if(isAttack)
+            {
+                if (deathTimer > 0f)
+                {
+                    deathTimer -= Time.deltaTime;
+                }
+                else if (deathTimer <= 0f)
+                {
+                    deathTimer = 3f;
+                    GameHandler.instance.levelLoader.LoadNextLevel(GameHandler.instance.levelLoader.getSceneName());
+                    CheckpointManager.ClearCheckpoints();
+                }
+            }
 
             if (isInFlashlight())
             {
@@ -198,6 +221,8 @@ public class BossAI : MonoBehaviour
     void Attack()
     {
         anim.SetBool("Attack", true);
+        anim.SetBool("Follow", false);
+        Debug.Log("atk");
     }
 
     void Follow()
