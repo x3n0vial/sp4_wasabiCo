@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1371643, g: 0.1562567, b: 0.18629497, a: 0.1}
+  m_IndirectSpecularColor: {r: 0.11601449, g: 0.132734, b: 0.1590581, a: 0.1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -94687,7 +94687,7 @@ PrefabInstance:
     - target: {fileID: 1691527929928478607, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.021474428
+      value: 0.02147443
       objectReference: {fileID: 0}
     - target: {fileID: 1691527929928478607, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
@@ -94697,7 +94697,7 @@ PrefabInstance:
     - target: {fileID: 1691527929928478607, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.021474428
+      value: 0.02147443
       objectReference: {fileID: 0}
     - target: {fileID: 1691527930011682745, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
@@ -94827,7 +94827,7 @@ PrefabInstance:
     - target: {fileID: 1691527931124164817, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.25996396
+      value: 0.25996393
       objectReference: {fileID: 0}
     - target: {fileID: 1691527931124164817, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
@@ -94837,7 +94837,7 @@ PrefabInstance:
     - target: {fileID: 1691527931124164817, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.25996396
+      value: 0.259964
       objectReference: {fileID: 0}
     - target: {fileID: 1691527931124164818, guid: 17a73bd056336034dbec8b232f96313d,
         type: 3}
@@ -95071,6 +95071,21 @@ PrefabInstance:
         type: 3}
       propertyPath: ID
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2933626085770622350, guid: 215ccd6226f3d3c468acd503b68d550d,
+        type: 3}
+      propertyPath: spawnPos.x
+      value: -12.576439
+      objectReference: {fileID: 0}
+    - target: {fileID: 2933626085770622350, guid: 215ccd6226f3d3c468acd503b68d550d,
+        type: 3}
+      propertyPath: spawnPos.y
+      value: -0.00000023841858
+      objectReference: {fileID: 0}
+    - target: {fileID: 2933626085770622350, guid: 215ccd6226f3d3c468acd503b68d550d,
+        type: 3}
+      propertyPath: spawnPos.z
+      value: -12.41363
       objectReference: {fileID: 0}
     - target: {fileID: 2933626085770622350, guid: 215ccd6226f3d3c468acd503b68d550d,
         type: 3}
